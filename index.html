@@ -1,2 +1,195 @@
-<h1>Friendship Church</h1>
-<p>Sermon Archive</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Friendship Church Sermon Archive</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    header {
+      background: white;
+      padding: 28px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      margin-top: 8px;
+      color: #666;
+    }
+
+    main {
+      max-width: 850px;
+      margin: auto;
+      padding: 24px 18px 50px;
+    }
+
+    .language-box,
+    .search-box,
+    .sermon {
+      background: white;
+      padding: 20px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      border: 1px solid #e3e3e3;
+    }
+
+    .language-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      background: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #eee;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #bbb;
+      font-size: 16px;
+    }
+
+    .sermon h2 {
+      margin-top: 0;
+    }
+
+    .sermon-date {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .language-links a {
+      margin-right: 12px;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      padding: 30px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Friendship Church</h1>
+  <p>Sermon Archive</p>
+</header>
+
+<main>
+
+  <div class="language-box">
+    <h2>Choose Language</h2>
+
+    <div class="language-buttons">
+      <button>English</button>
+      <button>Português</button>
+      <button>Español</button>
+      <button>日本語</button>
+    </div>
+  </div>
+
+  <div class="search-box">
+    <h2>Search Sermons</h2>
+
+    <input
+      type="text"
+      id="search"
+      placeholder="Search by sermon title..."
+      onkeyup="searchSermons()"
+    />
+  </div>
+
+  <section id="sermonList">
+
+    <article class="sermon">
+      <p class="sermon-date">Sunday Sermon</p>
+
+      <h2>Who Am I?</h2>
+
+      <p>
+        A message based on Psalm 8 about who God is,
+        who we are, and why our lives matter to Him.
+      </p>
+
+      <div class="language-links">
+        <a href="#">English</a>
+        <a href="#">Português</a>
+        <a href="#">Español</a>
+        <a href="#">日本語</a>
+      </div>
+    </article>
+
+    <article class="sermon">
+      <p class="sermon-date">Sunday Sermon</p>
+
+      <h2>The Power and Benefits of Evangelism</h2>
+
+      <p>
+        A message about sharing the Gospel and the
+        spiritual benefits of evangelism.
+      </p>
+
+      <div class="language-links">
+        <a href="#">English</a>
+        <a href="#">Português</a>
+        <a href="#">Español</a>
+        <a href="#">日本語</a>
+      </div>
+    </article>
+
+  </section>
+
+</main>
+
+<footer>
+  Friendship Church • Sermon Archive
+</footer>
+
+<script>
+function searchSermons() {
+  const input = document.getElementById("search");
+  const filter = input.value.toLowerCase();
+  const sermons = document.getElementsByClassName("sermon");
+
+  for (let i = 0; i < sermons.length; i++) {
+    const title = sermons[i].getElementsByTagName("h2")[0];
+
+    if (title.innerText.toLowerCase().includes(filter)) {
+      sermons[i].style.display = "";
+    } else {
+      sermons[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
