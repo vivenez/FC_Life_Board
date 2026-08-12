@@ -69,11 +69,13 @@
   <script>
     // EASY EVENT EDITING: change only the date, time, or name below.
     // To add another event, copy one line and change its information.
-    const communityEvents = [
-      { date: "Sunday, August 16, 2026", time: "9:15 AM", name: "FC Prayer" },
-      { date: "Sunday, November 8, 2026", time: "To be announced", name: "Ladies’ Sunday School" },
-      { date: "Monday, November 9, 2026", time: "To be announced", name: "Church Event" }
-    ];
+
+    
+  const communityEvents = [
+  { date: "Sunday, August 16, 2026", time: "9:15 AM", name: "FC Prayer" },
+  { date: "Sunday, November 8, 2026", time: "To be announced", name: "Ladies’ Sunday School" },
+  { date: "Monday, November 9, 2026", time: "To be announced", name: "Church Event" }
+];
 
     document.getElementById("communityEvents").innerHTML = communityEvents.map(event => `
       <article class="event-card">
