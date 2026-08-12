@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Friendship Church Sermon Archive</title>
+  <title>Friendship Church FC Community Board</title>
   <style>
     :root{--ink:#19241e;--muted:#667069;--green:#315f49;--dark:#234636;--sage:#e8efe9;--cream:#f7f5ef;--line:#dfe4df;--gold:#d5b86b}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--cream);font-family:Arial,sans-serif}button,input{font:inherit}
@@ -54,7 +54,7 @@
           </div>
         </section>
         <aside class="community-board">
-          <p class="section-label">FC Community Board</p><h2>Upcoming events</h2>
+          <p class="section-label">FC Events</p><h2>Upcoming Dates</h2>
           <div class="event-list" id="communityEvents"></div>
           <p class="board-note">Dates and times can be updated when the church calendar is confirmed.</p>
         </aside>
@@ -71,8 +71,8 @@
     // To add another event, copy one line and change its information.
     const communityEvents = [
       { date: "Sunday, August 16, 2026", time: "9:15 AM", name: "FC Prayer" },
-      { date: "Sunday, November 8, 2026", time: "To be announced", name: "Ladies’ Sunday School" },
-      { date: "Monday, November 9, 2026", time: "To be announced", name: "Church Event" }
+      { date: "Sunday, August 30, 2026", time: "11:30 AM", name: "Church Life Meeting - KakiKori Day" },
+      { date: "Sunday, September 6, 2026", time: "To be announced", name: "Church Event" }
     ];
 
     document.getElementById("communityEvents").innerHTML = communityEvents.map(event => `
