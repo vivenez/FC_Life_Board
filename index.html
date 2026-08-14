@@ -9,7 +9,7 @@
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--cream);font-family:Arial,sans-serif}button,input{font:inherit}
     header{color:#fff;background:var(--dark);border-bottom:5px solid var(--gold)}.header-inner{max-width:1180px;margin:auto;padding:34px 28px;display:flex;justify-content:space-between;align-items:end;gap:28px}
     .eyebrow,.section-label{margin:0 0 7px;font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.eyebrow{color:#d9c98e}header h1{margin:0;font:500 42px Georgia,serif}.welcome{margin:0 0 5px;color:#d8e2dc}
-    .shell{max-width:1180px;margin:auto;padding:28px}.toolbar{padding:12px 16px;display:flex;justify-content:space-between;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 5px 20px rgba(25,36,30,.04)}
+    .shell{max-width:1180px;margin:auto;padding:28px}.toolbar{padding:12px 16px;display:flex;justify-content:flex-end;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 5px 20px rgba(25,36,30,.04)}
     .label{display:block;margin-bottom:7px;color:var(--muted);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.compact-language-filter{display:flex;align-items:center;flex-wrap:wrap;gap:8px}.compact-language-filter>span{color:var(--muted);font-size:13px;font-weight:700}.language-buttons{display:flex;flex-wrap:wrap;gap:4px}
     .language-buttons button{padding:6px 9px;font-size:12px}.language-buttons button,.sermon-links a{color:var(--dark);background:#fff;border:1px solid #bdc9c1;border-radius:999px;cursor:pointer;text-decoration:none}.sermon-links a{padding:9px 14px}.language-buttons button.active{color:#fff;background:var(--green);border-color:var(--green)}
     .search{width:min(320px,100%)}.search input{width:100%;padding:11px 13px;border:1px solid #cbd3cd;border-radius:9px}.content-grid{margin-top:25px;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.75fr);gap:26px;align-items:start}.section-label{color:var(--green)}
@@ -23,72 +23,20 @@
     
 
 /* FRIENDSHIP CHURCH INFORMATION */
-
-.fc-information {
-  max-width: 1180px;
-  margin: 50px auto 0;
-  padding: 40px 28px;
-}
-
-.fc-information h2 {
-  margin: 0 0 16px;
-  color: var(--dark);
-  font: 500 36px Georgia, serif;
-}
-
-.about-text {
-  max-width: 720px;
-  margin-bottom: 28px;
-  color: var(--muted);
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-.information-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.information-card {
-  padding: 28px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-}
-
-.information-card h3 {
-  margin: 0 0 14px;
-  color: var(--dark);
-  font: 600 23px Georgia, serif;
-}
-
-.information-card p {
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.service-time {
-  color: var(--green) !important;
-  font-size: 21px;
-  font-weight: bold;
-}
-
-.information-button {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 11px 18px;
-  color: #fff;
-  background: var(--green);
-  border-radius: 999px;
-  text-decoration: none;
-}
-
-.information-button:hover {
-  background: var(--dark);
-}
-
-@media(max-width:800px) {
+    .fc-information{margin:0 0 25px}
+    .about-service-card{padding:28px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:30px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px}
+    .fc-information h2{margin:0 0 12px;color:var(--dark);font:500 32px Georgia,serif}
+    .fc-information h3{margin:0 0 10px;color:var(--dark);font:600 23px Georgia,serif}
+    .about-text,.service-panel p,.location-panel p{margin:0;color:var(--muted);font-size:16px;line-height:1.7}
+    .service-panel{padding-left:26px;border-left:1px solid var(--line)}
+    .contact-actions{margin-top:16px;display:flex;flex-wrap:wrap;gap:9px}
+    .icon-button{display:inline-flex;align-items:center;gap:8px;padding:10px 15px;color:#fff;background:var(--green);border:0;border-radius:999px;text-decoration:none;font-size:14px}
+    .icon-button svg{width:18px;height:18px;fill:currentColor}
+    .icon-button.disabled{color:var(--muted);background:var(--sage);cursor:not-allowed}
+    .location-panel{margin-top:18px;padding-top:18px;border-top:1px solid #d8e0da}
+    .location-panel h3{margin:0 0 8px;font:600 20px Georgia,serif}
+    .map-button{display:inline-block;margin-top:12px;padding:9px 14px;color:#fff;background:var(--green);border-radius:999px;text-decoration:none;font-size:13px}
+    @media(max-width:800px) {
   .header-inner {
     align-items: start;
     flex-direction: column;
@@ -108,8 +56,15 @@
   }
 
   .content-grid,
-  .information-grid {
+  .about-service-card {
     grid-template-columns: 1fr;
+  }
+
+  .service-panel {
+    padding-left: 0;
+    padding-top: 22px;
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
 
   .featured {
@@ -157,7 +112,7 @@
   }
 
   .fc-information {
-    padding: 30px 18px;
+    padding: 0;
   }
 }
 
@@ -168,11 +123,34 @@
   <div id="archive">
     <header><div class="header-inner"><div><p class="eyebrow">Friendship Church</p><h1>FC Community Board</h1></div><p class="welcome">Read and reflect throughout the week.</p></div></header>
     <main class="shell">
+      <section class="fc-information" id="about">
+        <div class="about-service-card">
+          <div>
+            <p class="section-label">Welcome to Friendship Church</p>
+            <h2>About Us</h2>
+            <p class="about-text">Friendship Church is an evangelical Christian church in Izumo City, Shimane Prefecture, Japan.</p>
+          </div>
+          <div class="service-panel">
+            <p class="section-label">Sunday Service</p>
+            <h3>Sunday at 10:30 AM</h3>
+            <p>Need directions, the Zoom link, or have a question?</p>
+            <div class="contact-actions">
+              <a class="icon-button" href="https://www.facebook.com/john.telloyan" target="_blank" rel="noopener noreferrer" aria-label="Contact John Telloyan on Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v2H6v4h3v7h4v-7h3l1-4h-4V9c0-.7.3-1 1-1z"/></svg>
+                Contact John
+              </a>
+              <span class="icon-button disabled" aria-label="Zoom link coming soon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h12a2 2 0 0 1 2 2v2.2l4-2.2v10l-4-2.2V17a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+                Zoom soon
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="toolbar">
         <div class="compact-language-filter"><span>Language:</span><div class="language-buttons">
           <button class="active" data-language="ALL">All</button><button data-language="ENG">EN</button><button data-language="PT-BR">PT</button><button data-language="ESP">ES</button><button data-language="JAP">日本語</button>
         </div></div>
-        <label class="search"><span class="label">Search sermons</span><input id="search" type="search" placeholder="Search by title…"></label>
       </section>
       <div class="content-grid">
         <section>
@@ -231,69 +209,18 @@
           <p class="section-label">FC Events</p><h2>Upcoming Dates</h2>
           <div class="event-list" id="communityEvents"></div>
           <p class="board-note">Dates and times can be updated when the church calendar is confirmed.</p>
+          <div class="location-panel">
+            <p class="section-label">Location</p>
+            <h3>Ministry Building</h3>
+            <p>West Building, 70-12 Tenjin-cho, Izumo City, Shimane Prefecture 693-0005</p>
+            <p lang="ja">〒693-0005 島根県出雲市天神町70-12 西棟</p>
+            <p>Free parking is available nearby.</p>
+            <a class="map-button" href="https://www.google.com/maps/search/?api=1&amp;query=島根県出雲市天神町70-12" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+          </div>
         </aside>
       </div>
     </main>
 
-    <section class="fc-information" id="about">
-  <p class="section-label">Friendship Church</p>
-  <h2>About Us</h2>
-
-  <p class="about-text">
-    Friendship Church is an evangelical Christian church in
-    Izumo City, Shimane Prefecture, Japan.
-  </p>
-
-  <div class="information-grid">
-    <div class="information-card">
-      <h3>Location</h3>
-
-      <p>
-        We meet at the Ministry Building, near AEON Mall Izumo
-        and COSMO Book Center. Free parking is available nearby.
-      </p>
-
-      <p>
-        <strong>English:</strong><br>
-        West Building, 70-12 Tenjin-cho, Izumo City,<br>
-        Shimane Prefecture 693-0005
-      </p>
-
-      <p lang="ja">
-        <strong>日本語:</strong><br>
-        〒693-0005 島根県出雲市天神町70-12 西棟
-      </p>
-
-      <a
-        class="information-button"
-        href="https://www.google.com/maps/search/?api=1&query=島根県出雲市天神町70-12"
-        target="_blank"
-        rel="noopener noreferrer">
-        Open in Google Maps
-      </a>
-    </div>
-
-    <div class="information-card">
-      <h3>Sunday Service</h3>
-
-      <p class="service-time">Sunday at 10:30 AM</p>
-
-      <p>
-        If you need help with directions, need the Zoom link,
-        or have any questions, please contact John Telloyan
-        through Facebook.
-      </p>
-
-      <a
-        class="information-button"
-        href="https://www.facebook.com/john.telloyan"
-        target="_blank"
-        rel="noopener noreferrer">
-        Contact John on Facebook
-      </a>
-    </div>
-  </div>
-</section>
     
   </div>
   <main id="reader">
@@ -322,7 +249,6 @@
       document.querySelectorAll(".language-buttons button").forEach(b=>b.classList.remove("active"));button.classList.add("active");
       const selected=button.dataset.language;document.querySelectorAll(".lang-link").forEach(link=>link.classList.toggle("hidden",selected!=="ALL"&&link.dataset.language!==selected));
     }));
-    document.getElementById("search").addEventListener("input",event=>{const query=event.target.value.toLowerCase();document.querySelectorAll(".sermon-card").forEach(card=>card.classList.toggle("search-hidden",!card.dataset.title.toLowerCase().includes(query)));});
     document.querySelectorAll(".lang-link").forEach(link=>link.addEventListener("click",async event=>{
       event.preventDefault();const card=link.closest(".sermon-card");archive.style.display="none";reader.style.display="block";readerTitle.textContent=card.dataset.title;readerMeta.textContent=link.textContent;readerText.textContent="Loading message…";readerText.className="loading";window.scrollTo(0,0);
       try{const response=await fetch(link.href);if(!response.ok)throw new Error();readerText.textContent=await response.text();readerText.className="";}catch(error){readerText.textContent="This message could not be opened. Please return to the sermon list and try again.";}
@@ -331,3 +257,4 @@
   </script>
 </body>
 </html>
+
