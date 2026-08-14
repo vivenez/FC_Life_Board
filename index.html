@@ -116,6 +116,14 @@
   }
 }
 
+    .event-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 14px;
+  border-radius: 9px;
+}
+    
 </style>
     
 </head>
@@ -230,31 +238,45 @@
   <script>
     // EASY EVENT EDITING: change only the date, time, or name below.
     // To add another event, copy one line and change its information.
- const communityEvents = [
+
+    const communityEvents = [
   {
     date: "Sunday, August 23, 2026",
     time: "After Church Service",
-    name: "Church Life Meeting"
+    name: "Church Life Meeting",
+    image: "1000007032.jpg",
+    alt: "Church Life Meeting announcement"
   },
   {
     date: "Sunday, August 30, 2026",
     time: "After Church Service",
-    name: "FC 'All in the Family' Kakigori"
+    name: "FC 'All in the Family' Kakigori",
+    image: "1000007030.jpg",
+    alt: "FC All in the Family Kakigori announcement"
   },
   {
     date: "Sunday, September 6, 2026",
     time: "9:45 AM",
-    name: "Communion"
+    name: "Communion",
+    image: "1000007031.jpg",
+    alt: "Communion announcement"
   }
 ];
 
-    document.getElementById("communityEvents").innerHTML = communityEvents.map(event => `
-      <article class="event-card">
-        <p class="event-date">${event.date}</p>
-        <p class="event-time">${event.time}</p>
-        <h3 class="event-name">${event.name}</h3>
-      </article>
-    `).join("");
+   document.getElementById("communityEvents").innerHTML =
+  communityEvents.map(event => `
+    <article class="event-card">
+      <p class="event-date">${event.date}</p>
+      <p class="event-time">${event.time}</p>
+      <h3 class="event-name">${event.name}</h3>
+
+      <img
+        class="event-image"
+        src="${event.image}"
+        alt="${event.alt}"
+        loading="lazy">
+    </article>
+  `).join("");
 
     const archive=document.getElementById("archive"),reader=document.getElementById("reader"),readerTitle=document.getElementById("readerTitle"),readerMeta=document.getElementById("readerMeta"),readerText=document.getElementById("readerText");
     document.querySelectorAll(".language-buttons button").forEach(button=>button.addEventListener("click",()=>{
