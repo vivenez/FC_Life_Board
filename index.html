@@ -3,147 +3,498 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Friendship Church community board, Sunday messages, events, service information, and directions in Izumo, Japan.">
-  <title>Friendship Church · FC Community Board</title>
+  <meta name="description" content="Friendship Church community board, Sunday messages, events and directions in Izumo, Japan.">
+  <title>Friendship Church | Life Community Board</title>
+  <style>
+    :root {
+      --midnight-mirage: #001f3f;
+      --first-colors-of-spring: #dbe64c;
+      --praxeti-white: #f6f7ed;
+      --picture-book-green: #00804c;
+      --mantis: #74c365;
+      --nuit-blanche: #1e488f;
+      --ink: #173044;
+      --paper: #fbfaf5;
+      --mist: #edf3ee;
+      --line: #d7dfd6;
+      --shadow: 0 14px 40px rgba(0, 31, 63, .1);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      line-height: 1.6;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, select { font: inherit; }
+    section { scroll-margin-top: 125px; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      color: var(--praxeti-white);
+      background: var(--midnight-mirage);
+      border-bottom: 1px solid rgba(246, 247, 237, .14);
+    }
+    .header-inner {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 112px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+    }
+    .brand {
+      color: var(--praxeti-white);
+      text-decoration: none;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+    .brand strong {
+      display: block;
+      font-size: clamp(1.8rem, 3.4vw, 3rem);
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+    .brand span {
+      display: block;
+      margin-top: 9px;
+      font-size: .82rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 3vw, 42px);
+    }
+    .site-nav a {
+      color: var(--first-colors-of-spring);
+      font-size: 1.04rem;
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s ease, color .2s ease;
+    }
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: var(--praxeti-white);
+      border-color: currentColor;
+      outline: none;
+    }
+    .menu-button { display: none; }
+
+    .hero {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 88% 86%, rgba(116,195,101,.2), transparent 25%),
+        linear-gradient(135deg, #fbfaf5 0%, #f6f2e9 100%);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -120px;
+      width: 390px;
+      height: 390px;
+      border: 2px solid rgba(0,128,76,.18);
+      border-radius: 50%;
+      box-shadow: -80px -30px 0 -30px rgba(116,195,101,.12);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 40px));
+      padding: 90px 0;
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--picture-book-green);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      max-width: 920px;
+      margin: 0;
+      color: var(--midnight-mirage);
+      font-size: clamp(2.35rem, 5.7vw, 5.35rem);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: 1.04;
+    }
+    .hero p {
+      max-width: 730px;
+      margin: 28px 0 0;
+      color: #3b5260;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+    }
+
+    .section {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 92px 0;
+    }
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+    .section-heading h2 {
+      margin: 0;
+      color: var(--midnight-mirage);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+    }
+    .section-heading p { max-width: 500px; margin: 0; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.45fr .85fr;
+      gap: 28px;
+    }
+    .panel {
+      padding: clamp(26px, 4vw, 48px);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .panel h3 { margin: 0 0 14px; color: var(--midnight-mirage); font-size: 1.65rem; }
+    .panel p { margin: 0; }
+    .service-card {
+      color: var(--praxeti-white);
+      background: var(--midnight-mirage);
+      border-color: transparent;
+    }
+    .service-card h3 { color: var(--first-colors-of-spring); }
+    .service-time { margin: 8px 0 18px !important; font-size: 2rem; line-height: 1.15; }
+    .quick-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 18px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: white;
+      background: var(--picture-book-green);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .9rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .button:hover, .button:focus-visible { background: #006d41; outline: 3px solid rgba(219,230,76,.45); }
+    .button.secondary { color: var(--midnight-mirage); background: var(--first-colors-of-spring); }
+    .button.disabled { cursor: not-allowed; opacity: .62; }
+
+    .message-section { background: var(--midnight-mirage); color: var(--praxeti-white); }
+    .message-section .section-heading h2 { color: var(--praxeti-white); }
+    .message-section .eyebrow { color: var(--first-colors-of-spring); }
+    .message-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; }
+    .latest-message {
+      padding: clamp(28px, 5vw, 56px);
+      color: var(--midnight-mirage);
+      background: var(--praxeti-white);
+      border-radius: var(--radius);
+    }
+    .date-chip {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 6px 12px;
+      color: white;
+      background: var(--nuit-blanche);
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+    }
+    .latest-message h3 { margin: 0 0 10px; font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1.1; }
+    .scripture { color: var(--picture-book-green); font-weight: 700; }
+    .language-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
+    .language-links a {
+      padding: 8px 14px;
+      color: var(--midnight-mirage);
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .83rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .language-links a:hover, .language-links a:focus-visible { border-color: var(--picture-book-green); outline: none; }
+    .former-messages {
+      padding: 32px;
+      border: 1px solid rgba(246,247,237,.2);
+      border-radius: var(--radius);
+    }
+    .former-messages h3 { margin: 0 0 18px; color: var(--first-colors-of-spring); }
+    .former-messages ol { margin: 0; padding: 0; list-style: none; }
+    .former-messages li { padding: 14px 0; border-bottom: 1px solid rgba(246,247,237,.15); }
+    .former-messages li:last-child { border-bottom: 0; }
+    .former-messages time { display: block; color: var(--mantis); font-family: Arial, Helvetica, sans-serif; font-size: .78rem; }
+    .former-messages a { text-decoration-color: rgba(219,230,76,.55); text-underline-offset: 4px; }
+    .archive-link { display: inline-block; margin-top: 22px; color: var(--first-colors-of-spring); }
+
+    .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .event-card {
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .event-image {
+      height: 220px;
+      background: linear-gradient(135deg, var(--picture-book-green), var(--mantis));
+      overflow: hidden;
+    }
+    .event-image img { width: 100%; height: 100%; object-fit: cover; }
+    .event-body { padding: 24px; }
+    .event-date { margin: 0 0 7px; color: var(--nuit-blanche); font-family: Arial, Helvetica, sans-serif; font-size: .82rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .event-card h3 { margin: 0 0 7px; color: var(--midnight-mirage); font-size: 1.45rem; line-height: 1.2; }
+    .event-card p { margin: 0; }
+
+    .visit-section { background: var(--mist); }
+    .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .location-card h3 { color: var(--picture-book-green); }
+    address { font-style: normal; }
+    .jp-address { margin-top: 10px !important; }
+    .location-card .button { margin-top: 22px; }
+    .parking { border-top: 7px solid var(--mantis); }
+    footer { padding: 40px 20px; color: rgba(246,247,237,.72); background: var(--midnight-mirage); text-align: center; }
+    footer strong { color: var(--praxeti-white); }
+
+    @media (max-width: 860px) {
+      .header-inner { min-height: 90px; }
+      .menu-button {
+        display: inline-flex;
+        padding: 9px 12px;
+        color: var(--first-colors-of-spring);
+        background: transparent;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+      }
+      .site-nav {
+        display: none;
+        position: absolute;
+        inset: 90px 0 auto;
+        padding: 22px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--midnight-mirage);
+        border-top: 1px solid rgba(246,247,237,.14);
+      }
+      .site-nav.open { display: flex; }
+      .site-nav a { padding: 13px 0; text-align: center; }
+      .about-grid, .message-layout, .visit-grid { grid-template-columns: 1fr; }
+      .events-grid { grid-template-columns: 1fr 1fr; }
+      .hero { min-height: 460px; }
+    }
+    @media (max-width: 590px) {
+      .header-inner, .section, .hero-inner { width: min(100% - 28px, 1180px); }
+      .brand strong { font-size: 1.6rem; }
+      .brand span { font-size: .68rem; }
+      .events-grid { grid-template-columns: 1fr; }
+      .section { padding: 68px 0; }
+      .section-heading { align-items: start; flex-direction: column; }
+      .hero { min-height: 430px; }
+      .hero-inner { padding: 64px 0; }
+      .hero h1 { font-size: 2.35rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
 </head>
 <body>
-<div id="fc-board-proposal">
-  <style>
-    html,body{margin:0;padding:0;background:#EDF4F8}
-    #fc-board-proposal{--fc-deep:#06162B;--fc-navy:#0B2A4A;--fc-blue:#1D4D7A;--fc-sky:#8FB3C7;--fc-cream:#F2E9D8;--fc-paper:#EDF4F8;--fc-card:#FFFFFF;--fc-line:#D3E0E8;font-family:Arial,sans-serif;color:var(--fc-deep);background:var(--fc-paper)}
-    #fc-board-proposal *{box-sizing:border-box}
-    #fc-board-proposal h1,#fc-board-proposal h2,#fc-board-proposal h3,#fc-board-proposal summary,#fc-board-proposal strong{font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
-    #fc-board-proposal .fc-top{padding:24px 28px;background:var(--fc-deep);color:var(--fc-cream)}
-    #fc-board-proposal .fc-topline{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-    #fc-board-proposal .fc-kicker,#fc-board-proposal .fc-label{margin:0 0 6px;font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--fc-blue)}
-    #fc-board-proposal .fc-top .fc-kicker{color:var(--fc-sky)}
-    #fc-board-proposal .fc-top h1{margin:0;font-size:36px;font-weight:400}
-    #fc-board-proposal .fc-nav{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--fc-sky)}
-    #fc-board-proposal .fc-nav a{color:inherit;text-decoration:none}
-    #fc-board-proposal .fc-wrap{padding:30px}
-    #fc-board-proposal .fc-welcome{display:grid;grid-template-columns:1.35fr .65fr;gap:38px;align-items:start;margin-bottom:30px}
-    #fc-board-proposal .fc-copy h2{margin:0 0 10px;font-size:30px;font-weight:400;color:var(--fc-navy)}
-    #fc-board-proposal .fc-copy p,#fc-board-proposal .fc-service p{margin:0;color:var(--fc-navy);line-height:1.65}
-    #fc-board-proposal .fc-service{padding:20px 22px;background:var(--fc-card);border:1px solid var(--fc-line);border-radius:18px}
-    #fc-board-proposal .fc-service strong{display:block;margin-bottom:7px;font-size:22px;font-weight:400;color:var(--foreground,#000)}
-    #fc-board-proposal .fc-service-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-    #fc-board-proposal .fc-accordions{display:grid;gap:0;margin-bottom:30px;padding:0 2px;border-top:1px solid var(--fc-sky)}
-    #fc-board-proposal details,#fc-board-proposal .fc-constitution{border-bottom:1px solid var(--fc-sky)}
-    #fc-board-proposal summary{padding:15px 2px;cursor:pointer;font-size:17px;font-weight:400;color:var(--fc-navy)}
-    #fc-board-proposal details p{margin:0 0 16px;color:var(--fc-navy);line-height:1.65}
-    #fc-board-proposal .fc-constitution{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 2px}
-    #fc-board-proposal .fc-main{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(250px,.6fr);gap:26px;align-items:start}
-    #fc-board-proposal .fc-sermon{padding:38px;background:linear-gradient(145deg,var(--fc-navy),var(--fc-blue));color:var(--fc-cream);min-height:320px;display:flex;flex-direction:column;justify-content:center;border-radius:24px;box-shadow:0 16px 34px color-mix(in srgb,var(--fc-deep) 18%,transparent 82%)}
-    #fc-board-proposal .fc-sermon h2{margin:22px 0 13px;font-size:41px;font-weight:400}
-    #fc-board-proposal .fc-sermon p{margin:0;line-height:1.65;color:var(--fc-cream)}
-    #fc-board-proposal .fc-langs{display:flex;gap:7px;flex-wrap:wrap;margin-top:25px}
-    #fc-board-proposal .fc-langs span{padding:7px 11px;border:1px solid var(--fc-sky);border-radius:999px;font-size:12px;background:color-mix(in srgb,var(--fc-sky) 10%,transparent 90%)}
-    #fc-board-proposal .fc-events{display:grid;gap:0}
-    #fc-board-proposal .fc-event{padding:16px 2px;border-bottom:1px solid var(--fc-sky)}
-    #fc-board-proposal .fc-event p{margin:0 0 6px;font-size:11px;font-weight:500;letter-spacing:.04em;color:var(--fc-blue)}
-    #fc-board-proposal .fc-event h3{margin:0;font-size:18px;font-weight:400;color:var(--fc-navy)}
-    #fc-board-proposal .fc-event-image{height:92px;margin-top:11px;display:grid;place-items:center;border:1px solid var(--fc-line);border-radius:12px;background:var(--fc-card);color:var(--fc-navy);font-size:12px}
-    #fc-board-proposal .fc-history{margin-top:12px;display:grid;gap:8px}
-    #fc-board-proposal .fc-history-row{display:grid;grid-template-columns:92px minmax(0,1fr) auto;align-items:center;gap:12px;padding:13px 2px;border-bottom:1px solid var(--fc-sky)}
-    #fc-board-proposal .fc-history-row h3{margin:0;font-size:17px;font-weight:400;color:var(--fc-navy)}
-    #fc-board-proposal .fc-history-date{font-size:11px;color:var(--fc-blue)}
-    #fc-board-proposal .fc-history-langs{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
-    #fc-board-proposal .fc-history-langs span{padding:5px 7px;border:1px solid var(--fc-sky);border-radius:999px;font-size:11px;color:var(--fc-blue)}
-    #fc-board-proposal .fc-archive-link{display:inline-block;margin-top:16px;color:var(--fc-blue);font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;text-decoration:none;border-bottom:1px solid var(--fc-sky)}
-    #fc-board-proposal .fc-location{margin-top:34px;padding-top:25px;border-top:1px solid var(--fc-sky)}
-    #fc-board-proposal .fc-map-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    #fc-board-proposal .fc-location-item{display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:18px;align-items:center;padding:20px;border:1px solid var(--fc-line);border-radius:20px;background:var(--fc-card)}
-    #fc-board-proposal .fc-address h2{margin:0 0 8px;font-size:28px;font-weight:400;color:var(--foreground,#000)}
-    #fc-board-proposal .fc-address p{margin:4px 0;color:var(--fc-navy)}
-    #fc-board-proposal .fc-mini-map{min-height:135px;padding:16px;display:grid;place-items:center;text-align:center;border:1px solid var(--fc-blue);border-radius:18px;background:var(--fc-sky);color:var(--fc-deep)}
-    #fc-board-proposal .btn{display:inline-block;margin-top:12px;padding:9px 13px;background:var(--fc-navy);color:#FFFFFF;border:1px solid var(--fc-navy);border-radius:999px;text-decoration:none;font-size:12px;line-height:1.2}
-    #fc-board-proposal .btn:hover{background:var(--fc-blue)}
-    #fc-board-proposal footer{margin-top:32px;padding-top:20px;border-top:1px solid var(--fc-sky);color:var(--fc-navy);font-size:12px;text-align:center}
-    @media(max-width:900px){#fc-board-proposal .fc-map-pair{grid-template-columns:1fr}}
-    @media(max-width:700px){#fc-board-proposal .fc-wrap{padding:22px 16px}#fc-board-proposal .fc-welcome,#fc-board-proposal .fc-main,#fc-board-proposal .fc-location-item{grid-template-columns:1fr}#fc-board-proposal .fc-history-row{grid-template-columns:1fr;gap:6px}#fc-board-proposal .fc-history-langs{justify-content:flex-start}#fc-board-proposal .fc-sermon{padding:26px;min-height:285px}#fc-board-proposal .fc-sermon h2{font-size:32px}}
-  </style>
-
-  <header class="fc-top">
-    <div class="fc-topline">
-      <div><p class="fc-kicker">Friendship Church · Izumo</p><h1>FC Community Board</h1></div>
-      <nav class="fc-nav" aria-label="Homepage sections"><a href="#about">About Us</a><a href="#messages">Sunday Messages</a><a href="#events">Events</a><a href="#directions">Directions</a></nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Friendship Church home">
+        <strong>Friendship Church</strong>
+        <span>FC Logotype</span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
+      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+        <a href="#about">About Us</a>
+        <a href="#message">Sunday’s Message</a>
+        <a href="#events">Events</a>
+        <a href="#directions">Directions</a>
+      </nav>
     </div>
   </header>
 
-  <main class="fc-wrap">
-    <section class="fc-welcome" id="about">
-      <div class="fc-copy">
-        <p class="fc-label">Welcome to Friendship Church</p>
-        <h2>About Us</h2>
-        <p>Friendship Church is an evangelical Christian church in Izumo City, Shimane Prefecture, Japan.</p>
+  <main id="top">
+    <section class="hero" aria-labelledby="welcome-title">
+      <div class="hero-inner">
+        <p class="eyebrow">Life Community Board</p>
+        <h1 id="welcome-title">Welcome to Friendship Church.</h1>
+        <p>We are an evangelical Christian church located in Izumo City, Shimane Prefecture, Japan.</p>
       </div>
-      <div class="fc-service">
-        <p class="fc-label">Sunday Service</p><strong>Sunday at 10:30 AM</strong>
-        <p>Follow the links below for live streaming. For now, we will keep using the Zoom room until we change to another platform.</p>
-        <div class="fc-service-links">
-          <a class="btn" href="#zoom-room">Join the Zoom room</a>
-          <a class="btn" href="https://www.facebook.com/john.telloyan" target="_blank" rel="noopener">Contact Pastor John</a>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Welcome</p>
+          <h2 id="about-title">About Friendship Church</h2>
         </div>
       </div>
-    </section>
-
-    <section class="fc-accordions" aria-label="About Friendship Church">
-      <details open><summary>About Us</summary><p>Friendship Church is an evangelical Christian church in Izumo City, Shimane Prefecture, Japan.</p></details>
-      <details><summary>Church History</summary><p>Official church history will appear here after the board reviews and approves the text.</p></details>
-      <details><summary>Vision &amp; Values</summary><p>FC’s approved vision, mission, and values will appear here.</p></details>
-      <details><summary>FC Constitution</summary><p>The official constitution will be preserved in full on its own page, including its original structure and any required authorship or copyright notice.</p><a class="btn" href="#fc-constitution-preview">Open Constitution page</a></details>
-    </section>
-
-    <div class="fc-main">
-      <section id="messages">
-        <p class="fc-label">Latest Sunday Message</p>
-        <article class="fc-sermon">
-          <p>Sunday, August 16, 2026 · New</p>
-          <h2>Why Should We Care About Israel?</h2>
-          <p>Read the main message, reflection, prayer, and Bible references during the service or throughout the week.</p>
-          <div class="fc-langs"><span>English</span><span>Português</span><span>Español</span><span>日本語</span></div>
+      <div class="about-grid">
+        <article class="panel">
+          <h3>A community centered on Christ</h3>
+          <p>Friendship Church is an evangelical Christian church in Izumo City, Shimane Prefecture, Japan. We gather to worship God, learn from the Bible, pray together and encourage one another in faith.</p>
         </article>
-        <div class="fc-history" aria-label="Previous Sunday messages">
-          <div class="fc-history-row"><span class="fc-history-date">August 9</span><h3>Who Am I?</h3><div class="fc-history-langs"><span>English</span><span>Português</span><span>Español</span><span>日本語</span></div></div>
-          <div class="fc-history-row"><span class="fc-history-date">August 2</span><h3>Prohibition, Perspective, and Promises</h3><div class="fc-history-langs"><span>English</span><span>Português</span><span>Español</span><span>日本語</span></div></div>
-          <div class="fc-history-row"><span class="fc-history-date">July 26</span><h3>The Power and Benefits of Evangelism</h3><div class="fc-history-langs"><span>English</span><span>Português</span><span>Español</span><span>日本語</span></div></div>
-        </div>
-        <a class="fc-archive-link" href="message-archive.html">View the complete Former Message Archive →</a>
-      </section>
-      <aside id="events">
-        <p class="fc-label">Upcoming Events</p>
-        <div class="fc-events">
-          <article class="fc-event"><p>August 23 · After service</p><h3>Church Life Meeting</h3><div class="fc-event-image">Existing event picture</div></article>
-          <article class="fc-event"><p>August 30 · After service</p><h3>FC “All in the Family” Kakigori</h3><div class="fc-event-image">Existing Kakigori picture</div></article>
-          <article class="fc-event"><p>September 6 · 9:45 AM</p><h3>Communion</h3><div class="fc-event-image">Existing Communion picture</div></article>
-        </div>
-      </aside>
-    </div>
-
-    <section class="fc-location" id="directions">
-      <p class="fc-label">Location &amp; Sunday Parking</p>
-      <div class="fc-map-pair">
-        <article class="fc-location-item">
-          <div class="fc-address">
-            <p class="fc-label">Church Location</p><h2>Ministry Building</h2>
-            <p>West Building, 70-12 Tenjin-cho, Izumo City, Shimane Prefecture 693-0005</p>
-            <p lang="ja">〒693-0005 島根県出雲市天神町70-12 西棟</p>
-            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=West+Building+70-12+Tenjin-cho+Izumo+Shimane+693-0005" target="_blank" rel="noopener">Open church map</a>
+        <aside class="panel service-card" aria-label="Sunday service information">
+          <h3>Sunday Service</h3>
+          <p class="service-time">Sunday at 10:30 AM</p>
+          <p>Follow the links below for contact and live streaming information.</p>
+          <div class="quick-links">
+            <a class="button" href="https://www.facebook.com/john.telloyan" target="_blank" rel="noopener noreferrer">Contact Pastor John</a>
+            <span class="button secondary disabled" aria-disabled="true" title="Zoom link coming soon">Zoom Room — coming soon</span>
           </div>
-          <div class="fc-mini-map" role="img" aria-label="Small map preview for the Ministry Building"><span>Small map preview<br><strong>Ministry Building</strong></span></div>
-        </article>
-        <article class="fc-location-item">
-          <div class="fc-address">
-            <p class="fc-label">Free Sunday Parking</p><h2>COSMO Book Center</h2>
-            <p>Free parking is available here during Sunday service.</p>
-            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=COSMO+Book+Center+Izumo" target="_blank" rel="noopener">Open parking map</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="message-section" id="message" aria-labelledby="message-title">
+      <div class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Read during the week</p>
+            <h2 id="message-title">Sunday’s Message</h2>
           </div>
-          <div class="fc-mini-map" role="img" aria-label="Small parking details map preview for COSMO Book Center"><span>Parking details map<br><strong>COSMO Book Center</strong></span></div>
+          <p>Read the latest sermon summary in English, Portuguese, Spanish or Japanese.</p>
+        </div>
+        <div class="message-layout">
+          <article class="latest-message">
+            <span class="date-chip">Latest Message</span>
+            <h3>Who Am I?</h3>
+            <p class="scripture">Psalm 8</p>
+            <p>A reflection on our identity, dignity and purpose before God.</p>
+            <div class="language-links" aria-label="Message languages">
+              <a href="sermons/who-am-i-en.txt">English</a>
+              <a href="sermons/who-am-i-pt-br.txt">Português</a>
+              <a href="sermons/who-am-i-es.txt">Español</a>
+              <a href="sermons/who-am-i-ja.txt" lang="ja">日本語</a>
+            </div>
+          </article>
+          <aside class="former-messages">
+            <h3>Former Messages</h3>
+            <ol>
+              <li><time datetime="2026-08-02">August 2, 2026</time><a href="sermons/2026-08-02.html">Prohibition, Perspective and Promises</a></li>
+              <li><time datetime="2026-07-26">July 26, 2026</time><a href="sermons/2026-07-26.html">The Power and Benefits of Evangelism</a></li>
+              <li><time datetime="2026-07-19">July 19, 2026</time><a href="sermons/2026-07-19.html">A Call to Return to the Lord</a></li>
+              <li><time datetime="2026-07-12">July 12, 2026</time><a href="sermons/2026-07-12.html">Is 160 Years Long Enough for You?</a></li>
+              <li><time datetime="2026-07-05">July 5, 2026</time><a href="sermons/2026-07-05.html">God’s Faithfulness Knows No Borders</a></li>
+            </ol>
+            <a class="archive-link" href="archive.html">Former Message Archive →</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="events" aria-labelledby="events-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">FC Community Board</p>
+          <h2 id="events-title">Upcoming Events</h2>
+        </div>
+        <p>Save the dates and join our church community.</p>
+      </div>
+      <div class="events-grid">
+        <article class="event-card">
+          <div class="event-image"><img src="images/church-life-meeting.jpg" alt="Church Life Meeting" onerror="this.hidden=true"></div>
+          <div class="event-body">
+            <p class="event-date">August 23 · After Service</p>
+            <h3>Church Life Meeting</h3>
+            <p>A time to share updates and participate in the life of Friendship Church.</p>
+          </div>
+        </article>
+        <article class="event-card">
+          <div class="event-image"><img src="images/kakigori.jpg" alt="FC All in the Family Kakigori event" onerror="this.hidden=true"></div>
+          <div class="event-body">
+            <p class="event-date">August 30 · After Service</p>
+            <h3>FC “All in the Family” Kakigori</h3>
+            <p>Stay after the service for fellowship and Japanese shaved ice.</p>
+          </div>
+        </article>
+        <article class="event-card">
+          <div class="event-image"><img src="images/communion.jpg" alt="Communion" onerror="this.hidden=true"></div>
+          <div class="event-body">
+            <p class="event-date">September 6 · 9:45 AM</p>
+            <h3>Communion</h3>
+            <p>Please arrive before the Sunday service as we gather for Communion.</p>
+          </div>
         </article>
       </div>
     </section>
-    <footer>Friendship Church · Izumo City, Shimane Prefecture, Japan</footer>
+
+    <section class="visit-section" id="directions" aria-labelledby="directions-title">
+      <div class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Visit Us</p>
+            <h2 id="directions-title">Directions &amp; Parking</h2>
+          </div>
+          <p>We meet near Aeon Mall and COSMO Book Center in Izumo. Free parking is available nearby.</p>
+        </div>
+        <div class="visit-grid">
+          <article class="panel location-card">
+            <h3>Ministry Building</h3>
+            <address>
+              <p>West Building, 70-12 Tenjin-cho, Izumo City, Shimane Prefecture 693-0005</p>
+              <p class="jp-address" lang="ja">西棟、〒693-0005 島根県出雲市天神町70-12</p>
+            </address>
+            <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=70-12+Tenjin-cho+Izumo+Shimane+693-0005" target="_blank" rel="noopener noreferrer">Open Ministry Building Map</a>
+          </article>
+          <article class="panel location-card parking">
+            <h3>COSMO Book Center Parking</h3>
+            <p>Free parking is available at COSMO Book Center near the Ministry Building.</p>
+            <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=COSMO+Book+Center+Izumo+Shimane" target="_blank" rel="noopener noreferrer">Open Parking Map</a>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
-</div>
+
+  <footer>
+    <strong>Friendship Church</strong><br>
+    Life Community Board · Izumo-shi, Shimane-ken, Japan
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const navigation = document.querySelector('.site-nav');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+    navigation.addEventListener('click', (event) => {
+      if (event.target.matches('a')) {
+        navigation.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 </body>
 </html>
