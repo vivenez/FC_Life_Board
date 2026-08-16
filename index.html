@@ -260,8 +260,18 @@
     .former-messages li { padding: 14px 0; border-bottom: 1px solid rgba(246,247,237,.15); }
     .former-messages li:last-child { border-bottom: 0; }
     .former-messages time { display: block; color: var(--mantis); font-family: Arial, Helvetica, sans-serif; font-size: .78rem; }
-    .former-messages a { text-decoration-color: rgba(219,230,76,.55); text-underline-offset: 4px; }
-    .archive-link { display: inline-block; margin-top: 22px; color: var(--first-colors-of-spring); }
+    .former-title { display: block; color: var(--praxeti-white); line-height: 1.3; }
+    .former-language-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .former-language-links a {
+      padding: 4px 8px;
+      color: var(--midnight-mirage);
+      background: var(--first-colors-of-spring);
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
 
     .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .event-card {
@@ -272,11 +282,11 @@
       box-shadow: var(--shadow);
     }
     .event-image {
-      height: 220px;
-      background: linear-gradient(135deg, var(--picture-book-green), var(--mantis));
+      aspect-ratio: 16 / 9;
+      background: var(--midnight-mirage);
       overflow: hidden;
     }
-    .event-image img { width: 100%; height: 100%; object-fit: cover; }
+    .event-image img { width: 100%; height: 100%; object-fit: contain; }
     .event-body { padding: 24px; }
     .event-date { margin: 0 0 7px; color: var(--nuit-blanche); font-family: Arial, Helvetica, sans-serif; font-size: .82rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .event-card h3 { margin: 0 0 7px; color: var(--midnight-mirage); font-size: 1.45rem; line-height: 1.2; }
@@ -369,8 +379,7 @@
           <p>Our vision and values will be added after they are confirmed by the Friendship Church Board.</p>
 
           <h3>Our Constitution</h3>
-          <p>Read the full Friendship Church Constitution on a separate page.</p>
-          <a class="text-link" href="constitution.html">Read the FC Constitution →</a>
+          <p>The Friendship Church Constitution page will be added after its text is confirmed.</p>
         </article>
         <aside class="panel service-card" aria-label="Sunday service information">
           <h3>FC Service Schedule</h3>
@@ -378,7 +387,7 @@
           <p>Follow the links below for contact and live streaming information.</p>
           <div class="quick-links">
             <a class="button" href="https://www.facebook.com/john.telloyan" target="_blank" rel="noopener noreferrer">Contact Pastor John</a>
-            <span class="button secondary disabled" aria-disabled="true" title="Zoom link coming soon">Zoom Room — coming soon</span>
+            <a class="button secondary" href="https://us05web.zoom.us/j/81864005827?pwd=d3VXWWgwY2lVZ1RtdDZzSU14c3QzZz09" target="_blank" rel="noopener noreferrer">Join the Zoom Room</a>
           </div>
         </aside>
       </div>
@@ -395,27 +404,27 @@
         </div>
         <div class="message-layout">
           <article class="latest-message">
-            <span class="date-chip">Latest Message</span>
-            <h3>Who Am I?</h3>
-            <p class="scripture">Psalm 8</p>
-            <p>A reflection on our identity, dignity and purpose before God.</p>
+            <span class="date-chip">August 16, 2026 · Latest Message</span>
+            <h3>Why Should We Care About Israel?</h3>
+            <p>Read the Sunday message in English, Portuguese, Spanish or Japanese.</p>
             <div class="language-links" aria-label="Message languages">
-              <a href="sermons/who-am-i-en.txt">English</a>
-              <a href="sermons/who-am-i-pt-br.txt">Português</a>
-              <a href="sermons/who-am-i-es.txt">Español</a>
-              <a href="sermons/who-am-i-ja.txt" lang="ja">日本語</a>
+              <a href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-ENG.txt">English</a>
+              <a href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-PT-BR.txt">Português</a>
+              <a href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-ESP.txt">Español</a>
+              <a href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-JAP.txt" lang="ja">日本語</a>
             </div>
           </article>
           <aside class="former-messages">
             <h3>Former Messages</h3>
             <ol>
-              <li><time datetime="2026-08-02">August 2, 2026</time><a href="sermons/2026-08-02.html">Prohibition, Perspective and Promises</a></li>
-              <li><time datetime="2026-07-26">July 26, 2026</time><a href="sermons/2026-07-26.html">The Power and Benefits of Evangelism</a></li>
-              <li><time datetime="2026-07-19">July 19, 2026</time><a href="sermons/2026-07-19.html">A Call to Return to the Lord</a></li>
-              <li><time datetime="2026-07-12">July 12, 2026</time><a href="sermons/2026-07-12.html">Is 160 Years Long Enough for You?</a></li>
-              <li><time datetime="2026-07-05">July 5, 2026</time><a href="sermons/2026-07-05.html">God’s Faithfulness Knows No Borders</a></li>
+              <li><time datetime="2026-08-09">August 9, 2026</time><span class="former-title">Who Am I?</span><div class="former-language-links"><a href="sermons/2026-08-09-Who_Am_I-ENG.txt">EN</a><a href="sermons/2026-08-09-Who_Am_I-PT-BR.txt">PT</a><a href="sermons/2026-08-09-Who_Am_I-ESP.txt">ES</a><a href="sermons/2026-08-09-Who_Am_I-JAP.txt">JP</a></div></li>
+              <li><time datetime="2026-08-02">August 2, 2026</time><span class="former-title">Prohibition, Perspective and Promises</span><div class="former-language-links"><a href="sermons/2026-08-02-Prohibition_Perspective_and_Promises-ENG.txt">EN</a><a href="sermons/2026-08-02-Prohibition_Perspective_and_Promises-PT-BR.txt">PT</a><a href="sermons/2026-08-02-Prohibition_Perspective_and_Promises-ESP.txt">ES</a><a href="sermons/2026-08-02-Prohibition_Perspective_and_Promises-JAP.txt">JP</a></div></li>
+              <li><time datetime="2026-07-26">July 26, 2026</time><span class="former-title">The Power and Benefits of Evangelism</span><div class="former-language-links"><a href="sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-ENG.txt">EN</a><a href="sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-PT-BR.txt">PT</a><a href="sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-ESP.txt">ES</a><a href="sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-JAP.txt">JP</a></div></li>
+              <li><time datetime="2026-07-19">July 19, 2026</time><span class="former-title">A Call to Return to the Lord</span><div class="former-language-links"><a href="sermons/2026-07-19-A_Call_to_Return_to_the_Lord-ENG.txt">EN</a><a href="sermons/2026-07-19-A_Call_to_Return_to_the_Lord-PT-BR.txt">PT</a><a href="sermons/2026-07-19-A_Call_to_Return_to_the_Lord-ESP.txt">ES</a><a href="sermons/2026-07-19-A_Call_to_Return_to_the_Lord-JAP.txt">JP</a></div></li>
+              <li><time datetime="2026-07-12">July 12, 2026</time><span class="former-title">Is 160 Years Long Enough for You?</span><div class="former-language-links"><a href="sermons/2026-07-12-Is_160_Years_Long_Enough_for_You-ENG.txt">EN</a><a href="sermons/2026-07-12-Is_160_Years_Long_Enough_for_You-PT-BR.txt">PT</a><a href="sermons/2026-07-12-Is_160_Years_Long_Enough_for_You-ESP.txt">ES</a><a href="sermons/2026-07-12-Is_160_Years_Long_Enough_for_You-JAP.txt">JP</a></div></li>
+              <li><time datetime="2026-07-05">July 5, 2026</time><span class="former-title">God’s Faithfulness Knows No Borders</span><div class="former-language-links"><a href="sermons/2026-07-05-Gods_Faithfulness_Knows_No_Borders-ENG.txt">EN</a><a href="sermons/2026-07-05-Gods_Faithfulness_Knows_No_Borders-PT-BR.txt">PT</a><a href="sermons/2026-07-05-Gods_Faithfulness_Knows_No_Borders-ESP.txt">ES</a><a href="sermons/2026-07-05-Gods_Faithfulness_Knows_No_Borders-JAP.txt">JP</a></div></li>
+              <li><time datetime="2026-06-28">June 28, 2026</time><span class="former-title">Trusting God in the Worst of Times</span><div class="former-language-links"><a href="sermons/2026-06-28-Trusting_God_in_the_Worst_of_Times-ENG.txt">EN</a><a href="sermons/2026-06-28-Trusting_God_in_the_Worst_of_Times-PT-BR.txt">PT</a><a href="sermons/2026-06-28-Trusting_God_in_the_Worst_of_Times-ESP.txt">ES</a><a href="sermons/2026-06-28-Trusting_God_in_the_Worst_of_Times-JAP.txt">JP</a></div></li>
             </ol>
-            <a class="archive-link" href="archive.html">Former Message Archive →</a>
           </aside>
         </div>
       </div>
@@ -431,7 +440,7 @@
       </div>
       <div class="events-grid">
         <article class="event-card">
-          <div class="event-image"><img src="images/church-life-meeting.jpg" alt="Church Life Meeting" onerror="this.hidden=true"></div>
+          <div class="event-image"><img src="images/Aug%2023%20-%20Life%20Meeting.jpg" alt="Church Life Meeting — August 23 after the Sunday service"></div>
           <div class="event-body">
             <p class="event-date">August 23 · After Service</p>
             <h3>Church Life Meeting</h3>
@@ -439,7 +448,7 @@
           </div>
         </article>
         <article class="event-card">
-          <div class="event-image"><img src="images/kakigori.jpg" alt="FC All in the Family Kakigori event" onerror="this.hidden=true"></div>
+          <div class="event-image"><img src="images/Aug%2030%20-%20Family%20Kakigori.jpg" alt="FC All in the Family Kakigori — August 30 after the Sunday service"></div>
           <div class="event-body">
             <p class="event-date">August 30 · After Service</p>
             <h3>FC “All in the Family” Kakigori</h3>
@@ -447,7 +456,7 @@
           </div>
         </article>
         <article class="event-card">
-          <div class="event-image"><img src="images/communion.jpg" alt="Communion" onerror="this.hidden=true"></div>
+          <div class="event-image"><img src="images/Sep%206%20-%20Communion.jpg" alt="Communion — September 6 at 9:45 AM"></div>
           <div class="event-body">
             <p class="event-date">September 6 · 9:45 AM</p>
             <h3>Communion</h3>
