@@ -235,21 +235,70 @@
       font-size: .8rem;
       font-weight: 700;
     }
-    .latest-message h3 { margin: 0 0 10px; font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1.1; }
-    .scripture { color: var(--picture-book-green); font-weight: 700; }
-    .language-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
-    .language-links a {
-      padding: 8px 14px;
-      color: var(--midnight-mirage);
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: .83rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .language-links a:hover, .language-links a:focus-visible { border-color: var(--picture-book-green); outline: none; }
+    
+    .latest-message h3 {
+  margin: 0 0 10px;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.1;
+}
+
+.message-preview {
+  margin: 18px 0 22px;
+  color: #334d5c;
+  font-size: 1.05rem;
+}
+
+.main-verse {
+  margin: 0;
+  padding: 20px 22px;
+  color: var(--praxeti-white);
+  background: var(--midnight-mirage);
+  border-left: 5px solid var(--first-colors-of-spring);
+  border-radius: 0 12px 12px 0;
+}
+
+.main-verse p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.main-verse cite {
+  display: block;
+  margin-top: 10px;
+  color: var(--first-colors-of-spring);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.86rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.language-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 28px;
+}
+
+.language-links a {
+  padding: 8px 14px;
+  color: var(--midnight-mirage);
+  background: var(--first-colors-of-spring);
+  border: 1px solid var(--first-colors-of-spring);
+  border-radius: 999px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.83rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.language-links a:hover,
+.language-links a:focus-visible {
+  color: white;
+  background: var(--picture-book-green);
+  border-color: var(--picture-book-green);
+  outline: none;
+}
     .former-messages {
       padding: 32px;
       border: 1px solid rgba(246,247,237,.2);
@@ -398,22 +447,53 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Read during the week</p>
-            <h2 id="message-title">Sunday’s Message</h2>
+           <h2 id="message-title">Recent Sunday’s Message</h2>
           </div>
           <p>Read the latest sermon summary in English, Portuguese, Spanish or Japanese.</p>
         </div>
         <div class="message-layout">
+        
           <article class="latest-message">
-            <span class="date-chip">August 16, 2026 · Latest Message</span>
-            <h3>Why Should We Care About Israel?</h3>
-            <p>Read the Sunday message in English, Portuguese, Spanish or Japanese.</p>
-            <div class="language-links" aria-label="Message languages">
-              <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-ENG.txt">English</a>
-              <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-PT-BR.txt">Português</a>
-              <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-ESP.txt">Español</a>
-              <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-JAP.txt" lang="ja">日本語</a>
-            </div>
-          </article>
+  <span class="date-chip">
+    August 16, 2026 · Latest Message
+  </span>
+
+  <h3>Why Should We Care About Israel?</h3>
+
+  <p class="message-preview">
+    God chose Israel as an instrument in His redemptive plan, giving the
+    world His written Word and Jesus Christ, the Living Word. This message
+    calls us to respond with spiritual gratitude, faithful prayer and
+    confidence that God keeps His promises.
+  </p>
+
+  <blockquote class="main-verse">
+    <p>
+      “I will bless those who bless you and curse those who treat you with
+      contempt. All the families on earth will be blessed through you.”
+    </p>
+    <cite>Genesis 12:3</cite>
+  </blockquote>
+
+  <div class="language-links" aria-label="Message languages">
+    <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-ENG.txt">
+      English
+    </a>
+
+    <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-PT-BR.txt">
+      Português
+    </a>
+
+    <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-ESP.txt">
+      Español
+    </a>
+
+    <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-JAP.txt"
+       lang="ja">
+      日本語
+    </a>
+  </div>
+</article>
           <aside class="former-messages">
             <h3>Former Messages</h3>
             <ol>
