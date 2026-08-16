@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Friendship Church Sunday message reader.">
+  <title>Sunday Message | Friendship Church</title>
+  <style>
+    :root {
+      --midnight-mirage: #001f3f;
+      --first-colors-of-spring: #dbe64c;
+      --praxeti-white: #f6f7ed;
+      --picture-book-green: #00804c;
+      --mantis: #74c365;
+      --nuit-blanche: #1e488f;
+      --ink: #173044;
+      --paper: #fbfaf5;
+      --line: #d7dfd6;
+      --shadow: 0 14px 40px rgba(0,31,63,.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      line-height: 1.75;
+    }
+    .site-header {
+      color: var(--praxeti-white);
+      background: var(--midnight-mirage);
+      border-bottom: 1px solid rgba(246,247,237,.14);
+    }
+    .header-inner, main { width: min(920px, calc(100% - 40px)); margin: 0 auto; }
+    .header-inner { padding: 34px 0 30px; }
+    .church-name { margin: 0; color: var(--praxeti-white); font-size: clamp(2.1rem, 6vw, 4rem); font-weight: 400; line-height: 1.05; }
+    .board-label { margin: 10px 0 0; color: var(--first-colors-of-spring); font-family: Arial, Helvetica, sans-serif; font-size: .78rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    main { padding: 64px 0 130px; }
+    .message-card {
+      padding: clamp(28px, 6vw, 64px);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 8px solid var(--picture-book-green);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+    .message-date { margin: 0 0 8px; color: var(--nuit-blanche); font-family: Arial, Helvetica, sans-serif; font-size: .82rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    h1 { margin: 0; color: var(--midnight-mirage); font-size: clamp(2rem, 5vw, 3.65rem); font-weight: 400; line-height: 1.08; }
+    .language { display: inline-block; margin-top: 18px; padding: 6px 12px; color: var(--midnight-mirage); background: var(--first-colors-of-spring); border-radius: 999px; font-family: Arial, Helvetica, sans-serif; font-size: .78rem; font-weight: 800; }
+    .divider { width: 72px; height: 3px; margin: 32px 0; background: var(--mantis); border: 0; }
+    #message-content { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; font-size: clamp(1rem, 2vw, 1.14rem); }
+    .status { color: var(--picture-book-green); font-family: Arial, Helvetica, sans-serif; }
+    .back-button {
+      position: fixed;
+      right: max(18px, calc((100vw - 1180px) / 2));
+      bottom: 20px;
+      z-index: 20;
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 11px 18px;
+      color: var(--midnight-mirage);
+      background: var(--first-colors-of-spring);
+      border: 2px solid var(--midnight-mirage);
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(0,31,63,.24);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .85rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .back-button:hover, .back-button:focus-visible { color: white; background: var(--picture-book-green); outline: 3px solid rgba(219,230,76,.5); }
+    footer { padding: 35px 20px; color: rgba(246,247,237,.75); background: var(--midnight-mirage); text-align: center; }
+    footer strong { color: var(--praxeti-white); }
+    @media (max-width: 590px) {
+      .header-inner, main { width: min(100% - 28px, 920px); }
+      .header-inner { padding: 26px 0 23px; }
+      main { padding-top: 36px; }
+      .back-button { right: 14px; bottom: 14px; max-width: calc(100% - 28px); }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="church-name">Friendship Church</p>
+      <p class="board-label">Sunday Message · FC Life Community Board</p>
+    </div>
+  </header>
+
+  <main>
+    <article class="message-card">
+      <p class="message-date" id="message-date">Sunday Message</p>
+      <h1 id="message-title">Loading message…</h1>
+      <span class="language" id="message-language">Language</span>
+      <hr class="divider">
+      <pre id="message-content" class="status" aria-live="polite">Please wait while the message opens.</pre>
+    </article>
+  </main>
+
+  <a class="back-button" href="index.html#message" aria-label="Return to the Sunday messages on the FC Community Board">← Back to Community Board</a>
+
+  <footer><strong>Friendship Church</strong><br>Izumo, Shimane, Japan</footer>
+
+  <script>
+    const titles = {
+      "2026-06-28-Trusting_God_in_the_Worst_of_Times": "Trusting God in the Worst of Times",
+      "2026-07-05-Gods_Faithfulness_Knows_No_Borders": "God’s Faithfulness Knows No Borders",
+      "2026-07-12-Is_160_Years_Long_Enough_for_You": "Is 160 Years Long Enough for You?",
+      "2026-07-19-A_Call_to_Return_to_the_Lord": "A Call to Return to the Lord",
+      "2026-07-26-The_Power_and_Benefits_of_Evangelism": "The Power and Benefits of Evangelism",
+      "2026-08-02-Prohibition_Perspective_and_Promises": "Prohibition, Perspective and Promises",
+      "2026-08-09-Who_Am_I": "Who Am I?",
+      "2026-08-16-Why_Should_We_Care_About_Israel": "Why Should We Care About Israel?"
+    };
+    const languages = { "ENG": "English", "PT-BR": "Português", "ESP": "Español", "JAP": "日本語" };
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("file") || "";
+    const match = file.match(/^sermons\/(\d{4}-\d{2}-\d{2}-.+)-(ENG|PT-BR|ESP|JAP)\.txt$/);
+    const titleElement = document.getElementById("message-title");
+    const dateElement = document.getElementById("message-date");
+    const languageElement = document.getElementById("message-language");
+    const contentElement = document.getElementById("message-content");
+
+    if (!match || !titles[match[1]]) {
+      titleElement.textContent = "Message not found";
+      languageElement.hidden = true;
+      contentElement.textContent = "Please return to the Community Board and choose a message again.";
+    } else {
+      const date = match[1].slice(0, 10);
+      const language = languages[match[2]];
+      titleElement.textContent = titles[match[1]];
+      dateElement.textContent = new Date(`${date}T00:00:00`).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+      languageElement.textContent = language;
+      document.documentElement.lang = match[2] === "JAP" ? "ja" : match[2] === "ESP" ? "es" : match[2] === "PT-BR" ? "pt-BR" : "en";
+      document.title = `${titles[match[1]]} · ${language} | Friendship Church`;
+      fetch(file)
+        .then(response => {
+          if (!response.ok) throw new Error("Message could not be opened.");
+          return response.text();
+        })
+        .then(text => {
+          contentElement.classList.remove("status");
+          contentElement.textContent = text;
+        })
+        .catch(() => {
+          contentElement.textContent = "This message could not be opened. Please return to the Community Board and try again.";
+        });
+    }
+  </script>
+</body>
+</html>
