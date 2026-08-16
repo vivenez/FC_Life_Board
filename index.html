@@ -90,7 +90,6 @@
       border-color: currentColor;
       outline: none;
     }
-    .menu-button { display: none; }
 
     .hero {
       position: relative;
@@ -286,28 +285,22 @@
     footer strong { color: var(--praxeti-white); }
 
     @media (max-width: 860px) {
-      .header-inner { min-height: 90px; }
-      .menu-button {
-        display: inline-flex;
-        padding: 9px 12px;
-        color: var(--first-colors-of-spring);
-        background: transparent;
-        border: 1px solid currentColor;
-        border-radius: 999px;
+      .header-inner {
+        min-height: 0;
+        padding: 18px 0 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px 24px;
       }
+      .brand { text-align: center; }
       .site-nav {
-        display: none;
-        position: absolute;
-        inset: 90px 0 auto;
-        padding: 22px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        background: var(--midnight-mirage);
-        border-top: 1px solid rgba(246,247,237,.14);
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px 22px;
       }
-      .site-nav.open { display: flex; }
-      .site-nav a { padding: 13px 0; text-align: center; }
+      .site-nav a { padding: 4px 0; text-align: center; }
       .about-grid, .message-layout, .visit-grid { grid-template-columns: 1fr; }
       .events-grid { grid-template-columns: 1fr 1fr; }
       .hero { min-height: 460px; }
@@ -316,6 +309,8 @@
       .header-inner, .section, .hero-inner { width: min(100% - 28px, 1180px); }
       .brand strong { font-size: 1.6rem; }
       .brand span { font-size: .68rem; }
+      .site-nav { gap: 5px 14px; }
+      .site-nav a { font-size: .86rem; }
       .events-grid { grid-template-columns: 1fr; }
       .section { padding: 68px 0; }
       .section-heading { align-items: start; flex-direction: column; }
@@ -333,7 +328,6 @@
         <strong>Friendship Church</strong>
         <span>FC Logotype</span>
       </a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
       <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
         <a href="#about">About Us</a>
         <a href="#message">Sunday’s Message</a>
@@ -479,22 +473,8 @@
 
   <footer>
     <strong>Friendship Church</strong><br>
-    Life Community Board · Izumo-shi, Shimane-ken, Japan
+    Life Community Board · Izumo, Shimane, Japan
   </footer>
 
-  <script>
-    const menuButton = document.querySelector('.menu-button');
-    const navigation = document.querySelector('.site-nav');
-    menuButton.addEventListener('click', () => {
-      const isOpen = navigation.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(isOpen));
-    });
-    navigation.addEventListener('click', (event) => {
-      if (event.target.matches('a')) {
-        navigation.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-      }
-    });
-  </script>
 </body>
 </html>
