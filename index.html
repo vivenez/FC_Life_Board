@@ -393,6 +393,69 @@ background: var(--nuit-blanche);
       .hero h1 { font-size: 2.35rem; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* STANDARDIZED LANGUAGE BUTTONS */
+.language-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.language-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 52px;
+  height: 40px;
+  padding: 0 16px;
+
+  border: 2px solid #001f3f;
+  border-radius: 999px;
+
+  background-color: #f6f7ed;
+  color: #001f3f;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.language-button:hover,
+.language-button:focus-visible {
+  background-color: #001f3f;
+  color: #dbe64c;
+  border-color: #001f3f;
+  transform: translateY(-2px);
+}
+
+.language-button:focus-visible {
+  outline: 3px solid rgba(116, 195, 101, 0.45);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .language-buttons {
+    gap: 8px;
+  }
+
+  .language-button {
+    min-width: 48px;
+    height: 38px;
+    padding: 0 13px;
+    font-size: 0.8rem;
+  }
+}
+    
   </style>
 </head>
 <body>
@@ -483,14 +546,56 @@ background: var(--nuit-blanche);
     <cite>Genesis 12:3</cite>
   </blockquote>
 
+<div class="language-buttons" aria-label="Choose message language">
+  <a
+    class="language-button"
+    href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-ENG.txt"
+    lang="en"
+    aria-label="Read this message in English"
+    title="English"
+  >
+    EN
+  </a>
+
+  <a
+    class="language-button"
+    href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-PT-BR.txt"
+    lang="pt-BR"
+    aria-label="Leia esta mensagem em Português"
+    title="Português"
+  >
+    PT
+  </a>
+
+  <a
+    class="language-button"
+    href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-ESP.txt"
+    lang="es"
+    aria-label="Leer este mensaje en Español"
+    title="Español"
+  >
+    ES
+  </a>
+
+  <a
+    class="language-button"
+    href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-JAP.txt"
+    lang="ja"
+    aria-label="このメッセージを日本語で読む"
+    title="日本語"
+  >
+    JP
+  </a>
+</div>
+            
 <div class="language-links" aria-label="Message languages">
-  <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-ENG.txt">English</a>
+  <a href=>English</a>
 
-  <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-PT-BR.txt">Português</a>
+  <a href=>Português</a>
 
-  <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-ESP.txt">Español</a>
+  <a href=>Español</a>
 
-  <a href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-JAP.txt">日本語</a>
+  <a href=>日本語</a>
 </div>
 </article>
           <aside class="former-messages">
