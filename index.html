@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Friendship Church community board, Sunday messages, events and directions in Izumo, Japan.">
   <title>Friendship Church | Life Community Board</title>
+
   <style>
     :root {
       --midnight-mirage: #001f3f;
@@ -21,8 +22,14 @@
       --radius: 22px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       color: var(--ink);
@@ -30,10 +37,24 @@
       font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
       line-height: 1.6;
     }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; }
-    button, select { font: inherit; }
-    section { scroll-margin-top: 125px; }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    select {
+      font: inherit;
+    }
+
+    section {
+      scroll-margin-top: 125px;
+    }
 
     .site-header {
       position: sticky;
@@ -43,23 +64,27 @@
       background: var(--midnight-mirage);
       border-bottom: 1px solid rgba(246, 247, 237, .14);
     }
+
     .header-inner {
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
       padding: 34px 0 28px;
     }
+
     .brand {
       color: var(--praxeti-white);
       text-decoration: none;
       line-height: 1.05;
       white-space: nowrap;
     }
+
     .brand strong {
       display: block;
       font-size: clamp(2.8rem, 6vw, 5.5rem);
       font-weight: 400;
       letter-spacing: -.035em;
     }
+
     .brand span {
       display: block;
       margin-bottom: 12px;
@@ -70,12 +95,14 @@
       letter-spacing: .22em;
       text-transform: uppercase;
     }
+
     .site-nav {
       display: flex;
       align-items: center;
       gap: clamp(18px, 3vw, 42px);
       margin-top: 30px;
     }
+
     .site-nav a {
       color: var(--first-colors-of-spring);
       font-size: 1.04rem;
@@ -84,6 +111,7 @@
       border-bottom: 1px solid transparent;
       transition: border-color .2s ease, color .2s ease;
     }
+
     .site-nav a:hover,
     .site-nav a:focus-visible {
       color: var(--praxeti-white);
@@ -98,9 +126,18 @@
       display: grid;
       place-items: center;
       background:
-        radial-gradient(circle at 88% 86%, rgba(116,195,101,.2), transparent 25%),
-        linear-gradient(135deg, #fbfaf5 0%, #f6f2e9 100%);
+        radial-gradient(
+          circle at 88% 86%,
+          rgba(116, 195, 101, .2),
+          transparent 25%
+        ),
+        linear-gradient(
+          135deg,
+          #fbfaf5 0%,
+          #f6f2e9 100%
+        );
     }
+
     .hero::after {
       content: "";
       position: absolute;
@@ -108,16 +145,18 @@
       bottom: -120px;
       width: 390px;
       height: 390px;
-      border: 2px solid rgba(0,128,76,.18);
+      border: 2px solid rgba(0, 128, 76, .18);
       border-radius: 50%;
-      box-shadow: -80px -30px 0 -30px rgba(116,195,101,.12);
+      box-shadow: -80px -30px 0 -30px rgba(116, 195, 101, .12);
     }
+
     .hero-inner {
       position: relative;
       z-index: 1;
       width: min(1180px, calc(100% - 40px));
       padding: 90px 0;
     }
+
     .eyebrow {
       margin: 0 0 16px;
       color: var(--picture-book-green);
@@ -126,6 +165,7 @@
       letter-spacing: .16em;
       text-transform: uppercase;
     }
+
     .hero h1 {
       max-width: 920px;
       margin: 0;
@@ -135,6 +175,7 @@
       letter-spacing: -.045em;
       line-height: 1.04;
     }
+
     .hero p {
       max-width: 730px;
       margin: 28px 0 0;
@@ -148,6 +189,7 @@
       margin: 0 auto;
       padding: 92px 0;
     }
+
     .section-heading {
       display: flex;
       justify-content: space-between;
@@ -155,6 +197,7 @@
       gap: 24px;
       margin-bottom: 34px;
     }
+
     .section-heading h2 {
       margin: 0;
       color: var(--midnight-mirage);
@@ -163,13 +206,18 @@
       letter-spacing: -.035em;
       line-height: 1.1;
     }
-    .section-heading p { max-width: 500px; margin: 0; }
+
+    .section-heading p {
+      max-width: 500px;
+      margin: 0;
+    }
 
     .about-grid {
       display: grid;
       grid-template-columns: 1.45fr .85fr;
       gap: 28px;
     }
+
     .panel {
       padding: clamp(26px, 4vw, 48px);
       background: #fff;
@@ -177,9 +225,21 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-    .panel h3 { margin: 0 0 14px; color: var(--midnight-mirage); font-size: 1.65rem; }
-    .panel h3:not(:first-child) { margin-top: 30px; }
-    .panel p { margin: 0; }
+
+    .panel h3 {
+      margin: 0 0 14px;
+      color: var(--midnight-mirage);
+      font-size: 1.65rem;
+    }
+
+    .panel h3:not(:first-child) {
+      margin-top: 30px;
+    }
+
+    .panel p {
+      margin: 0;
+    }
+
     .text-link {
       display: inline-block;
       margin-top: 10px;
@@ -187,24 +247,30 @@
       font-weight: 700;
       text-underline-offset: 4px;
     }
+
     .service-card {
       color: var(--praxeti-white);
       background: var(--midnight-mirage);
       border-color: transparent;
     }
-    .service-card h3 { color: var(--first-colors-of-spring); }
-    .service-time { margin: 8px 0 18px !important; font-size: 2rem; line-height: 1.15; }
- .service-card > p:not(.service-time) {
-  margin-top: 20px;
-}
 
-.quick-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: auto;
-  padding-top: 28px;
-}
+    .service-card h3 {
+      color: var(--first-colors-of-spring);
+    }
+
+    .service-time {
+      margin: 8px 0 18px !important;
+      font-size: 2rem;
+      line-height: 1.15;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
     .button {
       display: inline-flex;
       align-items: center;
@@ -220,23 +286,49 @@
       font-weight: 700;
       text-decoration: none;
     }
-    .button:hover, .button:focus-visible { background: #006d41; outline: 3px solid rgba(219,230,76,.45); }
-    .button.secondary { color: var(--midnight-mirage); background: var(--first-colors-of-spring); }
-    .button.disabled { cursor: not-allowed; opacity: .62; }
 
-.message-section {
-  background: var(--midnight-mirage);
-  color: var(--praxeti-white);
-}
-    .message-section .section-heading h2 { color: var(--praxeti-white); }
-    .message-section .eyebrow { color: var(--first-colors-of-spring); }
-    .message-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; }
+    .button:hover,
+    .button:focus-visible {
+      background: #006d41;
+      outline: 3px solid rgba(219, 230, 76, .45);
+    }
+
+    .button.secondary {
+      color: var(--midnight-mirage);
+      background: var(--first-colors-of-spring);
+    }
+
+    .button.disabled {
+      cursor: not-allowed;
+      opacity: .62;
+    }
+
+    .message-section {
+      color: var(--praxeti-white);
+      background: var(--midnight-mirage);
+    }
+
+    .message-section .section-heading h2 {
+      color: var(--praxeti-white);
+    }
+
+    .message-section .eyebrow {
+      color: var(--first-colors-of-spring);
+    }
+
+    .message-layout {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+    }
+
     .latest-message {
       padding: clamp(28px, 5vw, 56px);
       color: var(--midnight-mirage);
       background: var(--praxeti-white);
       border-radius: var(--radius);
     }
+
     .date-chip {
       display: inline-block;
       margin-bottom: 18px;
@@ -248,82 +340,112 @@
       font-size: .8rem;
       font-weight: 700;
     }
-    
+
     .latest-message h3 {
-  margin: 0 0 10px;
-  font-size: clamp(1.8rem, 3vw, 3rem);
-  line-height: 1.1;
-}
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.1;
+    }
 
-.message-preview {
-  margin: 18px 0 22px;
-  color: #334d5c;
-  font-size: 1.05rem;
-}
+    .scripture {
+      color: var(--picture-book-green);
+      font-weight: 700;
+    }
 
-.main-verse {
-  margin: 0;
-  padding: 20px 22px;
-  color: var(--praxeti-white);
-background: var(--nuit-blanche);
-  border-left: 5px solid var(--first-colors-of-spring);
-  border-radius: 0 12px 12px 0;
-}
+    .language-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
 
-.main-verse p {
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.65;
-}
+    .language-links a {
+      min-width: 76px;
+      padding: 7px 12px;
+      color: var(--midnight-mirage);
+      background: var(--first-colors-of-spring);
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+    }
 
-.main-verse cite {
-  display: block;
-  margin-top: 10px;
-  color: var(--first-colors-of-spring);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.86rem;
-  font-style: normal;
-  font-weight: 700;
-}
+    .language-links a:nth-child(2) {
+      color: white;
+      background: var(--picture-book-green);
+    }
 
-.language-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 28px;
-}
+    .language-links a:nth-child(3) {
+      color: var(--midnight-mirage);
+      background: var(--mantis);
+    }
 
-.language-links a {
-  padding: 4px 8px;
-  color: var(--midnight-mirage);
-  background: var(--first-colors-of-spring);
-  border-radius: 999px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-decoration: none;
-}
+    .language-links a:nth-child(4) {
+      color: white;
+      background: var(--nuit-blanche);
+    }
 
-.language-links a:hover,
-.language-links a:focus-visible {
-  color: white;
-  background: var(--picture-book-green);
-  outline: none;
-}
+    .language-links a:hover,
+    .language-links a:focus-visible {
+      border-color: var(--praxeti-white);
+      outline: 3px solid rgba(219, 230, 76, .35);
+      transform: translateY(-1px);
+    }
+
     .former-messages {
       padding: 32px;
-      border: 1px solid rgba(246,247,237,.2);
+      border: 1px solid rgba(246, 247, 237, .2);
       border-radius: var(--radius);
     }
-    .former-messages h3 { margin: 0 0 18px; color: var(--first-colors-of-spring); }
-    .former-messages ol { margin: 0; padding: 0; list-style: none; }
-    .former-messages li { padding: 14px 0; border-bottom: 1px solid rgba(246,247,237,.15); }
-    .former-messages li:last-child { border-bottom: 0; }
-    .former-messages time { display: block; color: var(--mantis); font-family: Arial, Helvetica, sans-serif; font-size: .78rem; }
-    .former-title { display: block; color: var(--praxeti-white); line-height: 1.3; }
-  
 
-    .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .former-messages h3 {
+      margin: 0 0 18px;
+      color: var(--first-colors-of-spring);
+    }
+
+    .former-messages ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .former-messages li {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(246, 247, 237, .15);
+    }
+
+    .former-messages li:last-child {
+      border-bottom: 0;
+    }
+
+    .former-messages time {
+      display: block;
+      color: var(--mantis);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .78rem;
+    }
+
+    .former-messages a {
+      text-decoration-color: rgba(219, 230, 76, .55);
+      text-underline-offset: 4px;
+    }
+
+    .archive-link {
+      display: inline-block;
+      margin-top: 22px;
+      color: var(--first-colors-of-spring);
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
     .event-card {
       overflow: hidden;
       background: #fff;
@@ -331,31 +453,91 @@ background: var(--nuit-blanche);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
+
     .event-image {
       aspect-ratio: 16 / 9;
-      background: var(--midnight-mirage);
       overflow: hidden;
+      background: var(--midnight-mirage);
     }
-    .event-image img { width: 100%; height: 100%; object-fit: contain; }
-    .event-body { padding: 24px; }
-    .event-date { margin: 0 0 7px; color: var(--nuit-blanche); font-family: Arial, Helvetica, sans-serif; font-size: .82rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .event-card h3 { margin: 0 0 7px; color: var(--midnight-mirage); font-size: 1.45rem; line-height: 1.2; }
-    .event-card p { margin: 0; }
 
-    .visit-section { background: var(--mist); }
-    .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-    .location-card h3 { color: var(--picture-book-green); }
-    address { font-style: normal; }
-    .jp-address { margin-top: 10px !important; }
-    .location-card .button { margin-top: 22px; }
-    .parking { border-top: 7px solid var(--mantis); }
-    footer { padding: 40px 20px; color: rgba(246,247,237,.72); background: var(--midnight-mirage); text-align: center; }
-    footer strong { color: var(--praxeti-white); }
+    .event-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .event-body {
+      padding: 24px;
+    }
+
+    .event-date {
+      margin: 0 0 7px;
+      color: var(--nuit-blanche);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .event-card h3 {
+      margin: 0 0 7px;
+      color: var(--midnight-mirage);
+      font-size: 1.45rem;
+      line-height: 1.2;
+    }
+
+    .event-card p {
+      margin: 0;
+    }
+
+    .visit-section {
+      background: var(--mist);
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .location-card h3 {
+      color: var(--picture-book-green);
+    }
+
+    address {
+      font-style: normal;
+    }
+
+    .jp-address {
+      margin-top: 10px !important;
+    }
+
+    .location-card .button {
+      margin-top: 22px;
+    }
+
+    .parking {
+      border-top: 7px solid var(--mantis);
+    }
+
+    footer {
+      padding: 40px 20px;
+      color: rgba(246, 247, 237, .72);
+      background: var(--midnight-mirage);
+      text-align: center;
+    }
+
+    footer strong {
+      color: var(--praxeti-white);
+    }
 
     @media (max-width: 860px) {
       .header-inner {
         padding: 24px 0 20px;
       }
+
       .site-nav {
         display: flex;
         width: 100%;
@@ -366,94 +548,88 @@ background: var(--nuit-blanche);
         overflow-x: auto;
         scrollbar-width: none;
       }
-      .site-nav::-webkit-scrollbar { display: none; }
-      .site-nav a { padding: 4px 0; text-align: center; }
-      .about-grid, .message-layout, .visit-grid { grid-template-columns: 1fr; }
-      .events-grid { grid-template-columns: 1fr 1fr; }
-      .hero { min-height: 460px; }
+
+      .site-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .site-nav a {
+        padding: 4px 0;
+        text-align: center;
+      }
+
+      .about-grid,
+      .message-layout,
+      .visit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .events-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero {
+        min-height: 460px;
+      }
     }
+
     @media (max-width: 590px) {
-      .header-inner, .section, .hero-inner { width: min(100% - 28px, 1180px); }
-      .brand strong { font-size: 2.45rem; }
-      .brand span { font-size: .64rem; }
-      .site-nav { gap: 14px; }
-      .site-nav a { font-size: .78rem; }
-      .events-grid { grid-template-columns: 1fr; }
-      .section { padding: 68px 0; }
-      .section-heading { align-items: start; flex-direction: column; }
-      .hero { min-height: 430px; }
-      .hero-inner { padding: 64px 0; }
-      .hero h1 { font-size: 2.35rem; }
+      .header-inner,
+      .section,
+      .hero-inner {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .brand strong {
+        font-size: 2.45rem;
+      }
+
+      .brand span {
+        font-size: .64rem;
+      }
+
+      .site-nav {
+        gap: 14px;
+      }
+
+      .site-nav a {
+        font-size: .78rem;
+      }
+
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .hero {
+        min-height: 430px;
+      }
+
+      .hero-inner {
+        padding: 64px 0;
+      }
+
+      .hero h1 {
+        font-size: 2.35rem;
+      }
     }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-/* STANDARDIZED LANGUAGE BUTTONS */
-.language-button,
-.former-language-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
-}
-.language-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 
-  min-width: 52px;
-  height: 40px;
-  padding: 0 16px;
-
-  border: 2px solid #001f3f;
-  border-radius: 999px;
-
-  background-color: #f6f7ed;
-  color: #001f3f;
-
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  line-height: 1;
-  text-decoration: none;
-  letter-spacing: 0.04em;
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.language-button:hover,
-.language-button:focus-visible,
-.former-language-links a:hover,
-.former-language-links a:focus-visible {
-  background-color: #001f3f;
-  color: #dbe64c;
-  border-color: #001f3f;
-  transform: translateY(-2px);
-}
-
-.language-button:focus-visible,
-.former-language-links a:focus-visible {
-  outline: 3px solid rgba(116, 195, 101, 0.45);
-  outline-offset: 3px;
-}
-
-@media (max-width: 480px) {
-  .language-buttons {
-    gap: 8px;
-  }
-
-  .language-button {
-    min-width: 48px;
-    height: 38px;
-    padding: 0 13px;
-    font-size: 0.8rem;
-  }
-}
-    
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
   </style>
 </head>
+
 <body>
   <header class="site-header">
     <div class="header-inner">
@@ -461,7 +637,12 @@ background: var(--nuit-blanche);
         <span>FC Logotype</span>
         <strong>Friendship Church</strong>
       </a>
-      <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+
+      <nav
+        class="site-nav"
+        id="site-navigation"
+        aria-label="Main navigation"
+      >
         <a href="#about">About Us</a>
         <a href="#message">Sunday’s Message</a>
         <a href="#events">Events</a>
@@ -473,192 +654,365 @@ background: var(--nuit-blanche);
   <main id="top">
     <section class="hero" aria-labelledby="welcome-title">
       <div class="hero-inner">
-        <p class="eyebrow">This is our Life Community Board</p>
-        <h1 id="welcome-title">Welcome to Friendship Church</h1>
-        <p>Church life continues throughout the week.</p><p>The FC Community Board brings our Sunday messages, upcoming events, important information and helpful links together in one welcoming place.</p><p> We hope it helps every member and visitor stay connected, encouraged and growing in faith.</p>
+        <p class="eyebrow">Welcome to Friendship Church</p>
+
+        <h1 id="welcome-title">
+          This is our Life Community Board
+        </h1>
+
+        <p>
+          Church life continues throughout the week. The FC Community Board
+          brings our Sunday messages, upcoming events, important information
+          and helpful links together in one welcoming place. We hope it helps
+          every member and visitor stay connected, encouraged and growing in
+          faith.
+        </p>
       </div>
     </section>
 
-    <section class="section" id="about" aria-labelledby="about-title">
+    <section
+      class="section"
+      id="about"
+      aria-labelledby="about-title"
+    >
       <div class="section-heading">
         <div>
           <p class="eyebrow">Welcome</p>
-          <h2 id="about-title">FC Highlights</h2>
+          <h2 id="about-title">Friendship Church Highlights</h2>
         </div>
       </div>
+
       <div class="about-grid">
         <article class="panel">
           <h3>About Us</h3>
-          <p>Friendship Church is an evangelical Christian church in Izumo City, Shimane Prefecture, Japan. We gather to worship God, learn from the Bible, pray together and encourage one another in faith.</p>
+
+          <p>
+            Friendship Church is an evangelical Christian church in Izumo
+            City, Shimane Prefecture, Japan. We gather to worship God, learn
+            from the Bible, pray together and encourage one another in faith.
+          </p>
 
           <h3>Vision and Values</h3>
-          <p>Our vision and values will be added after they are confirmed by the Friendship Church Board.</p>
+
+          <p>
+            Our vision and values will be added after they are confirmed by
+            the Friendship Church Board.
+          </p>
 
           <h3>Our Constitution</h3>
-          <p>The Friendship Church Constitution page will be added after its text is confirmed.</p>
+
+          <p>
+            Read the full Friendship Church Constitution on a separate page.
+          </p>
+
+          <a class="text-link" href="constitution.html">
+            Read the FC Constitution →
+          </a>
         </article>
-        <aside class="panel service-card" aria-label="Sunday service information">
-          <h3>FC Service Time</h3>
-          <p class="service-time">Sundays at 10:30 AM</p>
-          <p>You're invited to FC this weekend! </p><p>Please feel welcome to come and experience Jesus through worship, practical teaching, and a Community that feels like family. We can't wait to see you! </p><p></p><p>Let us know you're coming on the contact below.</p><P> </P>
+
+        <aside
+          class="panel service-card"
+          aria-label="Sunday service information"
+        >
+          <h3>FC Service Schedule</h3>
+
+          <p class="service-time">
+            Sundays at 10:30 AM
+          </p>
+
+          <p>
+            Follow the links below for contact and live streaming information.
+          </p>
+
           <div class="quick-links">
-            <a class="button" href="https://www.facebook.com/john.telloyan" target="_blank" rel="noopener noreferrer">Contact Pastor John</a>
-            <a class="button secondary" href="https://us05web.zoom.us/j/81864005827?pwd=d3VXWWgwY2lVZ1RtdDZzSU14c3QzZz09" target="_blank" rel="noopener noreferrer">Join the Zoom Room</a>
+            <a
+              class="button"
+              href="https://www.facebook.com/john.telloyan"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contact Pastor John
+            </a>
+
+            <span
+              class="button secondary disabled"
+              aria-disabled="true"
+              title="Zoom link coming soon"
+            >
+              Zoom Room — coming soon
+            </span>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="message-section" id="message" aria-labelledby="message-title">
+    <section
+      class="message-section"
+      id="message"
+      aria-labelledby="message-title"
+    >
       <div class="section">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Read during the week</p>
-           <h2 id="message-title">Recent Sunday’s Message</h2>
+
+            <h2 id="message-title">
+              Recent Sunday’s Message
+            </h2>
           </div>
-          <p>Read the latest sermon summary in English, Portuguese, Spanish or Japanese.</p>
+
+          <p>
+            Read the latest sermon summary in English, Portuguese, Spanish or
+            Japanese.
+          </p>
         </div>
+
         <div class="message-layout">
-        
           <article class="latest-message">
-  <span class="date-chip">
-    August 16, 2026 · Latest Message
-  </span>
+            <span class="date-chip">Latest Message</span>
 
-  <h3>Why Should We Care About Israel?</h3>
+            <h3>Who Am I?</h3>
 
-  <p class="message-preview">
-    God chose Israel as an instrument in His redemptive plan, giving the
-    world His written Word and Jesus Christ, the Living Word. This message
-    calls us to respond with spiritual gratitude, faithful prayer and
-    confidence that God keeps His promises.
-  </p>
+            <p class="scripture">Psalm 8</p>
 
-  <blockquote class="main-verse">
-    <p>
-      “I will bless those who bless you and curse those who treat you with
-      contempt. All the families on earth will be blessed through you.”
-    </p>
-    <cite>Genesis 12:3</cite>
-  </blockquote>
+            <p>
+              A reflection on our identity, dignity and purpose before God.
+            </p>
 
-<div class="language-buttons" aria-label="Choose message language">
-  <a
-    class="language-button"
-    href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-ENG.txt"
-    lang="en"
-    aria-label="Read this message in English"
-    title="English"
-  >
-    EN
-  </a>
+            <div
+              class="language-links"
+              aria-label="Message languages"
+            >
+              <a href="sermons/who-am-i-en.txt">
+                English
+              </a>
 
-  <a
-    class="language-button"
-    href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-PT-BR.txt"
-    lang="pt-BR"
-    aria-label="Leia esta mensagem em Português"
-    title="Português"
-  >
-    PT
-  </a>
+              <a href="sermons/who-am-i-pt-br.txt">
+                Português
+              </a>
 
-  <a
-    class="language-button"
-    href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-ESP.txt"
-    lang="es"
-    aria-label="Leer este mensaje en Español"
-    title="Español"
-  >
-    ES
-  </a>
+              <a href="sermons/who-am-i-es.txt">
+                Español
+              </a>
 
-  <a
-    class="language-button"
-    href="message.html?file=sermons/2026-08-16-Why_Should_We_Care_About_Israel-JAP.txt"
-    lang="ja"
-    aria-label="このメッセージを日本語で読む"
-    title="日本語"
-  >
-    JP
-  </a>
-</div>
-            
-</article>
+              <a
+                href="sermons/who-am-i-ja.txt"
+                lang="ja"
+              >
+                日本語
+              </a>
+            </div>
+          </article>
+
           <aside class="former-messages">
             <h3>Former Messages</h3>
+
             <ol>
-              <li><time datetime="2026-08-09">August 9, 2026</time><span class="former-title">Who Am I?</span><div class="former-language-links"><a href="message.html?file=sermons/2026-08-09-Who_Am_I-ENG.txt">EN</a><a href="message.html?file=sermons/2026-08-09-Who_Am_I-PT-BR.txt">PT</a><a href="message.html?file=sermons/2026-08-09-Who_Am_I-ESP.txt">ES</a><a href="message.html?file=sermons/2026-08-09-Who_Am_I-JAP.txt">JP</a></div></li>
-              <li><time datetime="2026-08-02">August 2, 2026</time><span class="former-title">Prohibition, Perspective and Promises</span><div class="former-language-links"><a href="message.html?file=sermons/2026-08-02-Prohibition_Perspective_and_Promises-ENG.txt">EN</a><a href="message.html?file=sermons/2026-08-02-Prohibition_Perspective_and_Promises-PT-BR.txt">PT</a><a href="message.html?file=sermons/2026-08-02-Prohibition_Perspective_and_Promises-ESP.txt">ES</a><a href="message.html?file=sermons/2026-08-02-Prohibition_Perspective_and_Promises-JAP.txt">JP</a></div></li>
-              <li><time datetime="2026-07-26">July 26, 2026</time><span class="former-title">The Power and Benefits of Evangelism</span><div class="former-language-links"><a href="message.html?file=sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-ENG.txt">EN</a><a href="message.html?file=sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-PT-BR.txt">PT</a><a href="message.html?file=sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-ESP.txt">ES</a><a href="message.html?file=sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-JAP.txt">JP</a></div></li>
-              <li><time datetime="2026-07-19">July 19, 2026</time><span class="former-title">A Call to Return to the Lord</span><div class="former-language-links"><a href="message.html?file=sermons/2026-07-19-A_Call_to_Return_to_the_Lord-ENG.txt">EN</a><a href="message.html?file=sermons/2026-07-19-A_Call_to_Return_to_the_Lord-PT-BR.txt">PT</a><a href="message.html?file=sermons/2026-07-19-A_Call_to_Return_to_the_Lord-ESP.txt">ES</a><a href="message.html?file=sermons/2026-07-19-A_Call_to_Return_to_the_Lord-JAP.txt">JP</a></div></li>
-              <li><time datetime="2026-07-12">July 12, 2026</time><span class="former-title">Is 160 Years Long Enough for You?</span><div class="former-language-links"><a href="message.html?file=sermons/2026-07-12-Is_160_Years_Long_Enough_for_You-ENG.txt">EN</a><a href="message.html?file=sermons/2026-07-12-Is_160_Years_Long_Enough_for_You-PT-BR.txt">PT</a><a href="message.html?file=sermons/2026-07-12-Is_160_Years_Long_Enough_for_You-ESP.txt">ES</a><a href="message.html?file=sermons/2026-07-12-Is_160_Years_Long_Enough_for_You-JAP.txt">JP</a></div></li>
-              <li><time datetime="2026-07-05">July 5, 2026</time><span class="former-title">God’s Faithfulness Knows No Borders</span><div class="former-language-links"><a href="message.html?file=sermons/2026-07-05-Gods_Faithfulness_Knows_No_Borders-ENG.txt">EN</a><a href="message.html?file=sermons/2026-07-05-Gods_Faithfulness_Knows_No_Borders-PT-BR.txt">PT</a><a href="message.html?file=sermons/2026-07-05-Gods_Faithfulness_Knows_No_Borders-ESP.txt">ES</a><a href="message.html?file=sermons/2026-07-05-Gods_Faithfulness_Knows_No_Borders-JAP.txt">JP</a></div></li>
-              <li><time datetime="2026-06-28">June 28, 2026</time><span class="former-title">Trusting God in the Worst of Times</span><div class="former-language-links"><a href="message.html?file=sermons/2026-06-28-Trusting_God_in_the_Worst_of_Times-ENG.txt">EN</a><a href="message.html?file=sermons/2026-06-28-Trusting_God_in_the_Worst_of_Times-PT-BR.txt">PT</a><a href="message.html?file=sermons/2026-06-28-Trusting_God_in_the_Worst_of_Times-ESP.txt">ES</a><a href="message.html?file=sermons/2026-06-28-Trusting_God_in_the_Worst_of_Times-JAP.txt">JP</a></div></li>
+              <li>
+                <time datetime="2026-08-02">
+                  August 2, 2026
+                </time>
+
+                <a href="sermons/2026-08-02.html">
+                  Prohibition, Perspective and Promises
+                </a>
+              </li>
+
+              <li>
+                <time datetime="2026-07-26">
+                  July 26, 2026
+                </time>
+
+                <a href="sermons/2026-07-26.html">
+                  The Power and Benefits of Evangelism
+                </a>
+              </li>
+
+              <li>
+                <time datetime="2026-07-19">
+                  July 19, 2026
+                </time>
+
+                <a href="sermons/2026-07-19.html">
+                  A Call to Return to the Lord
+                </a>
+              </li>
+
+              <li>
+                <time datetime="2026-07-12">
+                  July 12, 2026
+                </time>
+
+                <a href="sermons/2026-07-12.html">
+                  Is 160 Years Long Enough for You?
+                </a>
+              </li>
+
+              <li>
+                <time datetime="2026-07-05">
+                  July 5, 2026
+                </time>
+
+                <a href="sermons/2026-07-05.html">
+                  God’s Faithfulness Knows No Borders
+                </a>
+              </li>
             </ol>
+
+            <a class="archive-link" href="archive.html">
+              Former Message Archive →
+            </a>
           </aside>
         </div>
       </div>
     </section>
 
-    <section class="section" id="events" aria-labelledby="events-title">
+    <section
+      class="section"
+      id="events"
+      aria-labelledby="events-title"
+    >
       <div class="section-heading">
         <div>
           <p class="eyebrow">FC Life Community Board</p>
           <h2 id="events-title">Upcoming Events</h2>
         </div>
-        <p>Save the dates and join our church community.</p>
+
+        <p>
+          Save the dates and join our church community.
+        </p>
       </div>
+
       <div class="events-grid">
         <article class="event-card">
-          <div class="event-image"><img src="images/Aug%2023%20-%20Life%20Meeting.jpg" alt="Church Life Meeting — August 23 after the Sunday service"></div>
+          <div class="event-image">
+            <img
+              src="images/church-life-meeting.jpg"
+              alt="Church Life Meeting — August 23 after the Sunday service"
+            >
+          </div>
+
           <div class="event-body">
-            <p class="event-date">August 23 · After Service</p>
+            <p class="event-date">
+              August 23 · After Service
+            </p>
+
             <h3>Church Life Meeting</h3>
-            <p>A time to share updates and participate in the life of Friendship Church.</p>
+
+            <p>
+              A time to share updates and participate in the life of
+              Friendship Church.
+            </p>
           </div>
         </article>
+
         <article class="event-card">
-          <div class="event-image"><img src="images/Aug%2030%20-%20Family%20Kakigori.jpg" alt="FC All in the Family Kakigori — August 30 after the Sunday service"></div>
+          <div class="event-image">
+            <img
+              src="images/kakigori.jpg"
+              alt="FC All in the Family Kakigori — August 30 after the Sunday service"
+            >
+          </div>
+
           <div class="event-body">
-            <p class="event-date">August 30 · After Service</p>
+            <p class="event-date">
+              August 30 · After Service
+            </p>
+
             <h3>FC “All in the Family” Kakigori</h3>
-            <p>Stay after the service for fellowship and Japanese shaved ice.</p>
+
+            <p>
+              Stay after the service for fellowship and Japanese shaved ice.
+            </p>
           </div>
         </article>
+
         <article class="event-card">
-          <div class="event-image"><img src="images/Sep%206%20-%20Communion.jpg" alt="Communion — September 6 at 9:45 AM"></div>
+          <div class="event-image">
+            <img
+              src="images/communion.jpg"
+              alt="Communion — September 6 at 9:45 AM"
+            >
+          </div>
+
           <div class="event-body">
-            <p class="event-date">September 6 · 9:45 AM</p>
+            <p class="event-date">
+              September 6 · 9:45 AM
+            </p>
+
             <h3>Communion</h3>
-            <p>Please arrive before the Sunday service as we gather for Communion.</p>
+
+            <p>
+              Please arrive before the Sunday service as we gather for
+              Communion.
+            </p>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="visit-section" id="directions" aria-labelledby="directions-title">
+    <section
+      class="visit-section"
+      id="directions"
+      aria-labelledby="directions-title"
+    >
       <div class="section">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Location &amp; Parking Directions</p>
-            <h2 id="directions-title">How to Visit Us</h2>
+            <p class="eyebrow">How to Visit Us</p>
+
+            <h2 id="directions-title">
+              Location &amp; Parking Directions
+            </h2>
           </div>
-          <p>We meet near Aeon Mall and COSMO Book Center in Izumo.</p><p> Free parking is available nearby.</p>
+
+          <p>
+            We meet near Aeon Mall and COSMO Book Center in Izumo. Free
+            parking is available nearby.
+          </p>
         </div>
+
         <div class="visit-grid">
           <article class="panel location-card">
             <h3>Ministry Building</h3>
+
             <address>
-              <p>Address: West Building, 70-12 Tenjin-cho, Izumo City, Shimane Prefecture 693-0005</p>
-              <p class="jp-address" lang="ja">西棟、〒693-0005 島根県出雲市天神町70-12</p>
+              <p>
+                Address: West Building, 70-12 Tenjin-cho, Izumo City,
+                Shimane Prefecture 693-0005
+              </p>
+
+              <p class="jp-address" lang="ja">
+                西棟、〒693-0005 島根県出雲市天神町70-12
+              </p>
             </address>
-            <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=70-12+Tenjin-cho+Izumo+Shimane+693-0005" target="_blank" rel="noopener noreferrer">Open Ministry Building Map</a>
+
+            <a
+              class="button"
+              href="https://www.google.com/maps/search/?api=1&amp;query=70-12+Tenjin-cho+Izumo+Shimane+693-0005"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Ministry Building Map
+            </a>
           </article>
+
           <article class="panel location-card parking">
             <h3>Parking at COSMO Book Center</h3>
-            <p>Free parking is available at COSMO Book Center, near the Ministry Building. Use the map below for directions.</p>
-            <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=COSMO+Book+Center+Izumo+Shimane" target="_blank" rel="noopener noreferrer">Open Parking Map</a>
+
+            <p>
+              Free parking is available at COSMO Book Center, near the
+              Ministry Building. Use the map below for directions.
+            </p>
+
+            <a
+              class="button"
+              href="https://www.google.com/maps/search/?api=1&amp;query=COSMO+Book+Center+Izumo+Shimane"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Parking Map
+            </a>
           </article>
         </div>
       </div>
@@ -669,6 +1023,5 @@ background: var(--nuit-blanche);
     <strong>Friendship Church</strong><br>
     FC Life Community Board · Izumo, Shimane, Japan
   </footer>
-
 </body>
 </html>
