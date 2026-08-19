@@ -23,13 +23,164 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-      line-height: 1.6;
-    }
+
+    /* ========================================
+   FC APPROVED TYPOGRAPHY SYSTEM
+   Iowan Old Style + Arial
+   ======================================== */
+
+/* Regular reading text */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* FC identity and important titles */
+.brand strong,
+.hero h1,
+.section-heading h2,
+.panel h3,
+.latest-message h3,
+.former-messages h3,
+.former-message-title,
+.event-card h3,
+footer strong {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+/* Church name */
+.brand strong {
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: -.035em;
+  line-height: 1.05;
+}
+
+/* Welcome title */
+.hero h1 {
+  font-size: clamp(2.65rem, 5.7vw, 5.35rem);
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: 1.05;
+}
+
+/* Main section titles */
+.section-heading h2 {
+  font-size: clamp(2.25rem, 4vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: -.035em;
+  line-height: 1.1;
+}
+
+/* Board and card titles */
+.panel h3,
+.former-messages h3,
+.event-card h3 {
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Latest sermon title */
+.latest-message h3 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+/* Former sermon titles */
+.former-message-title {
+  display: inline-block;
+  margin-top: 3px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Paragraphs and descriptions */
+.hero p,
+.section-heading p,
+.panel p,
+.latest-message p,
+.event-card p,
+.location-card p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Introductory hero paragraph */
+.hero p:not(.eyebrow) {
+  max-width: 730px;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+/* Navigation and practical interface text */
+.brand span,
+.site-nav,
+.button,
+.text-link,
+.archive-link,
+.date-chip,
+.event-date,
+.former-messages time,
+.language-links,
+.former-language-links {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Small uppercase labels */
+.eyebrow,
+.brand span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+/* Navigation */
+.site-nav a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Dates and small information */
+.date-chip,
+.event-date,
+.former-messages time {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Buttons and language options */
+.button,
+.language-links a,
+.former-language-links a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Footer */
+footer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+footer strong {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+    
     img { display: block; max-width: 100%; }
     a { color: inherit; }
     button, select { font: inherit; }
