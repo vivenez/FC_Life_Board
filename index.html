@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Friendship Church community board, Sunday messages, events and directions in Izumo, Japan.">
   <title>Friendship Church | Life Community Board</title>
+
+
   <style>
     :root {
       --midnight-mirage: #001f3f;
@@ -211,22 +213,29 @@ footer strong {
   padding: 34px 0 28px;
 }
 
+    /* FRIENDSHIP CHURCH LOGO */
+/* FRIENDSHIP CHURCH LOGO AND NAME */
 .brand {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
   color: var(--praxeti-white);
   line-height: 1;
   text-decoration: none;
 }
 
-.brand-logotype {
+.church-logo {
+  width: 82px;
+  height: 82px;
   display: block;
-  margin-bottom: 8px;
-  color: var(--first-colors-of-spring);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: .76rem;
-  font-weight: 700;
-  letter-spacing: .2em;
-  text-transform: uppercase;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .brand strong {
@@ -541,8 +550,13 @@ footer strong {
     footer { padding: 40px 20px; color: rgba(246,247,237,.72); background: var(--midnight-mirage); text-align: center; }
     footer strong { color: var(--praxeti-white); }
 
-    @media (max-width: 860px) {
-
+ @media (max-width: 860px) {
+  .church-logo {
+    width: 60px;
+    height: 60px;
+  }
+}
+      
       .header-inner {
   padding: 24px 0 20px;
 }
@@ -570,6 +584,14 @@ footer strong {
       .hero { min-height: 460px; }
     }
     @media (max-width: 590px) {
+      .brand {
+  gap: 10px;
+}
+
+.church-logo {
+  width: 52px;
+  height: 52px;
+}
       .header-inner, .section, .hero-inner { width: min(100% - 28px, 1180px); }
       .brand strong { font-size: 2.45rem; }
       .brand span { font-size: .64rem; }
@@ -593,10 +615,19 @@ footer strong {
   <div class="header-brand-area">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="Friendship Church home">
-        <span class="brand-logotype">FC Logotype</span>
-        <strong>Friendship Church</strong>
-        <span class="brand-subtitle">Life Community Board</span>
-      </a>
+
+  <img
+    class="church-logo"
+    src="images/logo.webp"
+    alt=""
+  >
+
+  <span class="brand-text">
+    <strong>Friendship Church</strong>
+    <span class="brand-subtitle">Life Community Board</span>
+  </span>
+
+</a>
     </div>
   </div>
 
@@ -646,7 +677,7 @@ footer strong {
         </article>
         <aside class="panel service-card" aria-label="Sunday service information">
           <h3>Service Time</h3>
-          <p class="service-time"><strong>Every Sundays</strong>
+          <p class="service-time"><strong>Every Sundays</strong></p>
           <p>Service at 10:30AM ~ 11:30AM</p>
           <p>Kids Class at 11:00AM ~ 11:30AM</p>
           <p>Young Adults Class at 11:00AM ~ 11:30AM</p>
