@@ -91,17 +91,26 @@
       outline: none;
     }
 
-    .hero {
-      position: relative;
-      min-height: 520px;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      background:
-        radial-gradient(circle at 88% 86%, rgba(116,195,101,.2), transparent 25%),
-        linear-gradient(135deg, #fbfaf5 0%, #f6f2e9 100%);
-    }
-    .hero::after {
+  .hero {
+  position: relative;
+
+    .hero .eyebrow {
+  color: var(--first-colors-of-spring);
+}
+
+.hero h1 {
+  color: var(--praxeti-white);
+  text-shadow: 0 3px 18px rgba(0, 31, 63, .35);
+}
+
+.hero p {
+  color: var(--praxeti-white);
+  text-shadow: 0 2px 12px rgba(0, 31, 63, .45);
+}
+    
+ .hero::after {
+  display: none;
+}
       content: "";
       position: absolute;
       right: -80px;
