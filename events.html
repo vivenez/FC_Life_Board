@@ -104,6 +104,7 @@
     .brand-text {
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     .brand strong {
@@ -259,7 +260,7 @@
 
 
     /* ==================================================
-       MONTH
+       MONTHS
        ================================================== */
 
     .month-section + .month-section {
@@ -294,7 +295,8 @@
 
 
     /* ==================================================
-       EVENT ROWS
+       EVENT CARDS
+       DATE → EVENT INFORMATION
        ================================================== */
 
     .event-list {
@@ -302,20 +304,11 @@
       gap: 16px;
     }
 
-   .event-row {
-  display: grid;
-  grid-template-columns: 150px 180px 1fr;
-  gap: 0;
-  align-items: stretch;
-
-  overflow: hidden;
-
-  border: 1px solid var(--line);
-  border-radius: 18px;
-
-  box-shadow:
-    0 8px 26px rgba(0, 31, 63, .06);
-}
+    .event-row {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 0;
+      align-items: stretch;
 
       overflow: hidden;
 
@@ -335,18 +328,14 @@
     }
 
     .event-row:nth-child(3n + 3) {
-      background:
-        color-mix(
-          in srgb,
-          var(--first-colors-of-spring) 17%,
-          white
-        );
+      background: #f4f7dc;
     }
 
     .event-date {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
 
       padding: 26px 22px;
 
@@ -356,21 +345,6 @@
       text-align: center;
     }
 
-    .event-image {
-  min-height: 150px;
-  overflow: hidden;
-
-  background: var(--mist);
-  border-right: 1px solid var(--line);
-}
-
-.event-image img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-}
-    
     .event-month {
       font-size: .78rem;
       font-weight: 900;
@@ -396,13 +370,16 @@
       line-height: 1;
     }
 
-   .event-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    .event-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-  padding: 24px 28px;
-}
+      min-width: 0;
+
+      padding: 24px 28px;
+    }
+
     .event-content h2 {
       margin: 0;
 
@@ -495,6 +472,10 @@
 
     @media (max-width: 760px) {
 
+      body {
+        font-size: 16px;
+      }
+
       .header-inner {
         padding: 16px 0 14px;
       }
@@ -558,42 +539,13 @@
         padding: 56px 0 100px;
       }
 
-   .event-row {
-  grid-template-columns: 82px 105px minmax(0, 1fr);
-  gap: 0;
-}
+      .event-row {
+        grid-template-columns:
+          90px minmax(0, 1fr);
+      }
 
-.event-date {
-  align-items: center;
-
-  padding: 14px 8px;
-
-  text-align: center;
-}
-
-.event-image {
-  min-height: 125px;
-}
-
-.event-content {
-  padding: 18px 14px;
-}
-
-.event-content h2 {
-  font-size: 1.25rem;
-}
-
-.event-time,
-.event-location {
-  font-size: .88rem;
-  line-height: 1.35;
-}
       .event-date {
-        align-items: flex-start;
-
-        padding: 16px 20px;
-
-        text-align: left;
+        padding: 16px 8px;
       }
 
       .event-day {
@@ -601,11 +553,17 @@
       }
 
       .event-content {
-        padding: 22px 20px 24px;
+        padding: 20px 18px;
       }
 
       .event-content h2 {
-        font-size: 1.45rem;
+        font-size: 1.35rem;
+      }
+
+      .event-time,
+      .event-location {
+        font-size: .9rem;
+        line-height: 1.35;
       }
     }
 
@@ -630,7 +588,44 @@
       }
 
       .event-row {
+        grid-template-columns:
+          78px minmax(0, 1fr);
+
         border-radius: 16px;
+      }
+
+      .event-date {
+        padding: 14px 6px;
+      }
+
+      .event-month {
+        font-size: .66rem;
+        letter-spacing: .08em;
+      }
+
+      .event-day {
+        font-size: 1.65rem;
+      }
+
+      .event-content {
+        padding: 18px 14px;
+      }
+
+      .event-content h2 {
+        font-size: 1.15rem;
+      }
+
+      .event-time,
+      .event-location {
+        font-size: .82rem;
+      }
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
       }
     }
   </style>
@@ -760,8 +755,6 @@
     </section>
 
 
-    <!-- AUGUST -->
-
     <section class="month-section">
 
       <div class="month-title">
@@ -793,14 +786,6 @@
               Church Life Meeting
             </h2>
 
-            <div class="event-image">
-  <img
-    src="images/Aug%2023%20-%20Life%20Meeting.jpg"
-    alt="Church Life Meeting"
-    loading="lazy"
-  >
-</div>
-            
             <p class="event-time">
               After Service
             </p>
@@ -835,14 +820,6 @@
               FC “All in the Family” Kakigori
             </h2>
 
-<div class="event-image">
-  <img
-    src="images/Aug%2030%20-%20Family%20Kakigori.jpg"
-    alt="FC All in the Family Kakigori"
-    loading="lazy"
-  >
-</div>
-            
             <p class="event-time">
               After Service
             </p>
@@ -855,12 +832,11 @@
 
         </article>
 
+
       </div>
 
     </section>
 
-
-    <!-- SEPTEMBER -->
 
     <section class="month-section">
 
@@ -893,14 +869,6 @@
               Communion
             </h2>
 
-            <div class="event-image">
-  <img
-    src="images/Sep%206%20-%20Communion.jpg"
-    alt="Communion"
-    loading="lazy"
-  >
-</div>
-            
             <p class="event-time">
               9:45 AM
             </p>
@@ -913,9 +881,11 @@
 
         </article>
 
+
       </div>
 
     </section>
+
 
   </main>
 
@@ -980,6 +950,33 @@
 
         }
       );
+
+
+      navigation
+        .querySelectorAll("a")
+        .forEach((link) => {
+
+          link.addEventListener(
+            "click",
+            () => {
+
+              if (window.innerWidth <= 760) {
+
+                navigation.classList.remove(
+                  "is-open"
+                );
+
+                menuButton.setAttribute(
+                  "aria-expanded",
+                  "false"
+                );
+
+              }
+
+            }
+          );
+
+        });
 
     }
 
