@@ -1,1 +1,913 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <meta
+    name="description"
+    content="Friendship Church upcoming events in Izumo, Japan."
+  >
+
+  <title>All Events | Friendship Church</title>
+
+  <style>
+    :root {
+      --midnight-mirage: #001f3f;
+      --first-colors-of-spring: #dbe64c;
+      --praxeti-white: #f6f7ed;
+      --picture-book-green: #00804c;
+      --mantis: #74c365;
+      --nuit-blanche: #1e488f;
+
+      --ink: #173044;
+      --paper: #fbfaf5;
+      --mist: #edf3ee;
+      --line: #d7dfd6;
+
+      --shadow: 0 14px 40px rgba(0, 31, 63, .10);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      color: var(--ink);
+      background: var(--paper);
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+
+    /* ==================================================
+       HEADER
+       ================================================== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
+      background: var(--midnight-mirage);
+
+      box-shadow:
+        0 4px 18px rgba(0, 31, 63, .16);
+    }
+
+    .header-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 22px 0 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+
+      color: var(--praxeti-white);
+
+      text-decoration: none;
+    }
+
+    .church-logo {
+      width: 155px;
+      height: 155px;
+
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand strong {
+      color: var(--praxeti-white);
+
+      font-family:
+        "Iowan Old Style",
+        "Palatino Linotype",
+        Palatino,
+        Georgia,
+        serif;
+
+      font-size: clamp(2.15rem, 3.8vw, 3.85rem);
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: 1;
+    }
+
+    .brand-subtitle {
+      margin-top: 10px;
+
+      color: var(--first-colors-of-spring);
+
+      font-size: .95rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+
+      text-transform: uppercase;
+    }
+
+
+    /* ==================================================
+       NAVIGATION
+       ================================================== */
+
+    .navigation-bar {
+      background: var(--first-colors-of-spring);
+    }
+
+    .nav-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(18px, 3vw, 44px);
+
+      min-height: 62px;
+    }
+
+    .site-nav a {
+      padding: 20px 0 17px;
+
+      color: var(--midnight-mirage);
+
+      font-size: .84rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+
+      text-decoration: none;
+      text-transform: uppercase;
+
+      white-space: nowrap;
+    }
+
+    .site-nav .admin-link {
+      color: var(--picture-book-green);
+    }
+
+    .mobile-nav-header {
+      display: none;
+    }
+
+    .menu-toggle {
+      width: 46px;
+      height: 46px;
+      padding: 10px;
+
+      border: 0;
+
+      color: var(--midnight-mirage);
+      background: transparent;
+
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+
+      width: 25px;
+      height: 2px;
+      margin: 5px auto;
+
+      background: currentColor;
+
+      border-radius: 999px;
+    }
+
+
+    /* ==================================================
+       PAGE
+       ================================================== */
+
+    .page-main {
+      width: min(1040px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0 110px;
+    }
+
+    .page-heading {
+      margin-bottom: 44px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+
+      color: var(--picture-book-green);
+
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+
+      text-transform: uppercase;
+    }
+
+    .page-heading h1 {
+      margin: 0;
+
+      color: var(--midnight-mirage);
+
+      font-family:
+        "Iowan Old Style",
+        "Palatino Linotype",
+        Palatino,
+        Georgia,
+        serif;
+
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      font-weight: 400;
+      letter-spacing: -.04em;
+      line-height: 1.05;
+    }
+
+    .page-heading p {
+      max-width: 700px;
+      margin: 18px 0 0;
+
+      font-size: 1.05rem;
+    }
+
+
+    /* ==================================================
+       MONTH
+       ================================================== */
+
+    .month-section + .month-section {
+      margin-top: 56px;
+    }
+
+    .month-title {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+
+      margin-bottom: 20px;
+
+      color: var(--picture-book-green);
+
+      font-size: .95rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+    }
+
+    .month-title::after {
+      flex: 1;
+
+      height: 2px;
+
+      background: var(--mantis);
+
+      content: "";
+    }
+
+
+    /* ==================================================
+       EVENT ROWS
+       ================================================== */
+
+    .event-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .event-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 26px;
+      align-items: stretch;
+
+      overflow: hidden;
+
+      border: 1px solid var(--line);
+      border-radius: 18px;
+
+      box-shadow:
+        0 8px 26px rgba(0, 31, 63, .06);
+    }
+
+    .event-row:nth-child(3n + 1) {
+      background: var(--praxeti-white);
+    }
+
+    .event-row:nth-child(3n + 2) {
+      background: var(--mist);
+    }
+
+    .event-row:nth-child(3n + 3) {
+      background:
+        color-mix(
+          in srgb,
+          var(--first-colors-of-spring) 17%,
+          white
+        );
+    }
+
+    .event-date {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 26px 22px;
+
+      color: var(--praxeti-white);
+      background: var(--midnight-mirage);
+
+      text-align: center;
+    }
+
+    .event-month {
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+
+      text-transform: uppercase;
+    }
+
+    .event-day {
+      margin-top: 4px;
+
+      color: var(--first-colors-of-spring);
+
+      font-family:
+        "Iowan Old Style",
+        "Palatino Linotype",
+        Palatino,
+        Georgia,
+        serif;
+
+      font-size: 2.25rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .event-content {
+      padding: 24px 28px;
+    }
+
+    .event-content h2 {
+      margin: 0;
+
+      color: var(--midnight-mirage);
+
+      font-family:
+        "Iowan Old Style",
+        "Palatino Linotype",
+        Palatino,
+        Georgia,
+        serif;
+
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .event-time,
+    .event-location {
+      margin: 7px 0 0;
+    }
+
+    .event-time {
+      color: var(--nuit-blanche);
+
+      font-weight: 800;
+    }
+
+    .event-location {
+      color: var(--picture-book-green);
+
+      font-weight: 800;
+    }
+
+
+    /* ==================================================
+       BACK BUTTON
+       ================================================== */
+
+    .back-button {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 40;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 44px;
+      padding: 10px 18px;
+
+      color: white;
+      background: var(--picture-book-green);
+
+      border-radius: 999px;
+
+      font-size: .9rem;
+      font-weight: 800;
+
+      text-decoration: none;
+
+      box-shadow: var(--shadow);
+    }
+
+
+    /* ==================================================
+       FOOTER
+       ================================================== */
+
+    footer {
+      padding: 38px 20px;
+
+      color: rgba(246, 247, 237, .75);
+      background: var(--midnight-mirage);
+
+      font-size: .93rem;
+
+      text-align: center;
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+
+    /* ==================================================
+       MOBILE
+       ================================================== */
+
+    @media (max-width: 760px) {
+
+      .header-inner {
+        padding: 16px 0 14px;
+      }
+
+      .church-logo {
+        width: 82px;
+        height: 82px;
+      }
+
+      .brand {
+        gap: 13px;
+      }
+
+      .brand strong {
+        font-size: clamp(1.75rem, 7vw, 2.55rem);
+      }
+
+      .brand-subtitle {
+        margin-top: 7px;
+
+        font-size: .78rem;
+        letter-spacing: .11em;
+      }
+
+      .nav-inner {
+        width: 100%;
+      }
+
+      .mobile-nav-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        min-height: 54px;
+        padding: 4px 18px;
+      }
+
+      .site-nav {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        width: 100%;
+        padding: 0 20px 18px;
+      }
+
+      .site-nav.is-open {
+        display: flex;
+      }
+
+      .site-nav a {
+        padding: 15px 4px;
+
+        border-bottom:
+          1px solid rgba(0, 31, 63, .13);
+      }
+
+      .page-main {
+        width: min(100% - 28px, 1040px);
+        padding: 56px 0 100px;
+      }
+
+      .event-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .event-date {
+        align-items: flex-start;
+
+        padding: 16px 20px;
+
+        text-align: left;
+      }
+
+      .event-day {
+        font-size: 1.9rem;
+      }
+
+      .event-content {
+        padding: 22px 20px 24px;
+      }
+
+      .event-content h2 {
+        font-size: 1.45rem;
+      }
+    }
+
+
+    @media (max-width: 590px) {
+
+      .church-logo {
+        width: 74px;
+        height: 74px;
+      }
+
+      .brand strong {
+        font-size: 1.85rem;
+      }
+
+      .brand-subtitle {
+        font-size: .72rem;
+      }
+
+      .month-section + .month-section {
+        margin-top: 44px;
+      }
+
+      .event-row {
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <header class="site-header">
+
+    <div class="header-inner">
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Friendship Church home"
+      >
+
+        <img
+          class="church-logo"
+          src="images/logo.webp"
+          alt=""
+          width="155"
+          height="155"
+        >
+
+        <span class="brand-text">
+
+          <strong>
+            Friendship Church
+          </strong>
+
+          <span class="brand-subtitle">
+            Life Community Board
+          </span>
+
+        </span>
+
+      </a>
+
+    </div>
+
+
+    <div class="navigation-bar">
+
+      <div class="nav-inner">
+
+        <div class="mobile-nav-header">
+
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-navigation"
+            aria-label="Open navigation menu"
+          >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </button>
+
+        </div>
+
+
+        <nav
+          class="site-nav"
+          id="site-navigation"
+          aria-label="Main navigation"
+        >
+
+          <a href="index.html#about">
+            About Us
+          </a>
+
+          <a href="index.html#message">
+            Worship
+          </a>
+
+          <a href="index.html#events">
+            Events
+          </a>
+
+          <a href="index.html#directions">
+            Where to Find Us
+          </a>
+
+          <a href="members.html">
+            Members Area
+          </a>
+
+          <a
+            class="admin-link"
+            href="admin.html"
+          >
+            Admin
+          </a>
+
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="page-main">
+
+
+    <section class="page-heading">
+
+      <p class="eyebrow">
+        Friendship Church
+      </p>
+
+      <h1>
+        All Events
+      </h1>
+
+      <p>
+        Upcoming Friendship Church events,
+        meetings and community activities.
+      </p>
+
+    </section>
+
+
+    <!-- AUGUST -->
+
+    <section class="month-section">
+
+      <div class="month-title">
+        August 2026
+      </div>
+
+
+      <div class="event-list">
+
+
+        <article class="event-row">
+
+          <div class="event-date">
+
+            <span class="event-month">
+              August
+            </span>
+
+            <span class="event-day">
+              23
+            </span>
+
+          </div>
+
+
+          <div class="event-content">
+
+            <h2>
+              Church Life Meeting
+            </h2>
+
+            <p class="event-time">
+              After Service
+            </p>
+
+            <p class="event-location">
+              Ministry Building
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="event-row">
+
+          <div class="event-date">
+
+            <span class="event-month">
+              August
+            </span>
+
+            <span class="event-day">
+              30
+            </span>
+
+          </div>
+
+
+          <div class="event-content">
+
+            <h2>
+              FC “All in the Family” Kakigori
+            </h2>
+
+            <p class="event-time">
+              After Service
+            </p>
+
+            <p class="event-location">
+              Ministry Building
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- SEPTEMBER -->
+
+    <section class="month-section">
+
+      <div class="month-title">
+        September 2026
+      </div>
+
+
+      <div class="event-list">
+
+
+        <article class="event-row">
+
+          <div class="event-date">
+
+            <span class="event-month">
+              September
+            </span>
+
+            <span class="event-day">
+              06
+            </span>
+
+          </div>
+
+
+          <div class="event-content">
+
+            <h2>
+              Communion
+            </h2>
+
+            <p class="event-time">
+              9:45 AM
+            </p>
+
+            <p class="event-location">
+              Ministry Building
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <a
+    class="back-button"
+    href="index.html#events"
+  >
+    ← Back
+  </a>
+
+
+  <footer>
+
+    <p>
+      〒693-0005 | Izumo, Shimane,
+      Tenjincho 70-12 (West Bldg.)
+    </p>
+
+    <p>
+      © 2026 Izumo International Friendship Church.
+    </p>
+
+    <p>
+      All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    const menuButton =
+      document.querySelector(".menu-toggle");
+
+    const navigation =
+      document.querySelector("#site-navigation");
+
+
+    if (menuButton && navigation) {
+
+      menuButton.addEventListener(
+        "click",
+        () => {
+
+          const isOpen =
+            menuButton.getAttribute(
+              "aria-expanded"
+            ) === "true";
+
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+          );
+
+
+          navigation.classList.toggle(
+            "is-open",
+            !isOpen
+          );
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
