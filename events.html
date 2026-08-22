@@ -39,7 +39,6 @@
 
     body {
       margin: 0;
-
       color: var(--ink);
       background: var(--paper);
 
@@ -50,11 +49,6 @@
 
     a {
       color: inherit;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
     }
 
     button {
@@ -89,11 +83,12 @@
       gap: 20px;
 
       color: var(--praxeti-white);
-
       text-decoration: none;
     }
 
     .church-logo {
+      display: block;
+
       width: 155px;
       height: 155px;
 
@@ -260,27 +255,74 @@
 
 
     /* ==================================================
-       MONTHS
+       MONTH DROPDOWNS
        ================================================== */
 
     .month-section + .month-section {
-      margin-top: 56px;
+      margin-top: 18px;
+    }
+
+    .month-section {
+      overflow: hidden;
+
+      background: #fff;
+
+      border: 1px solid var(--line);
+      border-radius: 18px;
+
+      box-shadow:
+        0 7px 22px rgba(0, 31, 63, .05);
     }
 
     .month-title {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 14px;
 
-      margin-bottom: 20px;
+      min-height: 62px;
+      padding: 17px 22px;
 
       color: var(--picture-book-green);
+      background: var(--mist);
 
       font-size: .95rem;
       font-weight: 900;
       letter-spacing: .12em;
 
       text-transform: uppercase;
+
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .month-title::-webkit-details-marker {
+      display: none;
+    }
+
+    .month-title::before {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 30px;
+      height: 30px;
+
+      flex: 0 0 30px;
+
+      color: var(--first-colors-of-spring);
+      background: var(--midnight-mirage);
+
+      border-radius: 50%;
+
+      content: "+";
+
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .month-section[open] > .month-title::before {
+      content: "−";
     }
 
     .month-title::after {
@@ -293,15 +335,21 @@
       content: "";
     }
 
+    .month-section[open] > .month-title {
+      color: var(--midnight-mirage);
+      background: #f5f7ec;
+    }
+
 
     /* ==================================================
-       EVENT CARDS
-       DATE → EVENT INFORMATION
+       EVENT LIST
        ================================================== */
 
     .event-list {
       display: grid;
-      gap: 16px;
+      gap: 14px;
+
+      padding: 18px;
     }
 
     .event-row {
@@ -313,10 +361,10 @@
       overflow: hidden;
 
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 16px;
 
       box-shadow:
-        0 8px 26px rgba(0, 31, 63, .06);
+        0 6px 18px rgba(0, 31, 63, .05);
     }
 
     .event-row:nth-child(3n + 1) {
@@ -330,6 +378,11 @@
     .event-row:nth-child(3n + 3) {
       background: #f4f7dc;
     }
+
+
+    /* ==================================================
+       EVENT DATE
+       ================================================== */
 
     .event-date {
       display: flex;
@@ -370,6 +423,11 @@
       line-height: 1;
     }
 
+
+    /* ==================================================
+       EVENT INFORMATION
+       ================================================== */
+
     .event-content {
       display: flex;
       flex-direction: column;
@@ -404,14 +462,31 @@
 
     .event-time {
       color: var(--nuit-blanche);
-
       font-weight: 800;
     }
 
     .event-location {
       color: var(--picture-book-green);
-
       font-weight: 800;
+    }
+
+
+    /* ==================================================
+       EMPTY MONTH
+       ================================================== */
+
+    .empty-month {
+      display: block;
+
+      padding: 24px 26px;
+    }
+
+    .empty-month p {
+      margin: 0;
+
+      color: #66766b;
+
+      font-size: .95rem;
     }
 
 
@@ -467,7 +542,7 @@
 
 
     /* ==================================================
-       MOBILE
+       TABLET / MOBILE
        ================================================== */
 
     @media (max-width: 760px) {
@@ -539,6 +614,17 @@
         padding: 56px 0 100px;
       }
 
+      .month-title {
+        min-height: 58px;
+        padding: 14px 16px;
+
+        font-size: .86rem;
+      }
+
+      .event-list {
+        padding: 12px;
+      }
+
       .event-row {
         grid-template-columns:
           90px minmax(0, 1fr);
@@ -583,15 +669,39 @@
         font-size: .72rem;
       }
 
+      .page-heading {
+        margin-bottom: 32px;
+      }
+
       .month-section + .month-section {
-        margin-top: 44px;
+        margin-top: 14px;
+      }
+
+      .month-title {
+        gap: 10px;
+
+        padding: 13px 14px;
+
+        font-size: .78rem;
+        letter-spacing: .08em;
+      }
+
+      .month-title::before {
+        width: 28px;
+        height: 28px;
+
+        flex-basis: 28px;
+      }
+
+      .event-list {
+        padding: 10px;
       }
 
       .event-row {
         grid-template-columns:
           78px minmax(0, 1fr);
 
-        border-radius: 16px;
+        border-radius: 14px;
       }
 
       .event-date {
@@ -619,6 +729,10 @@
       .event-location {
         font-size: .82rem;
       }
+
+      .empty-month {
+        padding: 20px 18px;
+      }
     }
 
 
@@ -633,6 +747,10 @@
 
 
 <body>
+
+  <!-- ==================================================
+       HEADER
+       ================================================== -->
 
   <header class="site-header">
 
@@ -734,8 +852,11 @@
   </header>
 
 
-  <main class="page-main">
+  <!-- ==================================================
+       MAIN
+       ================================================== -->
 
+  <main class="page-main">
 
     <section class="page-heading">
 
@@ -755,11 +876,19 @@
     </section>
 
 
-    <section class="month-section">
+    <!-- ==================================================
+         AUGUST 2026
+         OPEN BY DEFAULT
+         ================================================== -->
 
-      <div class="month-title">
+    <details
+      class="month-section"
+      open
+    >
+
+      <summary class="month-title">
         August 2026
-      </div>
+      </summary>
 
 
       <div class="event-list">
@@ -835,14 +964,18 @@
 
       </div>
 
-    </section>
+    </details>
 
 
-    <section class="month-section">
+    <!-- ==================================================
+         SEPTEMBER 2026
+         ================================================== -->
 
-      <div class="month-title">
+    <details class="month-section">
+
+      <summary class="month-title">
         September 2026
-      </div>
+      </summary>
 
 
       <div class="event-list">
@@ -884,11 +1017,77 @@
 
       </div>
 
-    </section>
+    </details>
 
+
+    <!-- ==================================================
+         OCTOBER 2026
+         ================================================== -->
+
+    <details class="month-section">
+
+      <summary class="month-title">
+        October 2026
+      </summary>
+
+      <div class="empty-month">
+
+        <p>
+          No events added yet.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <!-- ==================================================
+         NOVEMBER 2026
+         ================================================== -->
+
+    <details class="month-section">
+
+      <summary class="month-title">
+        November 2026
+      </summary>
+
+      <div class="empty-month">
+
+        <p>
+          No events added yet.
+        </p>
+
+      </div>
+
+    </details>
+
+
+    <!-- ==================================================
+         DECEMBER 2026
+         ================================================== -->
+
+    <details class="month-section">
+
+      <summary class="month-title">
+        December 2026
+      </summary>
+
+      <div class="empty-month">
+
+        <p>
+          No events added yet.
+        </p>
+
+      </div>
+
+    </details>
 
   </main>
 
+
+  <!-- ==================================================
+       BACK BUTTON
+       ================================================== -->
 
   <a
     class="back-button"
@@ -897,6 +1096,10 @@
     ← Back
   </a>
 
+
+  <!-- ==================================================
+       FOOTER
+       ================================================== -->
 
   <footer>
 
@@ -915,6 +1118,10 @@
 
   </footer>
 
+
+  <!-- ==================================================
+       MOBILE NAVIGATION
+       ================================================== -->
 
   <script>
 
