@@ -47,6 +47,10 @@
       line-height: 1.72;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     img {
       display: block;
       max-width: 100%;
@@ -73,9 +77,8 @@
     .hero h1,
     .section-heading h2,
     .panel h3,
-    .latest-message h3,
-    .former-messages h3,
-    .former-message-title,
+    .weekly-card h3,
+    .faith-card h3,
     .event-preview-title,
     .event-preview-item h3 {
       font-family:
@@ -112,24 +115,7 @@
       line-height: 1.2;
     }
 
-    .latest-message h3 {
-      font-size: clamp(2rem, 3vw, 3rem);
-      font-weight: 600;
-      line-height: 1.12;
-    }
-
-    .former-message-title {
-      display: inline-block;
-
-      margin-top: 3px;
-
-      font-size: 1.1rem;
-      font-weight: 600;
-      line-height: 1.4;
-    }
-
     .panel p,
-    .latest-message p,
     .location-main p,
     .parking p {
       font-size: 1.06rem;
@@ -532,26 +518,27 @@
 
 
     /* ==================================================
-       SERMON
+       WEEKLY CONTENT SHARED SYSTEM
        ================================================== */
 
-    .message-section {
+    .weekly-section {
       color: var(--praxeti-white);
       background: var(--midnight-mirage);
     }
 
-    .message-section .section-heading h2 {
+    .weekly-section .section-heading h2 {
       color: var(--praxeti-white);
     }
 
-    .message-layout {
+    .weekly-stack {
       display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 28px;
+      gap: 18px;
     }
 
-    .latest-message {
-      padding: clamp(28px, 5vw, 56px);
+    .weekly-card {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr);
+      overflow: hidden;
 
       color: var(--midnight-mirage);
       background: var(--praxeti-white);
@@ -559,111 +546,195 @@
       border-radius: var(--radius);
     }
 
-    .date-chip {
-      display: inline-block;
+    .weekly-date {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-      margin-bottom: 18px;
-      padding: 6px 12px;
+      padding: 24px 14px;
 
-      color: white;
+      color: var(--praxeti-white);
       background: var(--nuit-blanche);
 
-      border-radius: 999px;
-
-      font-size: .8rem;
-      font-weight: 800;
+      text-align: center;
     }
 
-    .latest-message h3 {
-      margin: 0 0 10px;
+    .weekly-date span {
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .weekly-date strong {
+      margin-top: 4px;
+
+      color: var(--first-colors-of-spring);
+
+      font-family:
+        "Iowan Old Style",
+        "Palatino Linotype",
+        Palatino,
+        Georgia,
+        serif;
+
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .weekly-content {
+      padding: 28px 30px;
+    }
+
+    .weekly-kicker {
+      margin: 0 0 8px;
+
+      color: var(--picture-book-green);
+
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+
+      text-transform: uppercase;
+    }
+
+    .weekly-card h3 {
+      margin: 0;
+
+      color: var(--midnight-mirage);
+
+      font-size: clamp(1.65rem, 3vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.12;
     }
 
     .scripture {
+      margin: 12px 0 0;
+
       color: var(--picture-book-green);
 
       font-weight: 800;
     }
 
-    .mobile-break {
-      display: none;
+    .flavor-text {
+      margin: 12px 0 0;
+
+      color: var(--ink);
+
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
-    .language-links,
-    .former-language-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
 
-      margin-top: 24px;
+    /* ==================================================
+       COMPACT LANGUAGE SELECTOR
+       ================================================== */
+
+    .language-area {
+      margin-top: 22px;
     }
 
-    .language-links a,
-    .former-language-links a {
-      padding: 7px 12px;
+    .language-label {
+      margin: 0 0 8px;
 
-      border-radius: 999px;
+      color: var(--ink);
 
-      color: var(--midnight-mirage);
-      background: var(--first-colors-of-spring);
-
-      font-size: .8rem;
+      font-size: .78rem;
       font-weight: 800;
 
-      text-align: center;
-      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .08em;
     }
 
-    .language-links a:nth-child(2),
-    .former-language-links a:nth-child(2) {
+    .language-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .language-option {
+      min-height: 38px;
+      padding: 7px 10px;
+
+      border: 2px solid transparent;
+      border-radius: 999px;
+
+      font-size: .76rem;
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+    }
+
+    .language-option[data-lang="ENG"] {
+      color: var(--midnight-mirage);
+      background: var(--first-colors-of-spring);
+    }
+
+    .language-option[data-lang="PT-BR"] {
       color: white;
       background: var(--picture-book-green);
     }
 
-    .language-links a:nth-child(3),
-    .former-language-links a:nth-child(3) {
+    .language-option[data-lang="ESP"] {
+      color: var(--midnight-mirage);
       background: var(--mantis);
     }
 
-    .language-links a:nth-child(4),
-    .former-language-links a:nth-child(4) {
+    .language-option[data-lang="JAP"] {
       color: white;
       background: var(--nuit-blanche);
     }
 
-    .former-messages {
-      padding: 32px;
+    .language-option.is-selected {
+      border-color: var(--midnight-mirage);
 
-      border:
-        1px solid rgba(246, 247, 237, .20);
-
-      border-radius: var(--radius);
+      box-shadow:
+        0 0 0 2px rgba(0, 31, 63, .12);
     }
 
-    .former-messages h3 {
-      margin: 0 0 18px;
-
-      color: var(--first-colors-of-spring);
-
-      font-size: 1.65rem;
+    .language-option:focus-visible {
+      outline: 3px solid rgba(0, 128, 76, .25);
+      outline-offset: 2px;
     }
 
-    .former-messages time {
-      display: block;
-
-      color: var(--mantis);
-
-      font-size: .8rem;
-      font-weight: 800;
+    .language-option:hover {
+      transform: translateY(-1px);
     }
 
-    .former-message-title {
-      color: var(--praxeti-white);
+    .content-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      margin-top: 14px;
     }
 
-    .archive-link {
+    .content-actions .button {
+      min-height: 40px;
+      padding: 7px 13px;
+
+      font-size: .78rem;
+    }
+
+    .study-button {
+      color: var(--midnight-mirage);
+      background: var(--first-colors-of-spring);
+    }
+
+    .study-button[aria-disabled="true"] {
+      cursor: not-allowed;
+      opacity: .45;
+    }
+
+    .weekly-archive-link {
       display: inline-block;
 
-      margin-top: 24px;
+      margin-top: 20px;
 
       color: var(--first-colors-of-spring);
 
@@ -673,7 +744,97 @@
 
 
     /* ==================================================
-       UPCOMING EVENTS — HOMEPAGE PREVIEW
+       FAITH HEROES
+       ================================================== */
+
+    .faith-section {
+      background: #082f59;
+      color: var(--praxeti-white);
+    }
+
+    .faith-section .section-heading h2 {
+      color: var(--praxeti-white);
+    }
+
+    .faith-card {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr);
+
+      overflow: hidden;
+
+      color: var(--midnight-mirage);
+      background: var(--praxeti-white);
+
+      border-radius: var(--radius);
+    }
+
+    .faith-date {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      padding: 24px 14px;
+
+      color: white;
+      background: var(--picture-book-green);
+
+      text-align: center;
+    }
+
+    .faith-date span {
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+    }
+
+    .faith-date strong {
+      margin-top: 4px;
+
+      color: var(--first-colors-of-spring);
+
+      font-family:
+        "Iowan Old Style",
+        "Palatino Linotype",
+        Palatino,
+        Georgia,
+        serif;
+
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .faith-content {
+      padding: 28px 30px;
+    }
+
+    .faith-number {
+      margin: 0 0 8px;
+
+      color: var(--picture-book-green);
+
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+
+      text-transform: uppercase;
+    }
+
+    .faith-card h3 {
+      margin: 0;
+
+      color: var(--midnight-mirage);
+
+      font-size: clamp(1.65rem, 3vw, 2.45rem);
+      font-weight: 600;
+      line-height: 1.12;
+    }
+
+
+    /* ==================================================
+       EVENTS PREVIEW
        ================================================== */
 
     .events-preview-grid {
@@ -702,7 +863,6 @@
 
       font-size: 1.25rem;
       font-weight: 600;
-      letter-spacing: .01em;
     }
 
     .event-preview-list {
@@ -746,7 +906,6 @@
 
       font-size: 1.65rem;
       font-weight: 600;
-      line-height: 1;
     }
 
     .event-preview-content {
@@ -761,6 +920,28 @@
       font-size: 1.28rem;
       font-weight: 600;
       line-height: 1.25;
+    }
+
+    .event-title-button {
+      padding: 0;
+
+      border: 0;
+      background: transparent;
+
+      color: inherit;
+
+      font: inherit;
+
+      text-align: left;
+
+      cursor: pointer;
+    }
+
+    .event-title-button:hover,
+    .event-title-button:focus-visible {
+      color: var(--picture-book-green);
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
     .event-preview-time {
@@ -783,6 +964,70 @@
 
     .events-more {
       margin-top: 24px;
+    }
+
+
+    /* ==================================================
+       EVENT MODAL
+       ================================================== */
+
+    .event-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      padding: 24px;
+
+      background:
+        rgba(0, 31, 63, .86);
+    }
+
+    .event-modal.is-open {
+      display: flex;
+    }
+
+    .event-modal-dialog {
+      position: relative;
+
+      width: min(720px, 100%);
+      max-height: 90vh;
+
+      overflow: auto;
+
+      background: var(--paper);
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 20px 70px rgba(0, 0, 0, .35);
+    }
+
+    .event-modal-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .event-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+
+      width: 44px;
+      height: 44px;
+
+      border: 0;
+      border-radius: 50%;
+
+      color: white;
+      background: rgba(0, 31, 63, .9);
+
+      font-size: 1.5rem;
+
+      cursor: pointer;
     }
 
 
@@ -929,7 +1174,6 @@
     @media (max-width: 980px) {
 
       .about-grid,
-      .message-layout,
       .visit-grid {
         grid-template-columns: 1fr;
       }
@@ -1019,7 +1263,6 @@
       }
 
       .about-grid,
-      .message-layout,
       .visit-grid {
         grid-template-columns: 1fr;
       }
@@ -1033,14 +1276,45 @@
         text-align: left;
       }
 
-      .mobile-break {
-        display: block;
+      .weekly-card,
+      .faith-card {
+        grid-template-columns: 82px minmax(0, 1fr);
       }
 
-      .language-links a,
-      .former-language-links a {
-        flex:
-          1 1 calc(50% - 8px);
+      .weekly-date,
+      .faith-date {
+        padding: 18px 8px;
+      }
+
+      .weekly-date strong,
+      .faith-date strong {
+        font-size: 1.7rem;
+      }
+
+      .weekly-content,
+      .faith-content {
+        padding: 22px 18px;
+      }
+
+      .weekly-card h3,
+      .faith-card h3 {
+        font-size: 1.55rem;
+      }
+
+      .language-selector {
+        gap: 5px;
+      }
+
+      .language-option {
+        min-height: 36px;
+        padding: 6px 9px;
+
+        font-size: .72rem;
+      }
+
+      .content-actions .button {
+        min-height: 38px;
+        padding: 6px 11px;
       }
 
       .events-preview-grid {
@@ -1105,6 +1379,62 @@
         padding: 28px 22px;
       }
 
+      .weekly-card,
+      .faith-card {
+        grid-template-columns: 72px minmax(0, 1fr);
+      }
+
+      .weekly-date span,
+      .faith-date span {
+        font-size: .62rem;
+      }
+
+      .weekly-date strong,
+      .faith-date strong {
+        font-size: 1.55rem;
+      }
+
+      .weekly-content,
+      .faith-content {
+        padding: 18px 14px;
+      }
+
+      .weekly-card h3,
+      .faith-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .scripture,
+      .flavor-text {
+        font-size: .88rem;
+      }
+
+      .language-area {
+        margin-top: 16px;
+      }
+
+      .language-selector {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+
+        padding-bottom: 4px;
+
+        scrollbar-width: none;
+      }
+
+      .language-selector::-webkit-scrollbar {
+        display: none;
+      }
+
+      .language-option {
+        flex: 0 0 auto;
+
+        min-height: 34px;
+        padding: 5px 8px;
+
+        font-size: .68rem;
+      }
+
       .event-preview-item {
         grid-template-columns: 58px minmax(0, 1fr);
         gap: 12px;
@@ -1123,6 +1453,10 @@
       .event-preview-time,
       .event-preview-location {
         font-size: .83rem;
+      }
+
+      .event-modal {
+        padding: 12px;
       }
     }
 
@@ -1191,11 +1525,9 @@
             aria-controls="site-navigation"
             aria-label="Open navigation menu"
           >
-
             <span></span>
             <span></span>
             <span></span>
-
           </button>
 
         </div>
@@ -1207,32 +1539,12 @@
           aria-label="Main navigation"
         >
 
-          <a href="#about">
-            About Us
-          </a>
-
-          <a href="#message">
-            Worship
-          </a>
-
-          <a href="#events">
-            Events
-          </a>
-
-          <a href="#directions">
-            Where to Find Us
-          </a>
-
-          <a href="members.html">
-            Members Area
-          </a>
-
-          <a
-            class="admin-link"
-            href="admin.html"
-          >
-            Admin
-          </a>
+          <a href="#about">About Us</a>
+          <a href="#message">Worship</a>
+          <a href="#events">Events</a>
+          <a href="#directions">Where to Find Us</a>
+          <a href="members.html">Members Area</a>
+          <a class="admin-link" href="admin.html">Admin</a>
 
         </nav>
 
@@ -1282,11 +1594,7 @@
     >
 
       <div class="section-heading">
-
-        <h2 id="about-title">
-          Learn More
-        </h2>
-
+        <h2 id="about-title">Learn More</h2>
       </div>
 
 
@@ -1295,9 +1603,7 @@
 
         <article class="panel">
 
-          <h3>
-            About Us
-          </h3>
+          <h3>About Us</h3>
 
           <p>
             Friendship Church is an evangelical,
@@ -1322,9 +1628,7 @@
           </p>
 
 
-          <h3>
-            Our Vision and Values
-          </h3>
+          <h3>Our Vision and Values</h3>
 
           <p>
             Our vision and values will be added after they
@@ -1332,9 +1636,7 @@
           </p>
 
 
-          <h3>
-            Our Constitution
-          </h3>
+          <h3>Our Constitution</h3>
 
           <a
             class="text-link"
@@ -1351,9 +1653,7 @@
           aria-label="Sunday service information"
         >
 
-          <h3>
-            Service Time
-          </h3>
+          <h3>Service Time</h3>
 
           <p class="every-sunday">
             Every Sunday
@@ -1363,41 +1663,18 @@
           <div class="service-schedule">
 
             <div class="schedule-row">
-
-              <span class="schedule-label">
-                Service
-              </span>
-
-              <span class="schedule-time">
-                10:30 AM – 11:30 AM
-              </span>
-
+              <span class="schedule-label">Service</span>
+              <span class="schedule-time">10:30 AM – 11:30 AM</span>
             </div>
 
-
             <div class="schedule-row">
-
-              <span class="schedule-label">
-                Kids Class
-              </span>
-
-              <span class="schedule-time">
-                11:00 AM – 11:30 AM
-              </span>
-
+              <span class="schedule-label">Kids Class</span>
+              <span class="schedule-time">11:00 AM – 11:30 AM</span>
             </div>
 
-
             <div class="schedule-row">
-
-              <span class="schedule-label">
-                Young Adults Class
-              </span>
-
-              <span class="schedule-time">
-                11:00 AM – 11:30 AM
-              </span>
-
+              <span class="schedule-label">Young Adults Class</span>
+              <span class="schedule-time">11:00 AM – 11:30 AM</span>
             </div>
 
           </div>
@@ -1432,9 +1709,7 @@
 
           <div class="members-entry">
 
-            <h3>
-              Members Area
-            </h3>
+            <h3>Members Area</h3>
 
             <p>
               Members can sign in or request access to
@@ -1462,7 +1737,7 @@
          ================================================== -->
 
     <section
-      class="message-section"
+      class="weekly-section"
       id="message"
       aria-labelledby="message-title"
     >
@@ -1470,134 +1745,366 @@
       <div class="section">
 
         <div class="section-heading">
-
-          <h2 id="message-title">
-            Sermon of the Week
-          </h2>
-
+          <h2 id="message-title">Sermon of the Week</h2>
         </div>
 
 
-        <div class="message-layout">
+        <div class="weekly-stack">
 
 
-          <article class="latest-message">
+          <!-- CURRENT SERMON -->
 
-            <span class="date-chip">
-              Latest Message
-            </span>
+          <article
+            class="weekly-card"
+            data-content-type="sermon"
+            data-slug="2026-08-16-Why_Should_We_Care_About_Israel"
+          >
 
-            <h3>
-              Why Should We Care About Israel?
-            </h3>
-
-            <p class="scripture">
-
-              Genesis 12:1–3 · Romans 9:21–23
-
-              <span class="mobile-break"></span>
-
-              · Psalm 122:6–7
-
-            </p>
-
-            <p>
-              A message about Israel’s place in God’s
-              redemptive plan and our call to respond with
-              gratitude, prayer and faithful expectation.
-            </p>
+            <div class="weekly-date">
+              <span>Aug</span>
+              <strong>16</strong>
+            </div>
 
 
-            <div
-              class="language-links"
-              aria-label="Message languages"
-            >
+            <div class="weekly-content">
 
-              <a
-                href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-ENG.txt"
-              >
-                English
-              </a>
+              <p class="weekly-kicker">
+                Latest Message
+              </p>
 
-              <a
-                href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-PT-BR.txt"
-              >
-                Português
-              </a>
+              <h3>
+                Why Should We Care About Israel?
+              </h3>
 
-              <a
-                href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-ESP.txt"
-              >
-                Español
-              </a>
+              <p class="scripture">
+                Gn. 12:1–3 · Rm. 9:21–23 · Ps. 122:6–7
+              </p>
 
-              <a
-                href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-JAP.txt"
-                lang="ja"
-              >
-                日本語
-              </a>
+              <p class="flavor-text">
+                A message about Israel’s place in God’s
+                redemptive plan and our call to respond
+                with gratitude, prayer and faithful expectation.
+              </p>
+
+
+              <div class="language-area">
+
+                <p class="language-label">
+                  Language
+                </p>
+
+                <div
+                  class="language-selector"
+                  aria-label="Choose sermon language"
+                >
+
+                  <button
+                    class="language-option is-selected"
+                    type="button"
+                    data-lang="ENG"
+                  >
+                    English
+                  </button>
+
+                  <button
+                    class="language-option"
+                    type="button"
+                    data-lang="PT-BR"
+                  >
+                    Português
+                  </button>
+
+                  <button
+                    class="language-option"
+                    type="button"
+                    data-lang="ESP"
+                  >
+                    Español
+                  </button>
+
+                  <button
+                    class="language-option"
+                    type="button"
+                    data-lang="JAP"
+                  >
+                    日本語
+                  </button>
+
+                </div>
+
+
+                <div class="content-actions">
+
+                  <a
+                    class="button read-button"
+                    href="message.html"
+                  >
+                    Read Message
+                  </a>
+
+                  <a
+                    class="button study-button"
+                    href="message.html"
+                    aria-disabled="true"
+                  >
+                    Study
+                  </a>
+
+                </div>
+
+              </div>
 
             </div>
 
           </article>
 
 
-          <aside class="former-messages">
+          <!-- PREVIOUS SERMON -->
 
-            <h3>
-              Past Sermons
-            </h3>
+          <article
+            class="weekly-card"
+            data-content-type="sermon"
+            data-slug="2026-08-09-Who_Am_I"
+          >
 
-            <time datetime="2026-08-09">
-              August 9, 2026
-            </time>
-
-            <span class="former-message-title">
-              Who Am I?
-            </span>
-
-
-            <div class="former-language-links">
-
-              <a
-                href="sermons/2026-08-09-Who_Am_I-ENG.txt"
-              >
-                English
-              </a>
-
-              <a
-                href="sermons/2026-08-09-Who_Am_I-PT-BR.txt"
-              >
-                Português
-              </a>
-
-              <a
-                href="sermons/2026-08-09-Who_Am_I-ESP.txt"
-              >
-                Español
-              </a>
-
-              <a
-                href="sermons/2026-08-09-Who_Am_I-JAP.txt"
-                lang="ja"
-              >
-                日本語
-              </a>
-
+            <div class="weekly-date">
+              <span>Aug</span>
+              <strong>09</strong>
             </div>
 
 
-            <a
-              class="archive-link"
-              href="sermons.html"
-            >
-              Sermon Database
-            </a>
+            <div class="weekly-content">
 
-          </aside>
+              <p class="weekly-kicker">
+                Previous Message
+              </p>
+
+              <h3>
+                Who Am I?
+              </h3>
+
+              <p class="scripture">
+                Ps. 8
+              </p>
+
+              <p class="flavor-text">
+                A reflection on our identity before God,
+                the dignity He gives humanity, and the
+                wonder of being known and loved by Him.
+              </p>
+
+
+              <div class="language-area">
+
+                <p class="language-label">
+                  Language
+                </p>
+
+                <div
+                  class="language-selector"
+                  aria-label="Choose previous sermon language"
+                >
+
+                  <button
+                    class="language-option is-selected"
+                    type="button"
+                    data-lang="ENG"
+                  >
+                    English
+                  </button>
+
+                  <button
+                    class="language-option"
+                    type="button"
+                    data-lang="PT-BR"
+                  >
+                    Português
+                  </button>
+
+                  <button
+                    class="language-option"
+                    type="button"
+                    data-lang="ESP"
+                  >
+                    Español
+                  </button>
+
+                  <button
+                    class="language-option"
+                    type="button"
+                    data-lang="JAP"
+                  >
+                    日本語
+                  </button>
+
+                </div>
+
+
+                <div class="content-actions">
+
+                  <a
+                    class="button read-button"
+                    href="message.html"
+                  >
+                    Read Message
+                  </a>
+
+                  <a
+                    class="button study-button"
+                    href="message.html"
+                    aria-disabled="true"
+                  >
+                    Study
+                  </a>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
 
         </div>
+
+
+        <a
+          class="weekly-archive-link"
+          href="sermons.html"
+        >
+          Sermon Database →
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         FAITH HEROES
+         ================================================== -->
+
+    <section
+      class="faith-section"
+      aria-labelledby="faith-title"
+    >
+
+      <div class="section">
+
+        <div class="section-heading">
+          <h2 id="faith-title">Faith Heroes</h2>
+        </div>
+
+
+        <article
+          class="faith-card"
+          data-content-type="faith"
+          data-slug="2026-06-21-Ida_Scudder"
+        >
+
+          <div class="faith-date">
+            <span>Jun</span>
+            <strong>21</strong>
+          </div>
+
+
+          <div class="faith-content">
+
+            <p class="faith-number">
+              Faith Hero No. 116
+            </p>
+
+            <h3>
+              Dr. Ida Scudder
+            </h3>
+
+            <p class="flavor-text">
+              A pioneering Christian medical missionary
+              whose obedience to God’s call led her to serve
+              women in India and establish medical institutions
+              that continued impacting generations.
+            </p>
+
+
+            <div class="language-area">
+
+              <p class="language-label">
+                Language
+              </p>
+
+              <div
+                class="language-selector"
+                aria-label="Choose Faith Hero language"
+              >
+
+                <button
+                  class="language-option is-selected"
+                  type="button"
+                  data-lang="ENG"
+                >
+                  English
+                </button>
+
+                <button
+                  class="language-option"
+                  type="button"
+                  data-lang="PT-BR"
+                >
+                  Português
+                </button>
+
+                <button
+                  class="language-option"
+                  type="button"
+                  data-lang="ESP"
+                >
+                  Español
+                </button>
+
+                <button
+                  class="language-option"
+                  type="button"
+                  data-lang="JAP"
+                >
+                  日本語
+                </button>
+
+              </div>
+
+
+              <div class="content-actions">
+
+                <a
+                  class="button read-button"
+                  href="faith-heroes.html"
+                >
+                  Read Faith Hero
+                </a>
+
+                <a
+                  class="button study-button"
+                  href="faith-heroes.html"
+                  aria-disabled="true"
+                >
+                  Study
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <a
+          class="weekly-archive-link"
+          href="faith-heroes.html"
+        >
+          Faith Heroes Archive →
+        </a>
 
       </div>
 
@@ -1606,7 +2113,6 @@
 
     <!-- ==================================================
          UPCOMING EVENTS
-         SMALL TWO-MONTH PREVIEW
          ================================================== -->
 
     <section
@@ -1616,11 +2122,7 @@
     >
 
       <div class="section-heading">
-
-        <h2 id="events-title">
-          Upcoming Events
-        </h2>
-
+        <h2 id="events-title">Upcoming Events</h2>
       </div>
 
 
@@ -1648,7 +2150,14 @@
               <div class="event-preview-content">
 
                 <h3>
-                  Church Life Meeting
+                  <button
+                    class="event-title-button"
+                    type="button"
+                    data-event-image="images/Aug%2023%20-%20Life%20Meeting.jpg"
+                    data-event-title="Church Life Meeting"
+                  >
+                    Church Life Meeting
+                  </button>
                 </h3>
 
                 <p class="event-preview-time">
@@ -1673,7 +2182,14 @@
               <div class="event-preview-content">
 
                 <h3>
-                  FC “All in the Family” Kakigori
+                  <button
+                    class="event-title-button"
+                    type="button"
+                    data-event-image="images/Aug%2030%20-%20Family%20Kakigori.jpg"
+                    data-event-title="FC All in the Family Kakigori"
+                  >
+                    FC “All in the Family” Kakigori
+                  </button>
                 </h3>
 
                 <p class="event-preview-time">
@@ -1715,7 +2231,14 @@
               <div class="event-preview-content">
 
                 <h3>
-                  Communion
+                  <button
+                    class="event-title-button"
+                    type="button"
+                    data-event-image="images/Sep%206%20-%20Communion.jpg"
+                    data-event-title="Communion"
+                  >
+                    Communion
+                  </button>
                 </h3>
 
                 <p class="event-preview-time">
@@ -1804,13 +2327,11 @@
 
             <p>
               West Building, 70-12 Tenjin-cho,
-              Izumo City, Shimane Prefecture
-              693-0005
+              Izumo City, Shimane Prefecture 693-0005
             </p>
 
             <p lang="ja">
-              西棟、〒693-0005
-              島根県出雲市天神町70-12
+              西棟、〒693-0005 島根県出雲市天神町70-12
             </p>
 
 
@@ -1882,6 +2403,46 @@
 
 
   <!-- ==================================================
+       EVENT IMAGE MODAL
+       ================================================== -->
+
+  <div
+    class="event-modal"
+    id="event-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="event-modal-title"
+  >
+
+    <div class="event-modal-dialog">
+
+      <button
+        class="event-modal-close"
+        type="button"
+        aria-label="Close event image"
+      >
+        ×
+      </button>
+
+      <img
+        class="event-modal-image"
+        id="event-modal-image"
+        src=""
+        alt=""
+      >
+
+      <span
+        id="event-modal-title"
+        hidden
+      ></span>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================================================
        FOOTER
        ================================================== -->
 
@@ -1904,10 +2465,12 @@
 
 
   <!-- ==================================================
-       MOBILE NAVIGATION
+       JAVASCRIPT
        ================================================== -->
 
   <script>
+
+    /* MOBILE NAVIGATION */
 
     const menuButton =
       document.querySelector(".menu-toggle");
@@ -1927,12 +2490,10 @@
               "aria-expanded"
             ) === "true";
 
-
           menuButton.setAttribute(
             "aria-expanded",
             String(!isOpen)
           );
-
 
           navigation.classList.toggle(
             "is-open",
@@ -1970,6 +2531,278 @@
         });
 
     }
+
+
+    /* ==================================================
+       LANGUAGE SELECTORS
+       ================================================== */
+
+    document
+      .querySelectorAll(
+        ".weekly-card, .faith-card"
+      )
+      .forEach((card) => {
+
+        const options =
+          card.querySelectorAll(
+            ".language-option"
+          );
+
+        const readButton =
+          card.querySelector(
+            ".read-button"
+          );
+
+        const studyButton =
+          card.querySelector(
+            ".study-button"
+          );
+
+        const slug =
+          card.dataset.slug;
+
+        const contentType =
+          card.dataset.contentType;
+
+
+        function updateLinks(language) {
+
+          const basePage =
+            contentType === "faith"
+              ? "faith-heroes.html"
+              : "message.html";
+
+
+          const readUrl =
+            `${basePage}?slug=${encodeURIComponent(slug)}&lang=${encodeURIComponent(language)}&mode=read`;
+
+
+          readButton.href =
+            readUrl;
+
+
+          if (language === "ENG") {
+
+            studyButton.setAttribute(
+              "aria-disabled",
+              "true"
+            );
+
+            studyButton.href =
+              readUrl;
+
+          } else {
+
+            studyButton.setAttribute(
+              "aria-disabled",
+              "false"
+            );
+
+            studyButton.href =
+              `${basePage}?slug=${encodeURIComponent(slug)}&lang=${encodeURIComponent(language)}&mode=study`;
+
+          }
+
+        }
+
+
+        options.forEach((option) => {
+
+          option.addEventListener(
+            "click",
+            () => {
+
+              options.forEach((item) => {
+                item.classList.remove(
+                  "is-selected"
+                );
+              });
+
+
+              option.classList.add(
+                "is-selected"
+              );
+
+
+              const language =
+                option.dataset.lang;
+
+
+              updateLinks(language);
+
+            }
+          );
+
+        });
+
+
+        updateLinks("ENG");
+
+      });
+
+
+    /* Prevent disabled study links */
+
+    document
+      .querySelectorAll(
+        '.study-button[aria-disabled="true"]'
+      )
+      .forEach((link) => {
+
+        link.addEventListener(
+          "click",
+          (event) => {
+
+            if (
+              link.getAttribute(
+                "aria-disabled"
+              ) === "true"
+            ) {
+
+              event.preventDefault();
+
+            }
+
+          }
+        );
+
+      });
+
+
+    /* ==================================================
+       EVENT POSTER MODAL
+       ================================================== */
+
+    const eventModal =
+      document.querySelector(
+        "#event-modal"
+      );
+
+    const eventModalImage =
+      document.querySelector(
+        "#event-modal-image"
+      );
+
+    const eventModalTitle =
+      document.querySelector(
+        "#event-modal-title"
+      );
+
+    const eventModalClose =
+      document.querySelector(
+        ".event-modal-close"
+      );
+
+
+    function closeEventModal() {
+
+      eventModal.classList.remove(
+        "is-open"
+      );
+
+      eventModal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      eventModalImage.src = "";
+      eventModalImage.alt = "";
+
+      document.body.classList.remove(
+        "modal-open"
+      );
+
+    }
+
+
+    document
+      .querySelectorAll(
+        ".event-title-button"
+      )
+      .forEach((button) => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const image =
+              button.dataset.eventImage;
+
+            const title =
+              button.dataset.eventTitle;
+
+
+            eventModalImage.src =
+              image;
+
+            eventModalImage.alt =
+              title;
+
+            eventModalTitle.textContent =
+              title;
+
+
+            eventModal.classList.add(
+              "is-open"
+            );
+
+            eventModal.setAttribute(
+              "aria-hidden",
+              "false"
+            );
+
+            document.body.classList.add(
+              "modal-open"
+            );
+
+
+            eventModalClose.focus();
+
+          }
+        );
+
+      });
+
+
+    eventModalClose.addEventListener(
+      "click",
+      closeEventModal
+    );
+
+
+    eventModal.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === eventModal
+        ) {
+
+          closeEventModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape" &&
+          eventModal.classList.contains(
+            "is-open"
+          )
+        ) {
+
+          closeEventModal();
+
+        }
+
+      }
+    );
 
   </script>
 
