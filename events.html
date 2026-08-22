@@ -47,6 +47,10 @@
       line-height: 1.7;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     a {
       color: inherit;
     }
@@ -470,6 +474,27 @@
       font-weight: 800;
     }
 
+    .event-title-button {
+      padding: 0;
+      border: 0;
+
+      color: inherit;
+      background: transparent;
+
+      font: inherit;
+      text-align: left;
+
+      cursor: pointer;
+    }
+
+    .event-title-button:hover,
+    .event-title-button:focus-visible {
+      color: var(--picture-book-green);
+
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
 
     /* ==================================================
        EMPTY MONTH
@@ -487,6 +512,71 @@
       color: #66766b;
 
       font-size: .95rem;
+    }
+
+
+    /* ==================================================
+       EVENT MODAL
+       ================================================== */
+
+    .event-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      padding: 24px;
+
+      background: rgba(0, 31, 63, .86);
+    }
+
+    .event-modal.is-open {
+      display: flex;
+    }
+
+    .event-modal-dialog {
+      position: relative;
+
+      width: min(720px, 100%);
+      max-height: 90vh;
+
+      overflow: auto;
+
+      background: var(--paper);
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 20px 70px rgba(0, 0, 0, .35);
+    }
+
+    .event-modal-image {
+      display: block;
+
+      width: 100%;
+      height: auto;
+    }
+
+    .event-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+
+      width: 44px;
+      height: 44px;
+
+      border: 0;
+      border-radius: 50%;
+
+      color: white;
+      background: rgba(0, 31, 63, .92);
+
+      font-size: 1.5rem;
+
+      cursor: pointer;
     }
 
 
@@ -651,6 +741,15 @@
         font-size: .9rem;
         line-height: 1.35;
       }
+
+      .back-button {
+        right: 12px;
+        bottom: 12px;
+
+        padding: 9px 14px;
+
+        font-size: .82rem;
+      }
     }
 
 
@@ -732,6 +831,10 @@
 
       .empty-month {
         padding: 20px 18px;
+      }
+
+      .event-modal {
+        padding: 12px;
       }
     }
 
@@ -828,6 +931,10 @@
             Events
           </a>
 
+          <a href="live-streaming.html">
+            Live Streaming
+          </a>
+
           <a href="index.html#directions">
             Where to Find Us
           </a>
@@ -878,7 +985,6 @@
 
     <!-- ==================================================
          AUGUST 2026
-         OPEN BY DEFAULT
          ================================================== -->
 
     <details
@@ -912,7 +1018,16 @@
           <div class="event-content">
 
             <h2>
-              Church Life Meeting
+
+              <button
+                class="event-title-button"
+                type="button"
+                data-event-image="images/Aug%2023%20-%20Life%20Meeting.jpg"
+                data-event-title="Church Life Meeting"
+              >
+                Church Life Meeting
+              </button>
+
             </h2>
 
             <p class="event-time">
@@ -946,7 +1061,16 @@
           <div class="event-content">
 
             <h2>
-              FC “All in the Family” Kakigori
+
+              <button
+                class="event-title-button"
+                type="button"
+                data-event-image="images/Aug%2030%20-%20Family%20Kakigori.jpg"
+                data-event-title="FC All in the Family Kakigori"
+              >
+                FC “All in the Family” Kakigori
+              </button>
+
             </h2>
 
             <p class="event-time">
@@ -999,7 +1123,16 @@
           <div class="event-content">
 
             <h2>
-              Communion
+
+              <button
+                class="event-title-button"
+                type="button"
+                data-event-image="images/Sep%206%20-%20Communion.jpg"
+                data-event-title="Communion"
+              >
+                Communion
+              </button>
+
             </h2>
 
             <p class="event-time">
@@ -1086,14 +1219,54 @@
 
 
   <!-- ==================================================
-       BACK BUTTON
+       EVENT IMAGE MODAL
+       ================================================== -->
+
+  <div
+    class="event-modal"
+    id="event-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="event-modal-title"
+  >
+
+    <div class="event-modal-dialog">
+
+      <button
+        class="event-modal-close"
+        type="button"
+        aria-label="Close event image"
+      >
+        ×
+      </button>
+
+      <img
+        class="event-modal-image"
+        id="event-modal-image"
+        src=""
+        alt=""
+      >
+
+      <span
+        id="event-modal-title"
+        hidden
+      ></span>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================================================
+       BACK TO COMMUNITY BOARD
        ================================================== -->
 
   <a
     class="back-button"
     href="index.html#events"
   >
-    ← Back
+    ← Back to Community Board
   </a>
 
 
@@ -1120,10 +1293,12 @@
 
 
   <!-- ==================================================
-       MOBILE NAVIGATION
+       JAVASCRIPT
        ================================================== -->
 
   <script>
+
+    /* MOBILE NAVIGATION */
 
     const menuButton =
       document.querySelector(".menu-toggle");
@@ -1186,6 +1361,132 @@
         });
 
     }
+
+
+    /* EVENT POSTER MODAL */
+
+    const eventModal =
+      document.querySelector("#event-modal");
+
+    const eventModalImage =
+      document.querySelector("#event-modal-image");
+
+    const eventModalTitle =
+      document.querySelector("#event-modal-title");
+
+    const eventModalClose =
+      document.querySelector(".event-modal-close");
+
+
+    function closeEventModal() {
+
+      eventModal.classList.remove(
+        "is-open"
+      );
+
+      eventModal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      eventModalImage.src = "";
+      eventModalImage.alt = "";
+
+      document.body.classList.remove(
+        "modal-open"
+      );
+
+    }
+
+
+    document
+      .querySelectorAll(
+        ".event-title-button"
+      )
+      .forEach((button) => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const image =
+              button.dataset.eventImage;
+
+            const title =
+              button.dataset.eventTitle;
+
+
+            eventModalImage.src =
+              image;
+
+            eventModalImage.alt =
+              title;
+
+            eventModalTitle.textContent =
+              title;
+
+
+            eventModal.classList.add(
+              "is-open"
+            );
+
+            eventModal.setAttribute(
+              "aria-hidden",
+              "false"
+            );
+
+            document.body.classList.add(
+              "modal-open"
+            );
+
+
+            eventModalClose.focus();
+
+          }
+        );
+
+      });
+
+
+    eventModalClose.addEventListener(
+      "click",
+      closeEventModal
+    );
+
+
+    eventModal.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === eventModal
+        ) {
+
+          closeEventModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape" &&
+          eventModal.classList.contains(
+            "is-open"
+          )
+        ) {
+
+          closeEventModal();
+
+        }
+
+      }
+    );
 
   </script>
 
