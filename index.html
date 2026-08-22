@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
 
   <meta
     name="description"
@@ -43,8 +42,8 @@
       color: var(--ink);
       background: var(--paper);
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      line-height: 1.65;
+      font-size: 17px;
+      line-height: 1.72;
     }
 
     img {
@@ -66,8 +65,7 @@
 
 
     /* ==================================================
-       FC TYPOGRAPHY
-       Iowan Old Style identity + Arial interface/body
+       TYPOGRAPHY
        ================================================== */
 
     .brand strong,
@@ -77,8 +75,7 @@
     .latest-message h3,
     .former-messages h3,
     .former-message-title,
-    .event-card h3,
-    footer strong {
+    .event-card h3 {
       font-family:
         "Iowan Old Style",
         "Palatino Linotype",
@@ -107,10 +104,8 @@
       line-height: 1.1;
     }
 
-    .panel h3,
-    .former-messages h3,
-    .event-card h3 {
-      font-size: 1.55rem;
+    .panel h3 {
+      font-size: clamp(1.65rem, 2.6vw, 2rem);
       font-weight: 600;
       line-height: 1.2;
     }
@@ -124,30 +119,17 @@
     .former-message-title {
       display: inline-block;
       margin-top: 3px;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 600;
       line-height: 1.4;
     }
 
-    .hero p,
-    .section-heading p,
     .panel p,
     .latest-message p,
     .event-card p,
     .location-card p {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-
-    .eyebrow,
-    .brand-subtitle {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: .78rem;
-      font-weight: 700;
-      line-height: 1.4;
-      letter-spacing: .16em;
-      text-transform: uppercase;
+      font-size: 1.06rem;
+      line-height: 1.75;
     }
 
 
@@ -163,34 +145,26 @@
       box-shadow: 0 4px 18px rgba(0, 31, 63, .16);
     }
 
-    .header-brand-area {
-      color: var(--praxeti-white);
-      background: var(--midnight-mirage);
-    }
-
     .header-inner {
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 26px 0 22px;
+      padding: 22px 0 18px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
       gap: 20px;
+
       color: var(--praxeti-white);
-      line-height: 1;
+
       text-decoration: none;
     }
-
-    /*
-      Larger FC logo with slightly smaller Friendship Church
-      lettering — approved header direction.
-    */
 
     .church-logo {
       width: 155px;
       height: 155px;
+
       object-fit: contain;
       flex-shrink: 0;
     }
@@ -203,14 +177,24 @@
 
     .brand strong {
       display: block;
+
       color: var(--praxeti-white);
+
       font-size: clamp(2.15rem, 3.8vw, 3.85rem);
     }
 
     .brand-subtitle {
       display: block;
+
       margin-top: 10px;
+
       color: var(--first-colors-of-spring);
+
+      font-size: .95rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+
+      text-transform: uppercase;
     }
 
 
@@ -219,7 +203,6 @@
        ================================================== */
 
     .navigation-bar {
-      position: relative;
       background: var(--first-colors-of-spring);
     }
 
@@ -233,77 +216,39 @@
       justify-content: center;
       align-items: center;
       gap: clamp(18px, 3vw, 44px);
-      min-height: 64px;
+
+      min-height: 62px;
     }
 
     .site-nav a {
-      position: relative;
-      padding: 21px 0 18px;
+      padding: 20px 0 17px;
+
       color: var(--midnight-mirage);
-      font-family: Arial, Helvetica, sans-serif;
+
       font-size: .84rem;
       font-weight: 800;
-      letter-spacing: .055em;
-      line-height: 1;
+      letter-spacing: .05em;
+
       text-decoration: none;
       text-transform: uppercase;
+
       white-space: nowrap;
     }
-
-    .site-nav a::after {
-      position: absolute;
-      right: 0;
-      bottom: 13px;
-      left: 0;
-
-      height: 3px;
-
-      background: var(--picture-book-green);
-      border-radius: 999px;
-
-      content: "";
-
-      opacity: 0;
-      transform: scaleX(.4);
-
-      transition:
-        opacity .2s ease,
-        transform .2s ease;
-    }
-
-    .site-nav a:hover::after,
-    .site-nav a:focus-visible::after {
-      opacity: 1;
-      transform: scaleX(1);
-    }
-
-    .site-nav a:focus-visible {
-      border-radius: 4px;
-      outline: 3px solid var(--picture-book-green);
-      outline-offset: 4px;
-    }
-
-    /*
-      Admin remains visually subtle.
-      It belongs to the architecture but should not dominate
-      the public navigation.
-    */
 
     .site-nav .admin-link {
       color: var(--picture-book-green);
     }
 
-
-    /* Mobile menu button */
+    .mobile-nav-header {
+      display: none;
+    }
 
     .menu-toggle {
-      display: none;
       width: 46px;
       height: 46px;
       padding: 10px;
 
       border: 0;
-      border-radius: 10px;
 
       color: var(--midnight-mirage);
       background: transparent;
@@ -311,16 +256,12 @@
       cursor: pointer;
     }
 
-    .menu-toggle-lines {
-      display: grid;
-      gap: 5px;
-    }
-
-    .menu-toggle-lines span {
+    .menu-toggle span {
       display: block;
+
       width: 25px;
       height: 2px;
-      margin: 0 auto;
+      margin: 5px auto;
 
       background: currentColor;
       border-radius: 999px;
@@ -332,8 +273,6 @@
        ================================================== */
 
     .hero {
-      position: relative;
-
       display: grid;
       place-items: center;
 
@@ -342,8 +281,8 @@
 
       background:
         linear-gradient(
-          rgba(0, 31, 63, .68),
-          rgba(0, 31, 63, .68)
+          rgba(0, 31, 63, .66),
+          rgba(0, 31, 63, .66)
         ),
         url("images/background.webp")
         center center / cover no-repeat;
@@ -380,48 +319,27 @@
 
 
     /* ==================================================
-       GENERAL SECTIONS
+       GENERAL
        ================================================== */
 
     .section {
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 92px 0;
+      padding: 84px 0;
     }
 
     .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 24px;
-
-      margin-bottom: 34px;
+      margin-bottom: 30px;
     }
 
     .section-heading h2 {
       margin: 0;
+
       color: var(--midnight-mirage);
     }
 
-    .section-heading p {
-      max-width: 500px;
-      margin: 0;
-    }
-
-
-    /* ==================================================
-       LEARN MORE / ABOUT US
-       ================================================== */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.45fr .85fr;
-      gap: 28px;
-      align-items: start;
-    }
-
     .panel {
-      padding: clamp(26px, 4vw, 48px);
+      padding: clamp(28px, 4vw, 48px);
 
       background: #fff;
       border: 1px solid var(--line);
@@ -432,6 +350,7 @@
 
     .panel h3 {
       margin: 0 0 16px;
+
       color: var(--midnight-mirage);
     }
 
@@ -443,47 +362,38 @@
       margin: 0;
     }
 
-    /*
-      Current FC members photo belongs INSIDE About Us,
-      between the About Us heading and its existing text.
-    */
-
-    .about-photo {
-      margin: 20px 0 28px;
-      overflow: hidden;
-
-      background: var(--mist);
-      border-radius: 16px;
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    .about-copy p + p {
+    .panel p + p {
       margin-top: 17px;
     }
 
     .text-link {
       display: inline-block;
+
       margin-top: 10px;
 
       color: var(--picture-book-green);
 
-      font-weight: 700;
+      font-weight: 800;
       text-underline-offset: 4px;
     }
 
 
     /* ==================================================
-       SERVICE TIME
+       ABOUT + SERVICE
        ================================================== */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.45fr .85fr;
+      gap: 28px;
+
+      align-items: start;
+    }
 
     .service-card {
       color: var(--praxeti-white);
       background: var(--midnight-mirage);
+
       border-color: transparent;
     }
 
@@ -492,7 +402,7 @@
     }
 
     .every-sunday {
-      margin: 8px 0 28px !important;
+      margin: 4px 0 24px !important;
 
       color: var(--praxeti-white);
 
@@ -503,19 +413,16 @@
         Georgia,
         serif;
 
-      font-size: clamp(2.1rem, 3vw, 3rem) !important;
+      font-size: 1.45rem !important;
       font-weight: 600;
-      line-height: 1.05 !important;
+      line-height: 1.2 !important;
     }
-
-    /*
-      Separating label and time improves scanning,
-      while still stacking naturally on small screens.
-    */
 
     .service-schedule {
       margin: 0 0 28px;
-      border-top: 1px solid rgba(246, 247, 237, .18);
+
+      border-top:
+        1px solid rgba(246, 247, 237, .18);
     }
 
     .schedule-row {
@@ -531,14 +438,15 @@
     }
 
     .schedule-label {
-      color: var(--praxeti-white);
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .schedule-time {
       color: var(--mantis);
+
       font-size: .95rem;
-      font-weight: 700;
+      font-weight: 800;
+
       text-align: right;
       white-space: nowrap;
     }
@@ -574,25 +482,10 @@
       color: white;
       background: var(--picture-book-green);
 
-      font-family: Arial, Helvetica, sans-serif;
       font-size: .9rem;
-      font-weight: 700;
+      font-weight: 800;
 
       text-decoration: none;
-
-      transition:
-        background .2s ease,
-        transform .2s ease;
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      background: #006d41;
-
-      outline:
-        3px solid rgba(219, 230, 76, .45);
-
-      transform: translateY(-1px);
     }
 
     .button.secondary {
@@ -607,7 +500,7 @@
 
 
     /* ==================================================
-       MEMBERS AREA ENTRY
+       MEMBERS AREA
        ================================================== */
 
     .members-entry {
@@ -621,12 +514,7 @@
     }
 
     .members-entry h3 {
-      margin: 0 0 8px;
       color: var(--midnight-mirage);
-    }
-
-    .members-entry p {
-      margin: 0;
     }
 
     .members-entry .button {
@@ -635,7 +523,7 @@
 
 
     /* ==================================================
-       WORSHIP / SERMONS
+       SERMON
        ================================================== */
 
     .message-section {
@@ -674,7 +562,7 @@
       border-radius: 999px;
 
       font-size: .8rem;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .latest-message h3 {
@@ -683,62 +571,55 @@
 
     .scripture {
       color: var(--picture-book-green);
-      font-weight: 700;
+
+      font-weight: 800;
     }
 
-    .language-links {
+    .mobile-break {
+      display: none;
+    }
+
+    .language-links,
+    .former-language-links {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
 
-      margin-top: 28px;
+      margin-top: 24px;
     }
 
-    .language-links a {
-      min-width: 76px;
+    .language-links a,
+    .former-language-links a {
       padding: 7px 12px;
 
-      border: 1px solid transparent;
       border-radius: 999px;
 
       color: var(--midnight-mirage);
       background: var(--first-colors-of-spring);
 
       font-size: .8rem;
-      font-weight: 700;
-      line-height: 1.2;
+      font-weight: 800;
 
       text-align: center;
       text-decoration: none;
     }
 
-    .language-links a:nth-child(2) {
+    .language-links a:nth-child(2),
+    .former-language-links a:nth-child(2) {
       color: white;
       background: var(--picture-book-green);
     }
 
-    .language-links a:nth-child(3) {
-      color: var(--midnight-mirage);
+    .language-links a:nth-child(3),
+    .former-language-links a:nth-child(3) {
       background: var(--mantis);
     }
 
-    .language-links a:nth-child(4) {
+    .language-links a:nth-child(4),
+    .former-language-links a:nth-child(4) {
       color: white;
       background: var(--nuit-blanche);
     }
-
-    .language-links a:hover,
-    .language-links a:focus-visible {
-      border-color: var(--praxeti-white);
-
-      outline:
-        3px solid rgba(219, 230, 76, .35);
-
-      transform: translateY(-1px);
-    }
-
-
-    /* Past Messages */
 
     .former-messages {
       padding: 32px;
@@ -751,24 +632,10 @@
 
     .former-messages h3 {
       margin: 0 0 18px;
+
       color: var(--first-colors-of-spring);
-    }
 
-    .former-messages ol {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .former-messages li {
-      padding: 17px 0;
-
-      border-bottom:
-        1px solid rgba(246, 247, 237, .15);
-    }
-
-    .former-messages li:last-child {
-      border-bottom: 0;
+      font-size: 1.65rem;
     }
 
     .former-messages time {
@@ -776,68 +643,12 @@
 
       color: var(--mantis);
 
-      font-size: .78rem;
-      font-weight: 700;
+      font-size: .8rem;
+      font-weight: 800;
     }
 
     .former-message-title {
       color: var(--praxeti-white);
-    }
-
-    .former-language-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-
-      margin-top: 10px;
-    }
-
-    .former-language-links a {
-      min-width: 70px;
-      padding: 5px 9px;
-
-      border:
-        1px solid var(--first-colors-of-spring);
-
-      border-radius: 999px;
-
-      color: var(--midnight-mirage);
-      background: var(--first-colors-of-spring);
-
-      font-size: .72rem;
-      font-weight: 700;
-      line-height: 1.2;
-
-      text-align: center;
-      text-decoration: none;
-    }
-
-    .former-language-links a:nth-child(2) {
-      color: white;
-      background: var(--picture-book-green);
-      border-color: var(--picture-book-green);
-    }
-
-    .former-language-links a:nth-child(3) {
-      color: var(--midnight-mirage);
-      background: var(--mantis);
-      border-color: var(--mantis);
-    }
-
-    .former-language-links a:nth-child(4) {
-      color: white;
-      background: var(--nuit-blanche);
-      border-color: var(--nuit-blanche);
-    }
-
-    .former-language-links a:hover,
-    .former-language-links a:focus-visible {
-      color: white;
-      background: var(--picture-book-green);
-      border-color: var(--picture-book-green);
-
-      outline:
-        2px solid rgba(219, 230, 76, .4);
     }
 
     .archive-link {
@@ -847,7 +658,7 @@
 
       color: var(--first-colors-of-spring);
 
-      font-weight: 700;
+      font-weight: 800;
       text-underline-offset: 4px;
     }
 
@@ -863,6 +674,9 @@
     }
 
     .event-card {
+      display: flex;
+      flex-direction: column;
+
       overflow: hidden;
 
       background: #fff;
@@ -872,44 +686,38 @@
       box-shadow: var(--shadow);
     }
 
-    .event-image {
-      aspect-ratio: 16 / 9;
+    .event-date-box {
+      padding: 18px 22px;
 
-      overflow: hidden;
-
+      color: var(--first-colors-of-spring);
       background: var(--midnight-mirage);
-    }
 
-    .event-image img {
-      width: 100%;
-      height: 100%;
+      font-weight: 900;
+      letter-spacing: .08em;
 
-      object-fit: contain;
+      text-transform: uppercase;
     }
 
     .event-body {
       padding: 24px;
     }
 
-    .event-date {
-      margin: 0 0 7px;
+    .event-body h3 {
+      margin: 0 0 10px;
 
-      color: var(--nuit-blanche);
-
-      font-size: .82rem;
-      font-weight: 800;
-      letter-spacing: .08em;
-
-      text-transform: uppercase;
-    }
-
-    .event-card h3 {
-      margin: 0 0 7px;
       color: var(--midnight-mirage);
+
+      font-size: 1.55rem;
     }
 
-    .event-card p {
-      margin: 0;
+    .event-meta {
+      margin: 5px 0 !important;
+
+      font-size: .98rem !important;
+    }
+
+    .event-poster-link {
+      margin-top: 18px;
     }
 
 
@@ -921,12 +729,7 @@
       background: var(--mist);
     }
 
-    /*
-      Approved centered Directions introduction.
-    */
-
     .visit-heading {
-      display: block;
       max-width: 760px;
       margin: 0 auto 38px;
 
@@ -937,6 +740,12 @@
       margin: 0 0 8px;
 
       color: var(--picture-book-green);
+
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+
+      text-transform: uppercase;
     }
 
     .visit-heading h2 {
@@ -953,17 +762,11 @@
 
       font-size: clamp(2.25rem, 4vw, 3.6rem);
       font-weight: 400;
-      letter-spacing: -.035em;
-      line-height: 1.1;
     }
 
     .visit-intro {
-      margin: 18px auto 0;
       max-width: 620px;
-    }
-
-    .visit-intro p {
-      margin: 4px 0;
+      margin: 18px auto 0;
     }
 
     .visit-grid {
@@ -972,20 +775,61 @@
       gap: 28px;
     }
 
-    .location-card h3 {
+    .location-main {
+      border-top:
+        7px solid var(--picture-book-green);
+    }
+
+    .address-link {
+      display: inline-block;
+
+      margin-top: 14px;
+
       color: var(--picture-book-green);
+
+      font-weight: 800;
+      text-underline-offset: 4px;
     }
 
-    address {
-      font-style: normal;
+    .map-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 180px;
+      margin-top: 24px;
+      padding: 20px;
+
+      border: 1px solid var(--line);
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eef3ed,
+          #ffffff
+        );
+
+      text-align: center;
+      text-decoration: none;
     }
 
-    .jp-address {
-      margin-top: 10px !important;
+    .map-preview strong {
+      display: block;
+
+      color: var(--midnight-mirage);
+
+      font-size: 1.15rem;
     }
 
-    .location-card .button {
-      margin-top: 22px;
+    .map-preview span {
+      display: block;
+
+      margin-top: 6px;
+
+      color: var(--picture-book-green);
+
+      font-weight: 800;
     }
 
     .parking {
@@ -998,13 +842,12 @@
        ================================================== */
 
     footer {
-      padding: 40px 20px;
+      padding: 38px 20px;
 
-      color: rgba(246, 247, 237, .72);
+      color: rgba(246, 247, 237, .75);
       background: var(--midnight-mirage);
 
-      font-size: .95rem;
-      line-height: 1.6;
+      font-size: .93rem;
 
       text-align: center;
     }
@@ -1013,24 +856,12 @@
       margin: 4px 0;
     }
 
-    footer strong {
-      color: var(--praxeti-white);
-    }
-
 
     /* ==================================================
-       TABLET / MOBILE
+       RESPONSIVE
        ================================================== */
 
     @media (max-width: 980px) {
-
-      .site-nav {
-        gap: 18px;
-      }
-
-      .site-nav a {
-        font-size: .76rem;
-      }
 
       .about-grid,
       .message-layout,
@@ -1041,26 +872,21 @@
       .events-grid {
         grid-template-columns: 1fr 1fr;
       }
-
-      .service-card {
-        max-width: none;
-      }
     }
 
 
-    /*
-      Hamburger begins when the full navigation no longer
-      has enough comfortable horizontal space.
-    */
-
     @media (max-width: 760px) {
+
+      body {
+        font-size: 16px;
+      }
 
       section {
         scroll-margin-top: 110px;
       }
 
       .header-inner {
-        padding: 18px 0 16px;
+        padding: 16px 0 14px;
       }
 
       .church-logo {
@@ -1078,8 +904,9 @@
 
       .brand-subtitle {
         margin-top: 7px;
-        font-size: .62rem;
-        letter-spacing: .14em;
+
+        font-size: .78rem;
+        letter-spacing: .11em;
       }
 
       .nav-inner {
@@ -1095,10 +922,6 @@
         padding: 4px 18px;
       }
 
-      .menu-toggle {
-        display: block;
-      }
-
       .site-nav {
         display: none;
         flex-direction: column;
@@ -1106,10 +929,7 @@
         gap: 0;
 
         width: 100%;
-        min-height: 0;
         padding: 0 20px 18px;
-
-        background: var(--first-colors-of-spring);
       }
 
       .site-nav.is-open {
@@ -1121,71 +941,27 @@
 
         border-bottom:
           1px solid rgba(0, 31, 63, .13);
-
-        font-size: .82rem;
-      }
-
-      .site-nav a:last-child {
-        border-bottom: 0;
-      }
-
-      .site-nav a::after {
-        display: none;
       }
 
       .hero {
-        min-height: 310px;
+        min-height:
+          calc(100svh - 180px);
       }
 
       .hero-inner {
-        padding: 65px 0;
+        padding: 60px 0;
       }
 
       .section {
-        padding: 70px 0;
+        width: min(100% - 28px, 1180px);
+        padding: 64px 0;
       }
 
-      .section-heading {
-        align-items: start;
-        flex-direction: column;
-      }
-
+      .about-grid,
+      .message-layout,
+      .visit-grid,
       .events-grid {
         grid-template-columns: 1fr;
-      }
-    }
-
-
-    @media (max-width: 590px) {
-
-      .header-inner,
-      .section,
-      .hero-inner {
-        width: min(100% - 28px, 1180px);
-      }
-
-      .church-logo {
-        width: 74px;
-        height: 74px;
-      }
-
-      .brand strong {
-        font-size: 1.85rem;
-      }
-
-      .brand-subtitle {
-        font-size: .56rem;
-      }
-
-      .hero {
-  min-height: 290px;
-}
-      .hero h1 {
-        font-size: 2.35rem;
-      }
-
-      .panel {
-        padding: 26px 22px;
       }
 
       .schedule-row {
@@ -1197,12 +973,44 @@
         text-align: left;
       }
 
-      .language-links a {
-        flex: 1 1 calc(50% - 8px);
+      .mobile-break {
+        display: block;
       }
 
+      .language-links a,
       .former-language-links a {
-        flex: 1 1 calc(50% - 6px);
+        flex:
+          1 1 calc(50% - 8px);
+      }
+    }
+
+
+    @media (max-width: 590px) {
+
+      .church-logo {
+        width: 74px;
+        height: 74px;
+      }
+
+      .brand strong {
+        font-size: 1.85rem;
+      }
+
+      .brand-subtitle {
+        font-size: .72rem;
+      }
+
+      .hero {
+        min-height:
+          calc(100svh - 160px);
+      }
+
+      .hero h1 {
+        font-size: 2.35rem;
+      }
+
+      .panel {
+        padding: 28px 22px;
       }
     }
 
@@ -1211,12 +1019,6 @@
 
       html {
         scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: .01ms !important;
       }
     }
   </style>
@@ -1231,37 +1033,35 @@
 
   <header class="site-header">
 
-    <div class="header-brand-area">
+    <div class="header-inner">
 
-      <div class="header-inner">
+      <a
+        class="brand"
+        href="#top"
+        aria-label="Friendship Church home"
+      >
 
-        <a
-          class="brand"
-          href="#top"
-          aria-label="Friendship Church home"
+        <img
+          class="church-logo"
+          src="images/logo.webp"
+          alt=""
+          width="155"
+          height="155"
         >
 
-          <img
-            class="church-logo"
-            src="images/logo.webp"
-            alt=""
-            width="138"
-            height="138"
-          >
+        <span class="brand-text">
 
-          <span class="brand-text">
+          <strong>
+            Friendship Church
+          </strong>
 
-            <strong>Friendship Church</strong>
-
-            <span class="brand-subtitle">
-              Life Community Board
-            </span>
-
+          <span class="brand-subtitle">
+            Life Community Board
           </span>
 
-        </a>
+        </span>
 
-      </div>
+      </a>
 
     </div>
 
@@ -1269,6 +1069,7 @@
     <div class="navigation-bar">
 
       <div class="nav-inner">
+
 
         <div class="mobile-nav-header">
 
@@ -1280,11 +1081,9 @@
             aria-label="Open navigation menu"
           >
 
-            <span class="menu-toggle-lines" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
+            <span></span>
+            <span></span>
+            <span></span>
 
           </button>
 
@@ -1297,15 +1096,25 @@
           aria-label="Main navigation"
         >
 
-          <a href="#about">About Us</a>
+          <a href="#about">
+            About Us
+          </a>
 
-          <a href="#message">Worship</a>
+          <a href="#message">
+            Worship
+          </a>
 
-          <a href="#events">Events</a>
+          <a href="#events">
+            Events
+          </a>
 
-          <a href="#directions">Where to Find Us</a>
+          <a href="#directions">
+            Where to Find Us
+          </a>
 
-          <a href="members.html">Members Area</a>
+          <a href="members.html">
+            Members Area
+          </a>
 
           <a
             class="admin-link"
@@ -1363,9 +1172,9 @@
 
       <div class="section-heading">
 
-        <div>
-          <h2 id="about-title">Learn More</h2>
-        </div>
+        <h2 id="about-title">
+          Learn More
+        </h2>
 
       </div>
 
@@ -1377,56 +1186,41 @@
 
         <article class="panel">
 
-          <h3>About Us</h3>
+          <h3>
+            About Us
+          </h3>
 
 
-          <!--
-            Approved placement:
-            FC Members photo INSIDE About Us.
-          -->
-
-          <div class="about-photo">
-
-            <img
-              src="images/FC%20Members.webp"
-              alt="Friendship Church community in Izumo"
-              loading="lazy"
-              decoding="async"
-            >
-
-          </div>
+          <p>
+            Friendship Church is an evangelical,
+            Bible-believing Christian church based in
+            Izumo City, Shimane Prefecture.
+          </p>
 
 
-          <!-- Existing About Us text preserved -->
-
-          <div class="about-copy">
-
-            <p>
-              Friendship Church is an evangelical,
-              Bible-believing Christian church based in
-              Izumo City, Shimane Prefecture.
-            </p>
-
-            <p>
-              The meetings are in English, but there are
-              Japanese, Brazilian, Chinese and other friends
-              who help with translations in their respective
-              languages.
-            </p>
-
-            <p>
-              There is also a special class for children
-              and young adults.
-            </p>
-
-            <p>
-              Please join us if you are in the area.
-            </p>
-
-          </div>
+          <p>
+            The meetings are in English, but there are
+            Japanese, Brazilian, Chinese and other friends
+            who help with translations in their respective
+            languages.
+          </p>
 
 
-          <h3>Our Vision and Values</h3>
+          <p>
+            There is also a special class for children
+            and young adults.
+          </p>
+
+
+          <p>
+            Please join us if you are in the area.
+          </p>
+
+
+          <h3>
+            Our Vision and Values
+          </h3>
+
 
           <p>
             Our vision and values will be added after they
@@ -1434,7 +1228,10 @@
           </p>
 
 
-          <h3>Our Constitution</h3>
+          <h3>
+            Our Constitution
+          </h3>
+
 
           <a
             class="text-link"
@@ -1446,24 +1243,25 @@
         </article>
 
 
-        <!-- SERVICE TIME -->
+        <!-- SERVICE -->
 
         <aside
           class="panel service-card"
           aria-label="Sunday service information"
         >
 
-          <h3>Service Time</h3>
+          <h3>
+            Service Time
+          </h3>
+
 
           <p class="every-sunday">
             Every Sunday
           </p>
 
 
-          <div
-            class="service-schedule"
-            aria-label="Sunday schedule"
-          >
+          <div class="service-schedule">
+
 
             <div class="schedule-row">
 
@@ -1527,7 +1325,6 @@
             <span
               class="button secondary disabled"
               aria-disabled="true"
-              title="Zoom link coming soon"
             >
               Live Stream on Zoom
             </span>
@@ -1535,19 +1332,18 @@
           </div>
 
 
-          <!--
-            Members Area remains part of the approved
-            public landing-page architecture.
-          -->
-
           <div class="members-entry">
 
-            <h3>Members Area</h3>
+            <h3>
+              Members Area
+            </h3>
+
 
             <p>
-              Friendship Church members can access
-              member resources and church information here.
+              Members can sign in or request access to
+              church member resources.
             </p>
+
 
             <a
               class="button"
@@ -1566,7 +1362,7 @@
 
 
     <!-- ==================================================
-         WORSHIP
+         SERMON
          ================================================== -->
 
     <section
@@ -1580,13 +1376,9 @@
 
         <div class="section-heading">
 
-          <div>
-
-            <h2 id="message-title">
-              Recent Sunday’s Message
-            </h2>
-
-          </div>
+          <h2 id="message-title">
+            Sermon of the Week
+          </h2>
 
         </div>
 
@@ -1594,12 +1386,12 @@
         <div class="message-layout">
 
 
-          <!-- LATEST MESSAGE -->
+          <!-- LATEST SERMON -->
 
           <article class="latest-message">
 
             <span class="date-chip">
-              Latest Sunday Sermon
+              Latest Message
             </span>
 
 
@@ -1609,7 +1401,13 @@
 
 
             <p class="scripture">
-              Genesis 12:1–3 · Romans 9:21–23 · Psalm 122:6–7
+
+              Genesis 12:1–3 · Romans 9:21–23
+
+              <span class="mobile-break"></span>
+
+              · Psalm 122:6–7
+
             </p>
 
 
@@ -1631,17 +1429,20 @@
                 English
               </a>
 
+
               <a
                 href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-PT-BR.txt"
               >
                 Português
               </a>
 
+
               <a
                 href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-ESP.txt"
               >
                 Español
               </a>
+
 
               <a
                 href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-JAP.txt"
@@ -1655,161 +1456,63 @@
           </article>
 
 
-          <!--
-            HOMEPAGE:
-            ONLY THE THREE MOST RECENT PAST SUNDAYS
-          -->
+          <!-- ONE PREVIOUS SERMON -->
 
           <aside class="former-messages">
 
-            <h3>Past Messages</h3>
+            <h3>
+              Past Sermons
+            </h3>
 
 
-            <ol>
+            <time datetime="2026-08-09">
+              August 9, 2026
+            </time>
 
 
-              <!-- AUGUST 9 -->
-
-              <li>
-
-                <time datetime="2026-08-09">
-                  August 9, 2026
-                </time>
-
-                <span class="former-message-title">
-                  Who Am I?
-                </span>
+            <span class="former-message-title">
+              Who Am I?
+            </span>
 
 
-                <div class="former-language-links">
+            <div class="former-language-links">
 
-                  <a
-                    href="sermons/2026-08-09-Who_Am_I-ENG.txt"
-                  >
-                    English
-                  </a>
-
-                  <a
-                    href="sermons/2026-08-09-Who_Am_I-PT-BR.txt"
-                  >
-                    Português
-                  </a>
-
-                  <a
-                    href="sermons/2026-08-09-Who_Am_I-ESP.txt"
-                  >
-                    Español
-                  </a>
-
-                  <a
-                    href="sermons/2026-08-09-Who_Am_I-JAP.txt"
-                    lang="ja"
-                  >
-                    日本語
-                  </a>
-
-                </div>
-
-              </li>
+              <a
+                href="sermons/2026-08-09-Who_Am_I-ENG.txt"
+              >
+                English
+              </a>
 
 
-              <!-- AUGUST 2 -->
-
-              <li>
-
-                <time datetime="2026-08-02">
-                  August 2, 2026
-                </time>
-
-                <span class="former-message-title">
-                  Prohibition, Perspective and Promises
-                </span>
+              <a
+                href="sermons/2026-08-09-Who_Am_I-PT-BR.txt"
+              >
+                Português
+              </a>
 
 
-                <div class="former-language-links">
-
-                  <a
-                    href="sermons/2026-08-02-Prohibition_Perspective_and_Promises-ENG.txt"
-                  >
-                    English
-                  </a>
-
-                  <a
-                    href="sermons/2026-08-02-Prohibition_Perspective_and_Promises-PT-BR.txt"
-                  >
-                    Português
-                  </a>
-
-                  <a
-                    href="sermons/2026-08-02-Prohibition_Perspective_and_Promises-ESP.txt"
-                  >
-                    Español
-                  </a>
-
-                  <a
-                    href="sermons/2026-08-02-Prohibition_Perspective_and_Promises-JAP.txt"
-                    lang="ja"
-                  >
-                    日本語
-                  </a>
-
-                </div>
-
-              </li>
+              <a
+                href="sermons/2026-08-09-Who_Am_I-ESP.txt"
+              >
+                Español
+              </a>
 
 
-              <!-- JULY 26 -->
+              <a
+                href="sermons/2026-08-09-Who_Am_I-JAP.txt"
+                lang="ja"
+              >
+                日本語
+              </a>
 
-              <li>
-
-                <time datetime="2026-07-26">
-                  July 26, 2026
-                </time>
-
-                <span class="former-message-title">
-                  The Power and Benefits of Evangelism
-                </span>
-
-
-                <div class="former-language-links">
-
-                  <a
-                    href="sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-ENG.txt"
-                  >
-                    English
-                  </a>
-
-                  <a
-                    href="sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-PT-BR.txt"
-                  >
-                    Português
-                  </a>
-
-                  <a
-                    href="sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-ESP.txt"
-                  >
-                    Español
-                  </a>
-
-                  <a
-                    href="sermons/2026-07-26-The_Power_and_Benefits_of_Evangelism-JAP.txt"
-                    lang="ja"
-                  >
-                    日本語
-                  </a>
-
-                </div>
-
-              </li>
-
-            </ol>
+            </div>
 
 
             <a
               class="archive-link"
-              href="archive.html"
+              href="sermons.html"
             >
-              View All Past Messages
+              Sermon Database
             </a>
 
           </aside>
@@ -1833,18 +1536,9 @@
 
       <div class="section-heading">
 
-        <div>
-
-          <h2 id="events-title">
-            Upcoming Events
-          </h2>
-
-        </div>
-
-
-        <p>
-          Save the date and join our Church Community.
-        </p>
+        <h2 id="events-title">
+          Upcoming Events
+        </h2>
 
       </div>
 
@@ -1852,114 +1546,164 @@
       <div class="events-grid">
 
 
-        <!-- LIFE MEETING -->
+        <!-- EVENT 1 -->
 
         <article class="event-card">
 
-          <div class="event-image">
-
-            <img
-              src="images/Aug%2023%20-%20Life%20Meeting.jpg"
-              alt="Church Life Meeting"
-              loading="lazy"
-              decoding="async"
-            >
-
+          <div class="event-date-box">
+            Aug 23
           </div>
 
 
           <div class="event-body">
-
-            <p class="event-date">
-              August 23 · After Service
-            </p>
 
             <h3>
               Church Life Meeting
             </h3>
 
-            <p>
-              A time to share updates and participate in
-              the life of Friendship Church.
+
+            <p class="event-meta">
+
+              <strong>
+                Date + Time:
+              </strong>
+
+              August 23 · After Service
+
             </p>
+
+
+            <p class="event-meta">
+
+              <strong>
+                Location:
+              </strong>
+
+              Ministry Building
+
+            </p>
+
+
+            <a
+              class="button event-poster-link"
+              href="images/Aug%2023%20-%20Life%20Meeting.jpg"
+            >
+              Open Event Image
+            </a>
 
           </div>
 
         </article>
 
 
-        <!-- KAKIGORI -->
+        <!-- EVENT 2 -->
 
         <article class="event-card">
 
-          <div class="event-image">
-
-            <img
-              src="images/Aug%2030%20-%20Family%20Kakigori.jpg"
-              alt="FC All in the Family Kakigori"
-              loading="lazy"
-              decoding="async"
-            >
-
+          <div class="event-date-box">
+            Aug 30
           </div>
 
 
           <div class="event-body">
-
-            <p class="event-date">
-              August 30 · After Service
-            </p>
 
             <h3>
               FC “All in the Family” Kakigori
             </h3>
 
-            <p>
-              Stay after the service for fellowship and
-              Japanese shaved ice.
+
+            <p class="event-meta">
+
+              <strong>
+                Date + Time:
+              </strong>
+
+              August 30 · After Service
+
             </p>
+
+
+            <p class="event-meta">
+
+              <strong>
+                Location:
+              </strong>
+
+              Ministry Building
+
+            </p>
+
+
+            <a
+              class="button event-poster-link"
+              href="images/Aug%2030%20-%20Family%20Kakigori.jpg"
+            >
+              Open Event Image
+            </a>
 
           </div>
 
         </article>
 
 
-        <!-- COMMUNION -->
+        <!-- EVENT 3 -->
 
         <article class="event-card">
 
-          <div class="event-image">
-
-            <img
-              src="images/Sep%206%20-%20Communion.jpg"
-              alt="Communion"
-              loading="lazy"
-              decoding="async"
-            >
-
+          <div class="event-date-box">
+            Sep 06
           </div>
 
 
           <div class="event-body">
 
-            <p class="event-date">
-              September 6 · 9:45 AM
-            </p>
-
             <h3>
               Communion
             </h3>
 
-            <p>
-              Please arrive before the Sunday service as
-              we gather for Communion.
+
+            <p class="event-meta">
+
+              <strong>
+                Date + Time:
+              </strong>
+
+              September 6 · 9:45 AM
+
             </p>
+
+
+            <p class="event-meta">
+
+              <strong>
+                Location:
+              </strong>
+
+              Ministry Building
+
+            </p>
+
+
+            <a
+              class="button event-poster-link"
+              href="images/Sep%206%20-%20Communion.jpg"
+            >
+              Open Event Image
+            </a>
 
           </div>
 
         </article>
 
       </div>
+
+
+      <a
+        class="text-link"
+        href="events.html"
+      >
+        View All Events
+      </a>
 
     </section>
 
@@ -1978,6 +1722,7 @@
 
 
         <div class="visit-heading">
+
 
           <p class="eyebrow">
             Where to Find Us
@@ -2008,40 +1753,62 @@
         <div class="visit-grid">
 
 
-          <!-- MINISTRY BUILDING -->
+          <!-- CHURCH LOCATION -->
 
-          <article class="panel location-card">
+          <article class="panel location-main">
+
 
             <h3>
-              Ministry Building
+              Friendship Church — Izumo
             </h3>
 
 
-            <address>
+            <p>
 
-              <p>
-                Address: West Building, 70-12 Tenjin-cho,
-                Izumo City, Shimane Prefecture 693-0005
-              </p>
+              West Building, 70-12 Tenjin-cho,
+              Izumo City, Shimane Prefecture
+              693-0005
 
-              <p
-                class="jp-address"
-                lang="ja"
-              >
-                西棟、〒693-0005
-                島根県出雲市天神町70-12
-              </p>
+            </p>
 
-            </address>
+
+            <p lang="ja">
+
+              西棟、〒693-0005
+              島根県出雲市天神町70-12
+
+            </p>
 
 
             <a
-              class="button"
+              class="address-link"
               href="https://www.google.com/maps/search/?api=1&amp;query=70-12+Tenjin-cho+Izumo+Shimane+693-0005"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Find Us Here
+              Open address in Google Maps
+            </a>
+
+
+            <a
+              class="map-preview"
+              href="https://www.google.com/maps/search/?api=1&amp;query=70-12+Tenjin-cho+Izumo+Shimane+693-0005"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+
+              <div>
+
+                <strong>
+                  Friendship Church — Izumo
+                </strong>
+
+                <span>
+                  Tap to open map
+                </span>
+
+              </div>
+
             </a>
 
           </article>
@@ -2050,7 +1817,7 @@
           <!-- PARKING -->
 
           <article
-            class="panel location-card parking"
+            class="panel parking"
           >
 
             <h3>
@@ -2108,65 +1875,75 @@
 
 
   <!-- ==================================================
-       MINIMAL MOBILE NAVIGATION JAVASCRIPT
+       MOBILE NAV
        ================================================== -->
 
   <script>
-    const menuButton = document.querySelector(".menu-toggle");
-    const navigation = document.querySelector("#site-navigation");
+
+    const menuButton =
+      document.querySelector(".menu-toggle");
+
+    const navigation =
+      document.querySelector("#site-navigation");
+
 
     if (menuButton && navigation) {
 
-      menuButton.addEventListener("click", () => {
+      menuButton.addEventListener(
+        "click",
+        () => {
 
-        const isOpen =
-          menuButton.getAttribute("aria-expanded") === "true";
-
-        menuButton.setAttribute(
-          "aria-expanded",
-          String(!isOpen)
-        );
-
-        menuButton.setAttribute(
-          "aria-label",
-          isOpen
-            ? "Open navigation menu"
-            : "Close navigation menu"
-        );
-
-        navigation.classList.toggle(
-          "is-open",
-          !isOpen
-        );
-
-      });
+          const isOpen =
+            menuButton.getAttribute(
+              "aria-expanded"
+            ) === "true";
 
 
-      navigation.querySelectorAll("a").forEach((link) => {
+          menuButton.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+          );
 
-        link.addEventListener("click", () => {
 
-          if (window.innerWidth <= 760) {
+          navigation.classList.toggle(
+            "is-open",
+            !isOpen
+          );
 
-            navigation.classList.remove("is-open");
+        }
+      );
 
-            menuButton.setAttribute(
-              "aria-expanded",
-              "false"
-            );
 
-            menuButton.setAttribute(
-              "aria-label",
-              "Open navigation menu"
-            );
+      navigation
+        .querySelectorAll("a")
+        .forEach((link) => {
 
-          }
+          link.addEventListener(
+            "click",
+            () => {
+
+              if (
+                window.innerWidth <= 760
+              ) {
+
+                navigation.classList.remove(
+                  "is-open"
+                );
+
+                menuButton.setAttribute(
+                  "aria-expanded",
+                  "false"
+                );
+
+              }
+
+            }
+          );
 
         });
 
-      });
-
     }
+
   </script>
 
 </body>
