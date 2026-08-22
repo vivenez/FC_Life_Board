@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +13,7 @@
   <title>All Events | Friendship Church</title>
 
   <style>
+
     :root {
       --midnight-mirage: #001f3f;
       --first-colors-of-spring: #dbe64c;
@@ -26,7 +28,6 @@
       --line: #d7dfd6;
 
       --shadow: 0 14px 40px rgba(0, 31, 63, .10);
-      --radius: 22px;
     }
 
     * {
@@ -39,6 +40,7 @@
 
     body {
       margin: 0;
+
       color: var(--ink);
       background: var(--paper);
 
@@ -60,9 +62,9 @@
     }
 
 
-    /* ==================================================
+    /* =========================================
        HEADER
-       ================================================== */
+       ========================================= */
 
     .site-header {
       position: sticky;
@@ -78,13 +80,15 @@
     .header-inner {
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 22px 0 18px;
+
+      padding: 7px 0 6px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 20px;
+
+      gap: 10px;
 
       color: var(--praxeti-white);
       text-decoration: none;
@@ -93,8 +97,8 @@
     .church-logo {
       display: block;
 
-      width: 155px;
-      height: 155px;
+      width: 120px;
+      height: 120px;
 
       object-fit: contain;
       flex-shrink: 0;
@@ -103,6 +107,7 @@
     .brand-text {
       display: flex;
       flex-direction: column;
+
       min-width: 0;
     }
 
@@ -116,18 +121,20 @@
         Georgia,
         serif;
 
-      font-size: clamp(2.15rem, 3.8vw, 3.85rem);
+      font-size: clamp(2rem, 3.4vw, 3.4rem);
       font-weight: 400;
       letter-spacing: -.035em;
       line-height: 1;
     }
 
     .brand-subtitle {
-      margin-top: 10px;
+      display: block;
+
+      margin-top: 3px;
 
       color: var(--first-colors-of-spring);
 
-      font-size: .95rem;
+      font-size: .85rem;
       font-weight: 800;
       letter-spacing: .13em;
 
@@ -135,9 +142,9 @@
     }
 
 
-    /* ==================================================
+    /* =========================================
        NAVIGATION
-       ================================================== */
+       ========================================= */
 
     .navigation-bar {
       background: var(--first-colors-of-spring);
@@ -152,17 +159,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: clamp(18px, 3vw, 44px);
 
-      min-height: 62px;
+      gap: clamp(16px, 2.6vw, 38px);
+
+      min-height: 44px;
     }
 
     .site-nav a {
-      padding: 20px 0 17px;
+      padding: 12px 0 10px;
 
       color: var(--midnight-mirage);
 
-      font-size: .84rem;
+      font-size: .80rem;
       font-weight: 800;
       letter-spacing: .05em;
 
@@ -170,6 +178,11 @@
       text-transform: uppercase;
 
       white-space: nowrap;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: var(--picture-book-green);
     }
 
     .site-nav .admin-link {
@@ -183,6 +196,7 @@
     .menu-toggle {
       width: 46px;
       height: 46px;
+
       padding: 10px;
 
       border: 0;
@@ -198,6 +212,7 @@
 
       width: 25px;
       height: 2px;
+
       margin: 5px auto;
 
       background: currentColor;
@@ -206,18 +221,20 @@
     }
 
 
-    /* ==================================================
+    /* =========================================
        PAGE
-       ================================================== */
+       ========================================= */
 
     .page-main {
       width: min(1040px, calc(100% - 40px));
+
       margin: 0 auto;
-      padding: 72px 0 110px;
+
+      padding: 64px 0 110px;
     }
 
     .page-heading {
-      margin-bottom: 44px;
+      margin-bottom: 40px;
     }
 
     .eyebrow {
@@ -252,15 +269,16 @@
 
     .page-heading p {
       max-width: 700px;
+
       margin: 18px 0 0;
 
       font-size: 1.05rem;
     }
 
 
-    /* ==================================================
-       MONTH DROPDOWNS
-       ================================================== */
+    /* =========================================
+       MONTH DATABASE
+       ========================================= */
 
     .month-section + .month-section {
       margin-top: 18px;
@@ -281,9 +299,11 @@
     .month-title {
       display: flex;
       align-items: center;
+
       gap: 14px;
 
       min-height: 62px;
+
       padding: 17px 22px;
 
       color: var(--picture-book-green);
@@ -345,12 +365,13 @@
     }
 
 
-    /* ==================================================
-       EVENT LIST
-       ================================================== */
+    /* =========================================
+       EVENTS
+       ========================================= */
 
     .event-list {
       display: grid;
+
       gap: 14px;
 
       padding: 18px;
@@ -358,8 +379,10 @@
 
     .event-row {
       display: grid;
-      grid-template-columns: 150px minmax(0, 1fr);
-      gap: 0;
+
+      grid-template-columns:
+        150px minmax(0, 1fr);
+
       align-items: stretch;
 
       overflow: hidden;
@@ -384,13 +407,14 @@
     }
 
 
-    /* ==================================================
-       EVENT DATE
-       ================================================== */
+    /* =========================================
+       DATE
+       ========================================= */
 
     .event-date {
       display: flex;
       flex-direction: column;
+
       justify-content: center;
       align-items: center;
 
@@ -428,13 +452,14 @@
     }
 
 
-    /* ==================================================
+    /* =========================================
        EVENT INFORMATION
-       ================================================== */
+       ========================================= */
 
     .event-content {
       display: flex;
       flex-direction: column;
+
       justify-content: center;
 
       min-width: 0;
@@ -466,16 +491,24 @@
 
     .event-time {
       color: var(--nuit-blanche);
+
       font-weight: 800;
     }
 
     .event-location {
       color: var(--picture-book-green);
+
       font-weight: 800;
     }
 
+
+    /* =========================================
+       CLICKABLE EVENT TITLE
+       ========================================= */
+
     .event-title-button {
       padding: 0;
+
       border: 0;
 
       color: inherit;
@@ -496,13 +529,11 @@
     }
 
 
-    /* ==================================================
+    /* =========================================
        EMPTY MONTH
-       ================================================== */
+       ========================================= */
 
     .empty-month {
-      display: block;
-
       padding: 24px 26px;
     }
 
@@ -515,9 +546,9 @@
     }
 
 
-    /* ==================================================
-       EVENT MODAL
-       ================================================== */
+    /* =========================================
+       EVENT POSTER POPUP
+       ========================================= */
 
     .event-modal {
       position: fixed;
@@ -530,7 +561,7 @@
 
       padding: 24px;
 
-      background: rgba(0, 31, 63, .86);
+      background: rgba(0, 31, 63, .88);
     }
 
     .event-modal.is-open {
@@ -562,6 +593,7 @@
 
     .event-modal-close {
       position: absolute;
+
       top: 12px;
       right: 12px;
 
@@ -575,19 +607,25 @@
       background: rgba(0, 31, 63, .92);
 
       font-size: 1.5rem;
+      line-height: 1;
 
       cursor: pointer;
+
+      box-shadow:
+        0 4px 14px rgba(0, 0, 0, .25);
     }
 
 
-    /* ==================================================
-       BACK BUTTON
-       ================================================== */
+    /* =========================================
+       BACK TO COMMUNITY BOARD
+       ========================================= */
 
     .back-button {
       position: fixed;
+
       right: 18px;
       bottom: 18px;
+
       z-index: 40;
 
       display: inline-flex;
@@ -595,6 +633,7 @@
       justify-content: center;
 
       min-height: 44px;
+
       padding: 10px 18px;
 
       color: white;
@@ -610,10 +649,15 @@
       box-shadow: var(--shadow);
     }
 
+    .back-button:hover,
+    .back-button:focus-visible {
+      background: var(--midnight-mirage);
+    }
 
-    /* ==================================================
+
+    /* =========================================
        FOOTER
-       ================================================== */
+       ========================================= */
 
     footer {
       padding: 38px 20px;
@@ -631,9 +675,9 @@
     }
 
 
-    /* ==================================================
-       TABLET / MOBILE
-       ================================================== */
+    /* =========================================
+       MOBILE
+       ========================================= */
 
     @media (max-width: 760px) {
 
@@ -642,7 +686,7 @@
       }
 
       .header-inner {
-        padding: 16px 0 14px;
+        padding: 8px 0 7px;
       }
 
       .church-logo {
@@ -651,18 +695,22 @@
       }
 
       .brand {
-        gap: 13px;
+        gap: 10px;
       }
 
       .brand strong {
-        font-size: clamp(1.75rem, 7vw, 2.55rem);
+        font-size: clamp(
+          1.75rem,
+          7vw,
+          2.55rem
+        );
       }
 
       .brand-subtitle {
-        margin-top: 7px;
+        margin-top: 4px;
 
-        font-size: .78rem;
-        letter-spacing: .11em;
+        font-size: .72rem;
+        letter-spacing: .10em;
       }
 
       .nav-inner {
@@ -671,20 +719,25 @@
 
       .mobile-nav-header {
         display: flex;
+
         justify-content: flex-end;
         align-items: center;
 
-        min-height: 54px;
-        padding: 4px 18px;
+        min-height: 48px;
+
+        padding: 1px 16px;
       }
 
       .site-nav {
         display: none;
+
         flex-direction: column;
         align-items: stretch;
+
         gap: 0;
 
         width: 100%;
+
         padding: 0 20px 18px;
       }
 
@@ -693,19 +746,24 @@
       }
 
       .site-nav a {
-        padding: 15px 4px;
+        padding: 14px 4px;
 
         border-bottom:
           1px solid rgba(0, 31, 63, .13);
       }
 
       .page-main {
-        width: min(100% - 28px, 1040px);
-        padding: 56px 0 100px;
+        width: min(
+          100% - 28px,
+          1040px
+        );
+
+        padding: 50px 0 100px;
       }
 
       .month-title {
         min-height: 58px;
+
         padding: 14px 16px;
 
         font-size: .86rem;
@@ -750,6 +808,7 @@
 
         font-size: .82rem;
       }
+
     }
 
 
@@ -765,7 +824,7 @@
       }
 
       .brand-subtitle {
-        font-size: .72rem;
+        font-size: .70rem;
       }
 
       .page-heading {
@@ -836,6 +895,7 @@
       .event-modal {
         padding: 12px;
       }
+
     }
 
 
@@ -844,16 +904,19 @@
       html {
         scroll-behavior: auto;
       }
+
     }
+
   </style>
 </head>
 
 
 <body>
 
-  <!-- ==================================================
+
+  <!-- =========================================
        HEADER
-       ================================================== -->
+       ========================================= -->
 
   <header class="site-header">
 
@@ -869,8 +932,8 @@
           class="church-logo"
           src="images/logo.webp"
           alt=""
-          width="155"
-          height="155"
+          width="120"
+          height="120"
         >
 
         <span class="brand-text">
@@ -893,6 +956,7 @@
     <div class="navigation-bar">
 
       <div class="nav-inner">
+
 
         <div class="mobile-nav-header">
 
@@ -959,11 +1023,12 @@
   </header>
 
 
-  <!-- ==================================================
+  <!-- =========================================
        MAIN
-       ================================================== -->
+       ========================================= -->
 
   <main class="page-main">
+
 
     <section class="page-heading">
 
@@ -978,14 +1043,15 @@
       <p>
         Upcoming Friendship Church events,
         meetings and community activities.
+        Select an event title to view its poster.
       </p>
 
     </section>
 
 
-    <!-- ==================================================
+    <!-- =========================================
          AUGUST 2026
-         ================================================== -->
+         ========================================= -->
 
     <details
       class="month-section"
@@ -999,6 +1065,8 @@
 
       <div class="event-list">
 
+
+        <!-- CHURCH LIFE MEETING -->
 
         <article class="event-row">
 
@@ -1022,7 +1090,7 @@
               <button
                 class="event-title-button"
                 type="button"
-                data-event-image="images/Aug%2023%20-%20Life%20Meeting.webp"
+                data-event-image="images/Aug%2023%20-%20Life%20Meeting.jpg"
                 data-event-title="Church Life Meeting"
               >
                 Church Life Meeting
@@ -1042,6 +1110,8 @@
 
         </article>
 
+
+        <!-- KAKIGORI -->
 
         <article class="event-row">
 
@@ -1065,7 +1135,7 @@
               <button
                 class="event-title-button"
                 type="button"
-               data-event-image="images/Aug%2030%20-%20Family%20Kakigori.webp"
+                data-event-image="images/Aug%2030%20-%20Family%20Kakigori.jpg"
                 data-event-title="FC All in the Family Kakigori"
               >
                 FC “All in the Family” Kakigori
@@ -1091,9 +1161,9 @@
     </details>
 
 
-    <!-- ==================================================
+    <!-- =========================================
          SEPTEMBER 2026
-         ================================================== -->
+         ========================================= -->
 
     <details class="month-section">
 
@@ -1104,6 +1174,8 @@
 
       <div class="event-list">
 
+
+        <!-- COMMUNION -->
 
         <article class="event-row">
 
@@ -1127,7 +1199,7 @@
               <button
                 class="event-title-button"
                 type="button"
-               data-event-image="images/Sep%206%20-%20Communion.webp"
+                data-event-image="images/Sep%206%20-%20Communion.jpg"
                 data-event-title="Communion"
               >
                 Communion
@@ -1153,9 +1225,9 @@
     </details>
 
 
-    <!-- ==================================================
+    <!-- =========================================
          OCTOBER 2026
-         ================================================== -->
+         ========================================= -->
 
     <details class="month-section">
 
@@ -1174,9 +1246,9 @@
     </details>
 
 
-    <!-- ==================================================
+    <!-- =========================================
          NOVEMBER 2026
-         ================================================== -->
+         ========================================= -->
 
     <details class="month-section">
 
@@ -1195,9 +1267,9 @@
     </details>
 
 
-    <!-- ==================================================
+    <!-- =========================================
          DECEMBER 2026
-         ================================================== -->
+         ========================================= -->
 
     <details class="month-section">
 
@@ -1215,12 +1287,13 @@
 
     </details>
 
+
   </main>
 
 
-  <!-- ==================================================
-       EVENT IMAGE MODAL
-       ================================================== -->
+  <!-- =========================================
+       EVENT POSTER POPUP
+       ========================================= -->
 
   <div
     class="event-modal"
@@ -1241,12 +1314,14 @@
         ×
       </button>
 
+
       <img
         class="event-modal-image"
         id="event-modal-image"
         src=""
         alt=""
       >
+
 
       <span
         id="event-modal-title"
@@ -1258,9 +1333,9 @@
   </div>
 
 
-  <!-- ==================================================
-       BACK TO COMMUNITY BOARD
-       ================================================== -->
+  <!-- =========================================
+       STANDARD BACK BUTTON
+       ========================================= -->
 
   <a
     class="back-button"
@@ -1270,9 +1345,9 @@
   </a>
 
 
-  <!-- ==================================================
+  <!-- =========================================
        FOOTER
-       ================================================== -->
+       ========================================= -->
 
   <footer>
 
@@ -1292,9 +1367,9 @@
   </footer>
 
 
-  <!-- ==================================================
+  <!-- =========================================
        JAVASCRIPT
-       ================================================== -->
+       ========================================= -->
 
   <script>
 
@@ -1363,7 +1438,9 @@
     }
 
 
-    /* EVENT POSTER MODAL */
+    /* =========================================
+       EVENT POSTER POPUP
+       ========================================= */
 
     const eventModal =
       document.querySelector("#event-modal");
@@ -1458,9 +1535,7 @@
       "click",
       (event) => {
 
-        if (
-          event.target === eventModal
-        ) {
+        if (event.target === eventModal) {
 
           closeEventModal();
 
@@ -1489,6 +1564,7 @@
     );
 
   </script>
+
 
 </body>
 </html>
