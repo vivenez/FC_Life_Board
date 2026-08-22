@@ -41,6 +41,7 @@
       margin: 0;
       color: var(--ink);
       background: var(--paper);
+
       font-family: Arial, Helvetica, sans-serif;
       font-size: 17px;
       line-height: 1.72;
@@ -75,7 +76,8 @@
     .latest-message h3,
     .former-messages h3,
     .former-message-title,
-    .event-card h3 {
+    .event-preview-title,
+    .event-preview-item h3 {
       font-family:
         "Iowan Old Style",
         "Palatino Linotype",
@@ -118,7 +120,9 @@
 
     .former-message-title {
       display: inline-block;
+
       margin-top: 3px;
+
       font-size: 1.1rem;
       font-weight: 600;
       line-height: 1.4;
@@ -126,8 +130,8 @@
 
     .panel p,
     .latest-message p,
-    .event-card p,
-    .location-card p {
+    .location-main p,
+    .parking p {
       font-size: 1.06rem;
       line-height: 1.75;
     }
@@ -141,8 +145,11 @@
       position: sticky;
       top: 0;
       z-index: 50;
+
       background: var(--midnight-mirage);
-      box-shadow: 0 4px 18px rgba(0, 31, 63, .16);
+
+      box-shadow:
+        0 4px 18px rgba(0, 31, 63, .16);
     }
 
     .header-inner {
@@ -264,6 +271,7 @@
       margin: 5px auto;
 
       background: currentColor;
+
       border-radius: 999px;
     }
 
@@ -342,6 +350,7 @@
       padding: clamp(28px, 4vw, 48px);
 
       background: #fff;
+
       border: 1px solid var(--line);
       border-radius: var(--radius);
 
@@ -664,60 +673,116 @@
 
 
     /* ==================================================
-       EVENTS
+       UPCOMING EVENTS — HOMEPAGE PREVIEW
        ================================================== */
 
-    .events-grid {
+    .events-preview-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
     }
 
-    .event-card {
-      display: flex;
-      flex-direction: column;
-
+    .event-preview-month {
       overflow: hidden;
 
       background: #fff;
+
       border: 1px solid var(--line);
       border-radius: var(--radius);
 
       box-shadow: var(--shadow);
     }
 
-    .event-date-box {
+    .event-preview-title {
+      margin: 0;
       padding: 18px 22px;
 
       color: var(--first-colors-of-spring);
       background: var(--midnight-mirage);
 
-      font-weight: 900;
-      letter-spacing: .08em;
-
-      text-transform: uppercase;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: .01em;
     }
 
-    .event-body {
-      padding: 24px;
+    .event-preview-list {
+      display: grid;
+
+      padding: 8px 22px;
     }
 
-    .event-body h3 {
-      margin: 0 0 10px;
+    .event-preview-item {
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr);
+      gap: 18px;
+
+      padding: 20px 0;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .event-preview-item:last-child {
+      border-bottom: 0;
+    }
+
+    .event-preview-date {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 66px;
+
+      color: var(--first-colors-of-spring);
+      background: var(--midnight-mirage);
+
+      border-radius: 12px;
+
+      font-family:
+        "Iowan Old Style",
+        "Palatino Linotype",
+        Palatino,
+        Georgia,
+        serif;
+
+      font-size: 1.65rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .event-preview-content {
+      min-width: 0;
+    }
+
+    .event-preview-item h3 {
+      margin: 0;
 
       color: var(--midnight-mirage);
 
-      font-size: 1.55rem;
+      font-size: 1.28rem;
+      font-weight: 600;
+      line-height: 1.25;
     }
 
-    .event-meta {
-      margin: 5px 0 !important;
+    .event-preview-time {
+      margin: 6px 0 0;
 
-      font-size: .98rem !important;
+      color: var(--nuit-blanche);
+
+      font-size: .92rem;
+      font-weight: 800;
     }
 
-    .event-poster-link {
-      margin-top: 18px;
+    .event-preview-location {
+      margin: 3px 0 0;
+
+      color: var(--picture-book-green);
+
+      font-size: .92rem;
+      font-weight: 800;
+    }
+
+    .events-more {
+      margin-top: 24px;
     }
 
 
@@ -868,10 +933,6 @@
       .visit-grid {
         grid-template-columns: 1fr;
       }
-
-      .events-grid {
-        grid-template-columns: 1fr 1fr;
-      }
     }
 
 
@@ -959,8 +1020,7 @@
 
       .about-grid,
       .message-layout,
-      .visit-grid,
-      .events-grid {
+      .visit-grid {
         grid-template-columns: 1fr;
       }
 
@@ -981,6 +1041,38 @@
       .former-language-links a {
         flex:
           1 1 calc(50% - 8px);
+      }
+
+      .events-preview-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .event-preview-title {
+        padding: 16px 18px;
+
+        font-size: 1.15rem;
+      }
+
+      .event-preview-list {
+        padding: 6px 18px;
+      }
+
+      .event-preview-item {
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 14px;
+
+        padding: 17px 0;
+      }
+
+      .event-preview-date {
+        min-height: 60px;
+
+        font-size: 1.5rem;
+      }
+
+      .event-preview-item h3 {
+        font-size: 1.18rem;
       }
     }
 
@@ -1011,6 +1103,26 @@
 
       .panel {
         padding: 28px 22px;
+      }
+
+      .event-preview-item {
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .event-preview-date {
+        min-height: 56px;
+
+        font-size: 1.35rem;
+      }
+
+      .event-preview-item h3 {
+        font-size: 1.08rem;
+      }
+
+      .event-preview-time,
+      .event-preview-location {
+        font-size: .83rem;
       }
     }
 
@@ -1069,7 +1181,6 @@
     <div class="navigation-bar">
 
       <div class="nav-inner">
-
 
         <div class="mobile-nav-header">
 
@@ -1182,21 +1293,17 @@
       <div class="about-grid">
 
 
-        <!-- ABOUT US -->
-
         <article class="panel">
 
           <h3>
             About Us
           </h3>
 
-
           <p>
             Friendship Church is an evangelical,
             Bible-believing Christian church based in
             Izumo City, Shimane Prefecture.
           </p>
-
 
           <p>
             The meetings are in English, but there are
@@ -1205,12 +1312,10 @@
             languages.
           </p>
 
-
           <p>
             There is also a special class for children
             and young adults.
           </p>
-
 
           <p>
             Please join us if you are in the area.
@@ -1220,7 +1325,6 @@
           <h3>
             Our Vision and Values
           </h3>
-
 
           <p>
             Our vision and values will be added after they
@@ -1232,7 +1336,6 @@
             Our Constitution
           </h3>
 
-
           <a
             class="text-link"
             href="constitution.html"
@@ -1243,8 +1346,6 @@
         </article>
 
 
-        <!-- SERVICE -->
-
         <aside
           class="panel service-card"
           aria-label="Sunday service information"
@@ -1254,14 +1355,12 @@
             Service Time
           </h3>
 
-
           <p class="every-sunday">
             Every Sunday
           </p>
 
 
           <div class="service-schedule">
-
 
             <div class="schedule-row">
 
@@ -1321,7 +1420,6 @@
               Contact Pastor John
             </a>
 
-
             <span
               class="button secondary disabled"
               aria-disabled="true"
@@ -1338,12 +1436,10 @@
               Members Area
             </h3>
 
-
             <p>
               Members can sign in or request access to
               church member resources.
             </p>
-
 
             <a
               class="button"
@@ -1362,7 +1458,7 @@
 
 
     <!-- ==================================================
-         SERMON
+         SERMON OF THE WEEK
          ================================================== -->
 
     <section
@@ -1372,7 +1468,6 @@
     >
 
       <div class="section">
-
 
         <div class="section-heading">
 
@@ -1386,19 +1481,15 @@
         <div class="message-layout">
 
 
-          <!-- LATEST SERMON -->
-
           <article class="latest-message">
 
             <span class="date-chip">
               Latest Message
             </span>
 
-
             <h3>
               Why Should We Care About Israel?
             </h3>
-
 
             <p class="scripture">
 
@@ -1409,7 +1500,6 @@
               · Psalm 122:6–7
 
             </p>
-
 
             <p>
               A message about Israel’s place in God’s
@@ -1429,20 +1519,17 @@
                 English
               </a>
 
-
               <a
                 href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-PT-BR.txt"
               >
                 Português
               </a>
 
-
               <a
                 href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-ESP.txt"
               >
                 Español
               </a>
-
 
               <a
                 href="sermons/2026-08-16-Why_Should_We_Care_About_Israel-JAP.txt"
@@ -1456,19 +1543,15 @@
           </article>
 
 
-          <!-- ONE PREVIOUS SERMON -->
-
           <aside class="former-messages">
 
             <h3>
               Past Sermons
             </h3>
 
-
             <time datetime="2026-08-09">
               August 9, 2026
             </time>
-
 
             <span class="former-message-title">
               Who Am I?
@@ -1483,20 +1566,17 @@
                 English
               </a>
 
-
               <a
                 href="sermons/2026-08-09-Who_Am_I-PT-BR.txt"
               >
                 Português
               </a>
 
-
               <a
                 href="sermons/2026-08-09-Who_Am_I-ESP.txt"
               >
                 Español
               </a>
-
 
               <a
                 href="sermons/2026-08-09-Who_Am_I-JAP.txt"
@@ -1525,7 +1605,8 @@
 
 
     <!-- ==================================================
-         EVENTS
+         UPCOMING EVENTS
+         SMALL TWO-MONTH PREVIEW
          ================================================== -->
 
     <section
@@ -1543,167 +1624,131 @@
       </div>
 
 
-      <div class="events-grid">
+      <div class="events-preview-grid">
 
 
-        <!-- EVENT 1 -->
+        <!-- AUGUST -->
 
-        <article class="event-card">
+        <article class="event-preview-month">
 
-          <div class="event-date-box">
-            Aug 23
-          </div>
-
-
-          <div class="event-body">
-
-            <h3>
-              Church Life Meeting
-            </h3>
+          <h3 class="event-preview-title">
+            August 2026
+          </h3>
 
 
-            <p class="event-meta">
-
-              <strong>
-                Date + Time:
-              </strong>
-
-              August 23 · After Service
-
-            </p>
+          <div class="event-preview-list">
 
 
-            <p class="event-meta">
+            <div class="event-preview-item">
 
-              <strong>
-                Location:
-              </strong>
+              <div class="event-preview-date">
+                23
+              </div>
 
-              Ministry Building
+              <div class="event-preview-content">
 
-            </p>
+                <h3>
+                  Church Life Meeting
+                </h3>
 
+                <p class="event-preview-time">
+                  After Service
+                </p>
 
-            <a
-              class="button event-poster-link"
-              href="images/Aug%2023%20-%20Life%20Meeting.jpg"
-            >
-              Open Event Image
-            </a>
+                <p class="event-preview-location">
+                  Ministry Building
+                </p>
 
-          </div>
+              </div>
 
-        </article>
-
-
-        <!-- EVENT 2 -->
-
-        <article class="event-card">
-
-          <div class="event-date-box">
-            Aug 30
-          </div>
+            </div>
 
 
-          <div class="event-body">
+            <div class="event-preview-item">
 
-            <h3>
-              FC “All in the Family” Kakigori
-            </h3>
+              <div class="event-preview-date">
+                30
+              </div>
 
+              <div class="event-preview-content">
 
-            <p class="event-meta">
+                <h3>
+                  FC “All in the Family” Kakigori
+                </h3>
 
-              <strong>
-                Date + Time:
-              </strong>
+                <p class="event-preview-time">
+                  After Service
+                </p>
 
-              August 30 · After Service
+                <p class="event-preview-location">
+                  Ministry Building
+                </p>
 
-            </p>
+              </div>
 
+            </div>
 
-            <p class="event-meta">
-
-              <strong>
-                Location:
-              </strong>
-
-              Ministry Building
-
-            </p>
-
-
-            <a
-              class="button event-poster-link"
-              href="images/Aug%2030%20-%20Family%20Kakigori.jpg"
-            >
-              Open Event Image
-            </a>
 
           </div>
 
         </article>
 
 
-        <!-- EVENT 3 -->
+        <!-- SEPTEMBER -->
 
-        <article class="event-card">
+        <article class="event-preview-month">
 
-          <div class="event-date-box">
-            Sep 06
-          </div>
-
-
-          <div class="event-body">
-
-            <h3>
-              Communion
-            </h3>
+          <h3 class="event-preview-title">
+            September 2026
+          </h3>
 
 
-            <p class="event-meta">
-
-              <strong>
-                Date + Time:
-              </strong>
-
-              September 6 · 9:45 AM
-
-            </p>
+          <div class="event-preview-list">
 
 
-            <p class="event-meta">
+            <div class="event-preview-item">
 
-              <strong>
-                Location:
-              </strong>
+              <div class="event-preview-date">
+                06
+              </div>
 
-              Ministry Building
+              <div class="event-preview-content">
 
-            </p>
+                <h3>
+                  Communion
+                </h3>
 
+                <p class="event-preview-time">
+                  9:45 AM
+                </p>
 
-            <a
-              class="button event-poster-link"
-              href="images/Sep%206%20-%20Communion.jpg"
-            >
-              Open Event Image
-            </a>
+                <p class="event-preview-location">
+                  Ministry Building
+                </p>
+
+              </div>
+
+            </div>
+
 
           </div>
 
         </article>
+
 
       </div>
 
 
-      <a
-        class="text-link"
-        href="events.html"
-      >
-        View All Events
-      </a>
+      <div class="events-more">
+
+        <a
+          class="text-link"
+          href="events.html"
+        >
+          View All Events →
+        </a>
+
+      </div>
 
     </section>
 
@@ -1723,11 +1768,9 @@
 
         <div class="visit-heading">
 
-
           <p class="eyebrow">
             Where to Find Us
           </p>
-
 
           <h2 id="directions-title">
             Directions &amp; Parking
@@ -1753,30 +1796,21 @@
         <div class="visit-grid">
 
 
-          <!-- CHURCH LOCATION -->
-
           <article class="panel location-main">
-
 
             <h3>
               Friendship Church — Izumo
             </h3>
 
-
             <p>
-
               West Building, 70-12 Tenjin-cho,
               Izumo City, Shimane Prefecture
               693-0005
-
             </p>
 
-
             <p lang="ja">
-
               西棟、〒693-0005
               島根県出雲市天神町70-12
-
             </p>
 
 
@@ -1814,16 +1848,11 @@
           </article>
 
 
-          <!-- PARKING -->
-
-          <article
-            class="panel parking"
-          >
+          <article class="panel parking">
 
             <h3>
               Parking at COSMO Book Center
             </h3>
-
 
             <p>
               Free parking is available at COSMO Book
@@ -1875,7 +1904,7 @@
 
 
   <!-- ==================================================
-       MOBILE NAV
+       MOBILE NAVIGATION
        ================================================== -->
 
   <script>
@@ -1922,9 +1951,7 @@
             "click",
             () => {
 
-              if (
-                window.innerWidth <= 760
-              ) {
+              if (window.innerWidth <= 760) {
 
                 navigation.classList.remove(
                   "is-open"
