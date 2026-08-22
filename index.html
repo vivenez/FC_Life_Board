@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
   <meta
     name="description"
@@ -11,7 +15,9 @@
 
   <title>Friendship Church | Life Community Board</title>
 
+
   <style>
+
     :root {
       --midnight-mirage: #001f3f;
       --first-colors-of-spring: #dbe64c;
@@ -25,62 +31,82 @@
       --mist: #edf3ee;
       --line: #d7dfd6;
 
-      --shadow: 0 14px 40px rgba(0, 31, 63, .10);
+      --shadow:
+        0 14px 40px rgba(0, 31, 63, .10);
+
       --radius: 22px;
     }
+
 
     * {
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
       margin: 0;
+
       color: var(--ink);
       background: var(--paper);
 
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       font-size: 17px;
       line-height: 1.72;
     }
 
+
     body.modal-open {
       overflow: hidden;
     }
+
 
     img {
       display: block;
       max-width: 100%;
     }
 
+
     a {
       color: inherit;
     }
 
+
     button {
       font: inherit;
     }
+
 
     section {
       scroll-margin-top: 180px;
     }
 
 
+
     /* ==================================================
        TYPOGRAPHY
        ================================================== */
 
+
     .brand strong,
     .hero h1,
     .section-heading h2,
+    .panel h2,
     .panel h3,
     .weekly-card h3,
     .faith-card h3,
     .event-preview-title,
-    .event-preview-item h3 {
+    .event-preview-item h3,
+    .visit-heading h2 {
+
       font-family:
         "Iowan Old Style",
         "Palatino Linotype",
@@ -89,317 +115,550 @@
         serif;
     }
 
-    .brand strong {
-      font-weight: 400;
-      letter-spacing: -.035em;
-      line-height: 1;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.65rem, 5.7vw, 5.35rem);
-      font-weight: 400;
-      letter-spacing: -.045em;
-      line-height: 1.05;
-    }
 
     .section-heading h2 {
-      font-size: clamp(2.25rem, 4vw, 3.6rem);
+
+      margin: 0;
+
+      color:
+        var(--midnight-mirage);
+
+      font-size:
+        clamp(2.25rem, 4vw, 3.6rem);
+
       font-weight: 400;
+
       letter-spacing: -.035em;
+
       line-height: 1.1;
     }
 
-    .panel h3 {
-      font-size: clamp(1.65rem, 2.6vw, 2rem);
-      font-weight: 600;
-      line-height: 1.2;
-    }
-
-    .panel p,
-    .location-main p,
-    .parking p {
-      font-size: 1.06rem;
-      line-height: 1.75;
-    }
 
 
     /* ==================================================
        HEADER
        ================================================== */
 
+
     .site-header {
+
       position: sticky;
       top: 0;
       z-index: 50;
 
-      background: var(--midnight-mirage);
+      background:
+        var(--midnight-mirage);
 
       box-shadow:
         0 4px 18px rgba(0, 31, 63, .16);
     }
 
+
     .header-inner {
-      width: min(1180px, calc(100% - 40px));
+
+      width:
+        min(1180px, calc(100% - 40px));
+
       margin: 0 auto;
-      padding: 22px 0 18px;
+
+      padding:
+        22px 0 18px;
     }
+
 
     .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 20px;
 
-      color: var(--praxeti-white);
+      display:
+        inline-flex;
 
-      text-decoration: none;
+      align-items:
+        center;
+
+      gap:
+        20px;
+
+      color:
+        var(--praxeti-white);
+
+      text-decoration:
+        none;
     }
+
 
     .church-logo {
-      width: 155px;
-      height: 155px;
 
-      object-fit: contain;
-      flex-shrink: 0;
+      width:
+        155px;
+
+      height:
+        155px;
+
+      object-fit:
+        contain;
+
+      flex-shrink:
+        0;
     }
+
 
     .brand-text {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      min-width:
+        0;
     }
+
 
     .brand strong {
-      display: block;
 
-      color: var(--praxeti-white);
+      display:
+        block;
 
-      font-size: clamp(2.15rem, 3.8vw, 3.85rem);
+      color:
+        var(--praxeti-white);
+
+      font-size:
+        clamp(2.15rem, 3.8vw, 3.85rem);
+
+      font-weight:
+        400;
+
+      letter-spacing:
+        -.035em;
+
+      line-height:
+        1;
     }
+
 
     .brand-subtitle {
-      display: block;
 
-      margin-top: 10px;
+      display:
+        block;
 
-      color: var(--first-colors-of-spring);
+      margin-top:
+        10px;
 
-      font-size: .95rem;
-      font-weight: 800;
-      letter-spacing: .13em;
+      color:
+        var(--first-colors-of-spring);
 
-      text-transform: uppercase;
+      font-size:
+        .95rem;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        .13em;
+
+      text-transform:
+        uppercase;
     }
+
 
 
     /* ==================================================
        NAVIGATION
        ================================================== */
 
+
     .navigation-bar {
-      background: var(--first-colors-of-spring);
+
+      background:
+        var(--first-colors-of-spring);
     }
+
 
     .nav-inner {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
+
+      width:
+        min(1180px, calc(100% - 40px));
+
+      margin:
+        0 auto;
     }
+
 
     .site-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: clamp(18px, 3vw, 44px);
 
-      min-height: 62px;
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      gap:
+        clamp(18px, 3vw, 44px);
+
+      min-height:
+        62px;
     }
+
 
     .site-nav a {
-      padding: 20px 0 17px;
 
-      color: var(--midnight-mirage);
+      padding:
+        20px 0 17px;
 
-      font-size: .84rem;
-      font-weight: 800;
-      letter-spacing: .05em;
+      color:
+        var(--midnight-mirage);
 
-      text-decoration: none;
-      text-transform: uppercase;
+      font-size:
+        .84rem;
 
-      white-space: nowrap;
+      font-weight:
+        800;
+
+      letter-spacing:
+        .05em;
+
+      text-decoration:
+        none;
+
+      text-transform:
+        uppercase;
+
+      white-space:
+        nowrap;
     }
+
 
     .site-nav .admin-link {
-      color: var(--picture-book-green);
+
+      color:
+        var(--picture-book-green);
     }
+
 
     .mobile-nav-header {
-      display: none;
+
+      display:
+        none;
     }
+
 
     .menu-toggle {
-      width: 46px;
-      height: 46px;
-      padding: 10px;
 
-      border: 0;
+      width:
+        46px;
 
-      color: var(--midnight-mirage);
-      background: transparent;
+      height:
+        46px;
 
-      cursor: pointer;
+      padding:
+        10px;
+
+      border:
+        0;
+
+      color:
+        var(--midnight-mirage);
+
+      background:
+        transparent;
+
+      cursor:
+        pointer;
     }
+
 
     .menu-toggle span {
-      display: block;
 
-      width: 25px;
-      height: 2px;
-      margin: 5px auto;
+      display:
+        block;
 
-      background: currentColor;
+      width:
+        25px;
 
-      border-radius: 999px;
+      height:
+        2px;
+
+      margin:
+        5px auto;
+
+      background:
+        currentColor;
+
+      border-radius:
+        999px;
     }
+
 
 
     /* ==================================================
        HERO
        ================================================== */
 
-    .hero {
-      display: grid;
-      place-items: center;
 
-      min-height: 360px;
-      overflow: hidden;
+    .hero {
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      min-height:
+        360px;
+
+      overflow:
+        hidden;
 
       background:
+
         linear-gradient(
           rgba(0, 31, 63, .66),
           rgba(0, 31, 63, .66)
         ),
+
         url("images/background.webp")
         center center / cover no-repeat;
     }
 
-    .hero-inner {
-      width: min(920px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 52px 0;
 
-      text-align: center;
+    .hero-inner {
+
+      width:
+        min(920px, calc(100% - 40px));
+
+      margin:
+        0 auto;
+
+      padding:
+        52px 0;
+
+      text-align:
+        center;
     }
 
-    .hero h1 {
-      margin: 0;
 
-      color: var(--praxeti-white);
+    .hero h1 {
+
+      margin:
+        0;
+
+      color:
+        var(--praxeti-white);
+
+      font-size:
+        clamp(2.65rem, 5.7vw, 5.35rem);
+
+      font-weight:
+        400;
+
+      letter-spacing:
+        -.045em;
+
+      line-height:
+        1.05;
 
       text-shadow:
         0 3px 18px rgba(0, 31, 63, .35);
     }
 
+
     .hero p {
-      max-width: 760px;
-      margin: 22px auto 0;
 
-      color: var(--praxeti-white);
+      max-width:
+        760px;
 
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      margin:
+        22px auto 0;
+
+      color:
+        var(--praxeti-white);
+
+      font-size:
+        clamp(1rem, 1.5vw, 1.2rem);
 
       text-shadow:
         0 2px 12px rgba(0, 31, 63, .45);
     }
 
 
+
     /* ==================================================
        GENERAL
        ================================================== */
 
+
     .section {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 84px 0;
+
+      width:
+        min(1180px, calc(100% - 40px));
+
+      margin:
+        0 auto;
+
+      padding:
+        84px 0;
     }
+
 
     .section-heading {
-      margin-bottom: 30px;
+
+      margin-bottom:
+        30px;
     }
 
-    .section-heading h2 {
-      margin: 0;
-
-      color: var(--midnight-mirage);
-    }
 
     .panel {
-      padding: clamp(28px, 4vw, 48px);
 
-      background: #fff;
+      padding:
+        clamp(28px, 4vw, 48px);
 
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      background:
+        #fff;
 
-      box-shadow: var(--shadow);
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        var(--radius);
+
+      box-shadow:
+        var(--shadow);
     }
+
+
+    .panel h2 {
+
+      margin:
+        0 0 20px;
+
+      color:
+        var(--midnight-mirage);
+
+      font-size:
+        clamp(2rem, 3.5vw, 3rem);
+
+      font-weight:
+        400;
+    }
+
 
     .panel h3 {
-      margin: 0 0 16px;
 
-      color: var(--midnight-mirage);
+      margin:
+        0 0 16px;
+
+      color:
+        var(--midnight-mirage);
+
+      font-size:
+        clamp(1.55rem, 2.6vw, 1.95rem);
+
+      font-weight:
+        600;
+
+      line-height:
+        1.2;
     }
+
 
     .panel h3:not(:first-child) {
-      margin-top: 38px;
+
+      margin-top:
+        38px;
     }
+
 
     .panel p {
-      margin: 0;
+
+      margin:
+        0;
+
+      font-size:
+        1.06rem;
+
+      line-height:
+        1.75;
     }
+
 
     .panel p + p {
-      margin-top: 17px;
+
+      margin-top:
+        17px;
     }
+
 
     .text-link {
-      display: inline-block;
 
-      margin-top: 10px;
+      display:
+        inline-block;
 
-      color: var(--picture-book-green);
+      margin-top:
+        10px;
 
-      font-weight: 800;
-      text-underline-offset: 4px;
+      color:
+        var(--picture-book-green);
+
+      font-weight:
+        800;
+
+      text-underline-offset:
+        4px;
     }
+
 
 
     /* ==================================================
        ABOUT + SERVICE
        ================================================== */
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.45fr .85fr;
-      gap: 28px;
 
-      align-items: start;
+    .about-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1.45fr .85fr;
+
+      gap:
+        28px;
+
+      align-items:
+        start;
     }
+
 
     .service-card {
-      color: var(--praxeti-white);
-      background: var(--midnight-mirage);
 
-      border-color: transparent;
+      color:
+        var(--praxeti-white);
+
+      background:
+        var(--midnight-mirage);
+
+      border-color:
+        transparent;
     }
+
 
     .service-card h3 {
-      color: var(--first-colors-of-spring);
+
+      color:
+        var(--first-colors-of-spring);
     }
 
-    .every-sunday {
-      margin: 4px 0 24px !important;
 
-      color: var(--praxeti-white);
+    .every-sunday {
+
+      margin:
+        4px 0 24px !important;
+
+      color:
+        var(--praxeti-white);
 
       font-family:
         "Iowan Old Style",
@@ -408,169 +667,309 @@
         Georgia,
         serif;
 
-      font-size: 1.45rem !important;
-      font-weight: 600;
-      line-height: 1.2 !important;
+      font-size:
+        1.45rem !important;
+
+      font-weight:
+        600;
+
+      line-height:
+        1.2 !important;
     }
 
+
     .service-schedule {
-      margin: 0 0 28px;
+
+      margin:
+        0 0 28px;
 
       border-top:
         1px solid rgba(246, 247, 237, .18);
     }
 
-    .schedule-row {
-      display: grid;
-      grid-template-columns: minmax(120px, 1fr) auto;
-      gap: 18px;
-      align-items: center;
 
-      padding: 15px 0;
+    .schedule-row {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        minmax(120px, 1fr) auto;
+
+      gap:
+        18px;
+
+      align-items:
+        center;
+
+      padding:
+        15px 0;
 
       border-bottom:
         1px solid rgba(246, 247, 237, .18);
     }
 
+
     .schedule-label {
-      font-weight: 800;
+
+      font-weight:
+        800;
     }
+
 
     .schedule-time {
-      color: var(--mantis);
 
-      font-size: .95rem;
-      font-weight: 800;
+      color:
+        var(--mantis);
 
-      text-align: right;
-      white-space: nowrap;
+      font-size:
+        .95rem;
+
+      font-weight:
+        800;
+
+      text-align:
+        right;
+
+      white-space:
+        nowrap;
     }
+
 
     .service-note {
-      color: rgba(246, 247, 237, .82);
+
+      color:
+        rgba(246, 247, 237, .82);
     }
+
 
     .quick-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
 
-      margin-top: 24px;
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        10px;
+
+      margin-top:
+        24px;
     }
+
 
 
     /* ==================================================
        BUTTONS
        ================================================== */
 
+
     .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
 
-      min-height: 44px;
-      padding: 10px 18px;
+      display:
+        inline-flex;
 
-      border: 1px solid transparent;
-      border-radius: 999px;
+      align-items:
+        center;
 
-      color: white;
-      background: var(--picture-book-green);
+      justify-content:
+        center;
 
-      font-size: .9rem;
-      font-weight: 800;
+      min-height:
+        44px;
 
-      text-decoration: none;
+      padding:
+        10px 18px;
+
+      border:
+        1px solid transparent;
+
+      border-radius:
+        999px;
+
+      color:
+        white;
+
+      background:
+        var(--picture-book-green);
+
+      font-size:
+        .9rem;
+
+      font-weight:
+        800;
+
+      text-decoration:
+        none;
     }
+
 
     .button.secondary {
-      color: var(--midnight-mirage);
-      background: var(--first-colors-of-spring);
+
+      color:
+        var(--midnight-mirage);
+
+      background:
+        var(--first-colors-of-spring);
     }
+
 
     .button.disabled {
-      cursor: not-allowed;
-      opacity: .62;
+
+      cursor:
+        not-allowed;
+
+      opacity:
+        .62;
     }
 
 
+
     /* ==================================================
-       MEMBERS AREA
+       MEMBERS
        ================================================== */
+
 
     .members-entry {
-      margin-top: 28px;
-      padding: 25px;
 
-      color: var(--midnight-mirage);
-      background: var(--first-colors-of-spring);
+      margin-top:
+        28px;
 
-      border-radius: 16px;
+      padding:
+        25px;
+
+      color:
+        var(--midnight-mirage);
+
+      background:
+        var(--first-colors-of-spring);
+
+      border-radius:
+        16px;
     }
+
 
     .members-entry h3 {
-      color: var(--midnight-mirage);
+
+      color:
+        var(--midnight-mirage);
     }
 
+
     .members-entry .button {
-      margin-top: 18px;
+
+      margin-top:
+        18px;
     }
+
 
 
     /* ==================================================
-       WEEKLY CONTENT SHARED SYSTEM
+       SERMON OF THE WEEK
        ================================================== */
 
+
     .weekly-section {
-      color: var(--praxeti-white);
-      background: var(--midnight-mirage);
+
+      color:
+        var(--praxeti-white);
+
+      background:
+        var(--midnight-mirage);
     }
+
 
     .weekly-section .section-heading h2 {
-      color: var(--praxeti-white);
+
+      color:
+        var(--praxeti-white);
     }
+
 
     .weekly-stack {
-      display: grid;
-      gap: 18px;
+
+      display:
+        grid;
+
+      gap:
+        18px;
     }
+
 
     .weekly-card {
-      display: grid;
-      grid-template-columns: 110px minmax(0, 1fr);
-      overflow: hidden;
 
-      color: var(--midnight-mirage);
-      background: var(--praxeti-white);
+      display:
+        grid;
 
-      border-radius: var(--radius);
+      grid-template-columns:
+        110px minmax(0, 1fr);
+
+      overflow:
+        hidden;
+
+      color:
+        var(--midnight-mirage);
+
+      background:
+        var(--praxeti-white);
+
+      border-radius:
+        var(--radius);
     }
+
 
     .weekly-date {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
 
-      padding: 24px 14px;
+      display:
+        flex;
 
-      color: var(--praxeti-white);
-      background: var(--nuit-blanche);
+      flex-direction:
+        column;
 
-      text-align: center;
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      padding:
+        24px 14px;
+
+      color:
+        var(--praxeti-white);
+
+      background:
+        var(--nuit-blanche);
+
+      text-align:
+        center;
     }
+
 
     .weekly-date span {
-      font-size: .72rem;
-      font-weight: 900;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+
+      font-size:
+        .72rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .12em;
+
+      text-transform:
+        uppercase;
     }
 
-    .weekly-date strong {
-      margin-top: 4px;
 
-      color: var(--first-colors-of-spring);
+    .weekly-date strong {
+
+      margin-top:
+        4px;
+
+      color:
+        var(--first-colors-of-spring);
 
       font-family:
         "Iowan Old Style",
@@ -579,221 +978,227 @@
         Georgia,
         serif;
 
-      font-size: 2rem;
-      line-height: 1;
+      font-size:
+        2rem;
+
+      line-height:
+        1;
     }
+
 
     .weekly-content {
-      padding: 28px 30px;
+
+      padding:
+        28px 30px;
     }
+
 
     .weekly-kicker {
-      margin: 0 0 8px;
 
-      color: var(--picture-book-green);
+      margin:
+        0 0 8px;
 
-      font-size: .78rem;
-      font-weight: 900;
-      letter-spacing: .1em;
+      color:
+        var(--picture-book-green);
 
-      text-transform: uppercase;
+      font-size:
+        .78rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .1em;
+
+      text-transform:
+        uppercase;
     }
+
 
     .weekly-card h3 {
-      margin: 0;
 
-      color: var(--midnight-mirage);
+      margin:
+        0;
 
-      font-size: clamp(1.65rem, 3vw, 2.5rem);
-      font-weight: 600;
-      line-height: 1.12;
+      font-size:
+        clamp(1.65rem, 3vw, 2.5rem);
+
+      font-weight:
+        600;
+
+      line-height:
+        1.12;
     }
+
+
+    .weekly-title-link {
+
+      color:
+        var(--midnight-mirage);
+
+      text-decoration-color:
+        var(--picture-book-green);
+
+      text-decoration-thickness:
+        2px;
+
+      text-underline-offset:
+        5px;
+    }
+
+
+    .weekly-title-link:hover,
+    .weekly-title-link:focus-visible {
+
+      color:
+        var(--picture-book-green);
+    }
+
 
     .scripture {
-      margin: 12px 0 0;
 
-      color: var(--picture-book-green);
+      margin:
+        12px 0 0;
 
-      font-weight: 800;
+      color:
+        var(--picture-book-green);
+
+      font-weight:
+        800;
     }
+
 
     .flavor-text {
-      margin: 12px 0 0;
 
-      color: var(--ink);
+      margin:
+        12px 0 0;
 
-      font-size: 1rem;
-      line-height: 1.7;
+      color:
+        var(--ink);
+
+      font-size:
+        1rem;
+
+      line-height:
+        1.7;
     }
 
 
-    /* ==================================================
-       COMPACT LANGUAGE SELECTOR
-       ================================================== */
+    .database-link {
 
-    .language-area {
-      margin-top: 22px;
+      display:
+        inline-block;
+
+      margin-top:
+        22px;
+
+      color:
+        var(--first-colors-of-spring);
+
+      font-weight:
+        800;
+
+      text-underline-offset:
+        4px;
     }
 
-    .language-label {
-      margin: 0 0 8px;
-
-      color: var(--ink);
-
-      font-size: .78rem;
-      font-weight: 800;
-
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    .language-selector {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .language-option {
-      min-height: 38px;
-      padding: 7px 10px;
-
-      border: 2px solid transparent;
-      border-radius: 999px;
-
-      font-size: .76rem;
-      font-weight: 800;
-
-      cursor: pointer;
-
-      transition:
-        transform .15s ease,
-        box-shadow .15s ease;
-    }
-
-    .language-option[data-lang="ENG"] {
-      color: var(--midnight-mirage);
-      background: var(--first-colors-of-spring);
-    }
-
-    .language-option[data-lang="PT-BR"] {
-      color: white;
-      background: var(--picture-book-green);
-    }
-
-    .language-option[data-lang="ESP"] {
-      color: var(--midnight-mirage);
-      background: var(--mantis);
-    }
-
-    .language-option[data-lang="JAP"] {
-      color: white;
-      background: var(--nuit-blanche);
-    }
-
-    .language-option.is-selected {
-      border-color: var(--midnight-mirage);
-
-      box-shadow:
-        0 0 0 2px rgba(0, 31, 63, .12);
-    }
-
-    .language-option:focus-visible {
-      outline: 3px solid rgba(0, 128, 76, .25);
-      outline-offset: 2px;
-    }
-
-    .language-option:hover {
-      transform: translateY(-1px);
-    }
-
-    .content-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-
-      margin-top: 14px;
-    }
-
-    .content-actions .button {
-      min-height: 40px;
-      padding: 7px 13px;
-
-      font-size: .78rem;
-    }
-
-    .study-button {
-      color: var(--midnight-mirage);
-      background: var(--first-colors-of-spring);
-    }
-
-    .study-button[aria-disabled="true"] {
-      cursor: not-allowed;
-      opacity: .45;
-    }
-
-    .weekly-archive-link {
-      display: inline-block;
-
-      margin-top: 20px;
-
-      color: var(--first-colors-of-spring);
-
-      font-weight: 800;
-      text-underline-offset: 4px;
-    }
 
 
     /* ==================================================
        FAITH HEROES
        ================================================== */
 
+
     .faith-section {
-      background: #082f59;
-      color: var(--praxeti-white);
+
+      color:
+        var(--praxeti-white);
+
+      background:
+        #082f59;
     }
+
 
     .faith-section .section-heading h2 {
-      color: var(--praxeti-white);
+
+      color:
+        var(--praxeti-white);
     }
+
 
     .faith-card {
-      display: grid;
-      grid-template-columns: 110px minmax(0, 1fr);
 
-      overflow: hidden;
+      display:
+        grid;
 
-      color: var(--midnight-mirage);
-      background: var(--praxeti-white);
+      grid-template-columns:
+        110px minmax(0, 1fr);
 
-      border-radius: var(--radius);
+      overflow:
+        hidden;
+
+      color:
+        var(--midnight-mirage);
+
+      background:
+        var(--praxeti-white);
+
+      border-radius:
+        var(--radius);
     }
+
 
     .faith-date {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
 
-      padding: 24px 14px;
+      display:
+        flex;
 
-      color: white;
-      background: var(--picture-book-green);
+      flex-direction:
+        column;
 
-      text-align: center;
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      padding:
+        24px 14px;
+
+      color:
+        white;
+
+      background:
+        var(--picture-book-green);
+
+      text-align:
+        center;
     }
+
 
     .faith-date span {
-      font-size: .72rem;
-      font-weight: 900;
-      letter-spacing: .12em;
 
-      text-transform: uppercase;
+      font-size:
+        .72rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .12em;
+
+      text-transform:
+        uppercase;
     }
 
-    .faith-date strong {
-      margin-top: 4px;
 
-      color: var(--first-colors-of-spring);
+    .faith-date strong {
+
+      margin-top:
+        4px;
+
+      color:
+        var(--first-colors-of-spring);
 
       font-family:
         "Iowan Old Style",
@@ -802,100 +1207,180 @@
         Georgia,
         serif;
 
-      font-size: 2rem;
-      line-height: 1;
+      font-size:
+        2rem;
+
+      line-height:
+        1;
     }
+
 
     .faith-content {
-      padding: 28px 30px;
+
+      padding:
+        28px 30px;
     }
+
 
     .faith-number {
-      margin: 0 0 8px;
 
-      color: var(--picture-book-green);
+      margin:
+        0 0 8px;
 
-      font-size: .78rem;
-      font-weight: 900;
-      letter-spacing: .1em;
+      color:
+        var(--picture-book-green);
 
-      text-transform: uppercase;
+      font-size:
+        .78rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        .1em;
+
+      text-transform:
+        uppercase;
     }
+
 
     .faith-card h3 {
-      margin: 0;
 
-      color: var(--midnight-mirage);
+      margin:
+        0;
 
-      font-size: clamp(1.65rem, 3vw, 2.45rem);
-      font-weight: 600;
-      line-height: 1.12;
+      color:
+        var(--midnight-mirage);
+
+      font-size:
+        clamp(1.65rem, 3vw, 2.45rem);
+
+      font-weight:
+        600;
+
+      line-height:
+        1.12;
     }
+
 
 
     /* ==================================================
        EVENTS PREVIEW
        ================================================== */
 
+
     .events-preview-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap:
+        24px;
     }
+
 
     .event-preview-month {
-      overflow: hidden;
 
-      background: #fff;
+      overflow:
+        hidden;
 
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      background:
+        #fff;
 
-      box-shadow: var(--shadow);
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        var(--radius);
+
+      box-shadow:
+        var(--shadow);
     }
+
 
     .event-preview-title {
-      margin: 0;
-      padding: 18px 22px;
 
-      color: var(--first-colors-of-spring);
-      background: var(--midnight-mirage);
+      margin:
+        0;
 
-      font-size: 1.25rem;
-      font-weight: 600;
+      padding:
+        18px 22px;
+
+      color:
+        var(--first-colors-of-spring);
+
+      background:
+        var(--midnight-mirage);
+
+      font-size:
+        1.25rem;
+
+      font-weight:
+        600;
     }
+
 
     .event-preview-list {
-      display: grid;
 
-      padding: 8px 22px;
+      display:
+        grid;
+
+      padding:
+        8px 22px;
     }
+
 
     .event-preview-item {
-      display: grid;
-      grid-template-columns: 70px minmax(0, 1fr);
-      gap: 18px;
 
-      padding: 20px 0;
+      display:
+        grid;
 
-      border-bottom: 1px solid var(--line);
+      grid-template-columns:
+        70px minmax(0, 1fr);
+
+      gap:
+        18px;
+
+      padding:
+        20px 0;
+
+      border-bottom:
+        1px solid var(--line);
     }
+
 
     .event-preview-item:last-child {
-      border-bottom: 0;
+
+      border-bottom:
+        0;
     }
 
+
     .event-preview-date {
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
-      min-height: 66px;
+      display:
+        flex;
 
-      color: var(--first-colors-of-spring);
-      background: var(--midnight-mirage);
+      align-items:
+        center;
 
-      border-radius: 12px;
+      justify-content:
+        center;
+
+      min-height:
+        66px;
+
+      color:
+        var(--first-colors-of-spring);
+
+      background:
+        var(--midnight-mirage);
+
+      border-radius:
+        12px;
 
       font-family:
         "Iowan Old Style",
@@ -904,214 +1389,369 @@
         Georgia,
         serif;
 
-      font-size: 1.65rem;
-      font-weight: 600;
+      font-size:
+        1.65rem;
+
+      font-weight:
+        600;
     }
+
 
     .event-preview-content {
-      min-width: 0;
+
+      min-width:
+        0;
     }
+
 
     .event-preview-item h3 {
-      margin: 0;
 
-      color: var(--midnight-mirage);
+      margin:
+        0;
 
-      font-size: 1.28rem;
-      font-weight: 600;
-      line-height: 1.25;
+      color:
+        var(--midnight-mirage);
+
+      font-size:
+        1.28rem;
+
+      font-weight:
+        600;
+
+      line-height:
+        1.25;
     }
+
 
     .event-title-button {
-      padding: 0;
 
-      border: 0;
-      background: transparent;
+      padding:
+        0;
 
-      color: inherit;
+      border:
+        0;
 
-      font: inherit;
+      color:
+        inherit;
 
-      text-align: left;
+      background:
+        transparent;
 
-      cursor: pointer;
+      font:
+        inherit;
+
+      text-align:
+        left;
+
+      cursor:
+        pointer;
     }
+
 
     .event-title-button:hover,
     .event-title-button:focus-visible {
-      color: var(--picture-book-green);
-      text-decoration: underline;
-      text-underline-offset: 4px;
+
+      color:
+        var(--picture-book-green);
+
+      text-decoration:
+        underline;
+
+      text-underline-offset:
+        4px;
     }
+
 
     .event-preview-time {
-      margin: 6px 0 0;
 
-      color: var(--nuit-blanche);
+      margin:
+        6px 0 0;
 
-      font-size: .92rem;
-      font-weight: 800;
+      color:
+        var(--nuit-blanche);
+
+      font-size:
+        .92rem;
+
+      font-weight:
+        800;
     }
+
 
     .event-preview-location {
-      margin: 3px 0 0;
 
-      color: var(--picture-book-green);
+      margin:
+        3px 0 0;
 
-      font-size: .92rem;
-      font-weight: 800;
+      color:
+        var(--picture-book-green);
+
+      font-size:
+        .92rem;
+
+      font-weight:
+        800;
     }
+
 
     .events-more {
-      margin-top: 24px;
+
+      margin-top:
+        24px;
     }
+
 
 
     /* ==================================================
        EVENT MODAL
        ================================================== */
 
+
     .event-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
 
-      display: none;
-      align-items: center;
-      justify-content: center;
+      position:
+        fixed;
 
-      padding: 24px;
+      inset:
+        0;
+
+      z-index:
+        100;
+
+      display:
+        none;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      padding:
+        24px;
 
       background:
         rgba(0, 31, 63, .86);
     }
 
+
     .event-modal.is-open {
-      display: flex;
+
+      display:
+        flex;
     }
 
+
     .event-modal-dialog {
-      position: relative;
 
-      width: min(720px, 100%);
-      max-height: 90vh;
+      position:
+        relative;
 
-      overflow: auto;
+      width:
+        min(720px, 100%);
 
-      background: var(--paper);
+      max-height:
+        90vh;
 
-      border-radius: 20px;
+      overflow:
+        auto;
+
+      background:
+        var(--paper);
+
+      border-radius:
+        20px;
 
       box-shadow:
         0 20px 70px rgba(0, 0, 0, .35);
     }
 
+
     .event-modal-image {
-      width: 100%;
-      height: auto;
+
+      width:
+        100%;
+
+      height:
+        auto;
     }
+
 
     .event-modal-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
 
-      width: 44px;
-      height: 44px;
+      position:
+        absolute;
 
-      border: 0;
-      border-radius: 50%;
+      top:
+        12px;
 
-      color: white;
-      background: rgba(0, 31, 63, .9);
+      right:
+        12px;
 
-      font-size: 1.5rem;
+      width:
+        44px;
 
-      cursor: pointer;
+      height:
+        44px;
+
+      border:
+        0;
+
+      border-radius:
+        50%;
+
+      color:
+        white;
+
+      background:
+        rgba(0, 31, 63, .92);
+
+      font-size:
+        1.5rem;
+
+      cursor:
+        pointer;
     }
+
 
 
     /* ==================================================
        DIRECTIONS
        ================================================== */
 
+
     .visit-section {
-      background: var(--mist);
+
+      background:
+        var(--mist);
     }
+
 
     .visit-heading {
-      max-width: 760px;
-      margin: 0 auto 38px;
 
-      text-align: center;
+      max-width:
+        760px;
+
+      margin:
+        0 auto 38px;
+
+      text-align:
+        center;
     }
+
 
     .visit-heading .eyebrow {
-      margin: 0 0 8px;
 
-      color: var(--picture-book-green);
+      margin:
+        0 0 8px;
 
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .14em;
+      color:
+        var(--picture-book-green);
 
-      text-transform: uppercase;
+      font-size:
+        .78rem;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        .14em;
+
+      text-transform:
+        uppercase;
     }
+
 
     .visit-heading h2 {
-      margin: 0;
 
-      color: var(--midnight-mirage);
+      margin:
+        0;
 
-      font-family:
-        "Iowan Old Style",
-        "Palatino Linotype",
-        Palatino,
-        Georgia,
-        serif;
+      color:
+        var(--midnight-mirage);
 
-      font-size: clamp(2.25rem, 4vw, 3.6rem);
-      font-weight: 400;
+      font-size:
+        clamp(2.25rem, 4vw, 3.6rem);
+
+      font-weight:
+        400;
     }
+
 
     .visit-intro {
-      max-width: 620px;
-      margin: 18px auto 0;
+
+      max-width:
+        620px;
+
+      margin:
+        18px auto 0;
     }
+
 
     .visit-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        28px;
     }
 
+
     .location-main {
+
       border-top:
         7px solid var(--picture-book-green);
     }
 
+
     .address-link {
-      display: inline-block;
 
-      margin-top: 14px;
+      display:
+        inline-block;
 
-      color: var(--picture-book-green);
+      margin-top:
+        14px;
 
-      font-weight: 800;
-      text-underline-offset: 4px;
+      color:
+        var(--picture-book-green);
+
+      font-weight:
+        800;
+
+      text-underline-offset:
+        4px;
     }
 
+
     .map-preview {
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
-      min-height: 180px;
-      margin-top: 24px;
-      padding: 20px;
+      display:
+        flex;
 
-      border: 1px solid var(--line);
-      border-radius: 16px;
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      min-height:
+        180px;
+
+      margin-top:
+        24px;
+
+      padding:
+        20px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        16px;
 
       background:
         linear-gradient(
@@ -1120,364 +1760,532 @@
           #ffffff
         );
 
-      text-align: center;
-      text-decoration: none;
+      text-align:
+        center;
+
+      text-decoration:
+        none;
     }
+
 
     .map-preview strong {
-      display: block;
 
-      color: var(--midnight-mirage);
+      display:
+        block;
 
-      font-size: 1.15rem;
+      color:
+        var(--midnight-mirage);
+
+      font-size:
+        1.15rem;
     }
+
 
     .map-preview span {
-      display: block;
 
-      margin-top: 6px;
+      display:
+        block;
 
-      color: var(--picture-book-green);
+      margin-top:
+        6px;
 
-      font-weight: 800;
+      color:
+        var(--picture-book-green);
+
+      font-weight:
+        800;
     }
+
 
     .parking {
-      border-top: 7px solid var(--mantis);
+
+      border-top:
+        7px solid var(--mantis);
     }
+
 
 
     /* ==================================================
        FOOTER
        ================================================== */
 
+
     footer {
-      padding: 38px 20px;
 
-      color: rgba(246, 247, 237, .75);
-      background: var(--midnight-mirage);
+      padding:
+        38px 20px;
 
-      font-size: .93rem;
+      color:
+        rgba(246, 247, 237, .75);
 
-      text-align: center;
+      background:
+        var(--midnight-mirage);
+
+      font-size:
+        .93rem;
+
+      text-align:
+        center;
     }
+
 
     footer p {
-      margin: 4px 0;
+
+      margin:
+        4px 0;
     }
+
 
 
     /* ==================================================
-       RESPONSIVE
+       TABLET / MOBILE
        ================================================== */
+
 
     @media (max-width: 980px) {
 
       .about-grid,
       .visit-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
       }
+
     }
 
 
     @media (max-width: 760px) {
 
+
       body {
-        font-size: 16px;
+
+        font-size:
+          16px;
       }
+
 
       section {
-        scroll-margin-top: 110px;
+
+        scroll-margin-top:
+          110px;
       }
+
 
       .header-inner {
-        padding: 16px 0 14px;
+
+        padding:
+          16px 0 14px;
       }
+
 
       .church-logo {
-        width: 82px;
-        height: 82px;
+
+        width:
+          82px;
+
+        height:
+          82px;
       }
+
 
       .brand {
-        gap: 13px;
+
+        gap:
+          13px;
       }
+
 
       .brand strong {
-        font-size: clamp(1.75rem, 7vw, 2.55rem);
+
+        font-size:
+          clamp(1.75rem, 7vw, 2.55rem);
       }
+
 
       .brand-subtitle {
-        margin-top: 7px;
 
-        font-size: .78rem;
-        letter-spacing: .11em;
+        margin-top:
+          7px;
+
+        font-size:
+          .78rem;
+
+        letter-spacing:
+          .11em;
       }
+
 
       .nav-inner {
-        width: 100%;
+
+        width:
+          100%;
       }
+
 
       .mobile-nav-header {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
 
-        min-height: 54px;
-        padding: 4px 18px;
+        display:
+          flex;
+
+        justify-content:
+          flex-end;
+
+        align-items:
+          center;
+
+        min-height:
+          54px;
+
+        padding:
+          4px 18px;
       }
+
 
       .site-nav {
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
 
-        width: 100%;
-        padding: 0 20px 18px;
+        display:
+          none;
+
+        flex-direction:
+          column;
+
+        align-items:
+          stretch;
+
+        gap:
+          0;
+
+        width:
+          100%;
+
+        padding:
+          0 20px 18px;
       }
+
 
       .site-nav.is-open {
-        display: flex;
+
+        display:
+          flex;
       }
 
+
       .site-nav a {
-        padding: 15px 4px;
+
+        padding:
+          15px 4px;
 
         border-bottom:
           1px solid rgba(0, 31, 63, .13);
       }
 
+
       .hero {
+
         min-height:
           calc(100svh - 180px);
       }
 
+
       .hero-inner {
-        padding: 60px 0;
+
+        padding:
+          60px 0;
       }
+
 
       .section {
-        width: min(100% - 28px, 1180px);
-        padding: 64px 0;
+
+        width:
+          min(100% - 28px, 1180px);
+
+        padding:
+          64px 0;
       }
 
-      .about-grid,
-      .visit-grid {
-        grid-template-columns: 1fr;
-      }
 
       .schedule-row {
-        grid-template-columns: 1fr;
-        gap: 2px;
+
+        grid-template-columns:
+          1fr;
+
+        gap:
+          2px;
       }
 
+
       .schedule-time {
-        text-align: left;
+
+        text-align:
+          left;
       }
+
 
       .weekly-card,
       .faith-card {
-        grid-template-columns: 82px minmax(0, 1fr);
+
+        grid-template-columns:
+          82px minmax(0, 1fr);
       }
+
 
       .weekly-date,
       .faith-date {
-        padding: 18px 8px;
+
+        padding:
+          18px 8px;
       }
+
 
       .weekly-date strong,
       .faith-date strong {
-        font-size: 1.7rem;
+
+        font-size:
+          1.7rem;
       }
+
 
       .weekly-content,
       .faith-content {
-        padding: 22px 18px;
+
+        padding:
+          22px 18px;
       }
+
 
       .weekly-card h3,
       .faith-card h3 {
-        font-size: 1.55rem;
+
+        font-size:
+          1.55rem;
       }
 
-      .language-selector {
-        gap: 5px;
-      }
-
-      .language-option {
-        min-height: 36px;
-        padding: 6px 9px;
-
-        font-size: .72rem;
-      }
-
-      .content-actions .button {
-        min-height: 38px;
-        padding: 6px 11px;
-      }
 
       .events-preview-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
+
+        grid-template-columns:
+          1fr;
+
+        gap:
+          18px;
       }
+
 
       .event-preview-title {
-        padding: 16px 18px;
 
-        font-size: 1.15rem;
+        padding:
+          16px 18px;
+
+        font-size:
+          1.15rem;
       }
+
 
       .event-preview-list {
-        padding: 6px 18px;
+
+        padding:
+          6px 18px;
       }
+
 
       .event-preview-item {
-        grid-template-columns: 64px minmax(0, 1fr);
-        gap: 14px;
 
-        padding: 17px 0;
+        grid-template-columns:
+          64px minmax(0, 1fr);
+
+        gap:
+          14px;
+
+        padding:
+          17px 0;
       }
+
 
       .event-preview-date {
-        min-height: 60px;
 
-        font-size: 1.5rem;
+        min-height:
+          60px;
+
+        font-size:
+          1.5rem;
       }
+
 
       .event-preview-item h3 {
-        font-size: 1.18rem;
+
+        font-size:
+          1.18rem;
       }
+
     }
 
 
     @media (max-width: 590px) {
 
+
       .church-logo {
-        width: 74px;
-        height: 74px;
+
+        width:
+          74px;
+
+        height:
+          74px;
       }
+
 
       .brand strong {
-        font-size: 1.85rem;
+
+        font-size:
+          1.85rem;
       }
+
 
       .brand-subtitle {
-        font-size: .72rem;
+
+        font-size:
+          .72rem;
       }
 
+
       .hero {
+
         min-height:
           calc(100svh - 160px);
       }
 
+
       .hero h1 {
-        font-size: 2.35rem;
+
+        font-size:
+          2.35rem;
       }
 
+
       .panel {
-        padding: 28px 22px;
+
+        padding:
+          28px 22px;
       }
+
 
       .weekly-card,
       .faith-card {
-        grid-template-columns: 72px minmax(0, 1fr);
+
+        grid-template-columns:
+          72px minmax(0, 1fr);
       }
+
 
       .weekly-date span,
       .faith-date span {
-        font-size: .62rem;
+
+        font-size:
+          .62rem;
       }
+
 
       .weekly-date strong,
       .faith-date strong {
-        font-size: 1.55rem;
+
+        font-size:
+          1.55rem;
       }
+
 
       .weekly-content,
       .faith-content {
-        padding: 18px 14px;
+
+        padding:
+          18px 14px;
       }
+
 
       .weekly-card h3,
       .faith-card h3 {
-        font-size: 1.3rem;
+
+        font-size:
+          1.3rem;
       }
+
 
       .scripture,
       .flavor-text {
-        font-size: .88rem;
+
+        font-size:
+          .88rem;
       }
 
-      .language-area {
-        margin-top: 16px;
-      }
-
-      .language-selector {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-
-        padding-bottom: 4px;
-
-        scrollbar-width: none;
-      }
-
-      .language-selector::-webkit-scrollbar {
-        display: none;
-      }
-
-      .language-option {
-        flex: 0 0 auto;
-
-        min-height: 34px;
-        padding: 5px 8px;
-
-        font-size: .68rem;
-      }
 
       .event-preview-item {
-        grid-template-columns: 58px minmax(0, 1fr);
-        gap: 12px;
+
+        grid-template-columns:
+          58px minmax(0, 1fr);
+
+        gap:
+          12px;
       }
+
 
       .event-preview-date {
-        min-height: 56px;
 
-        font-size: 1.35rem;
+        min-height:
+          56px;
+
+        font-size:
+          1.35rem;
       }
+
 
       .event-preview-item h3 {
-        font-size: 1.08rem;
+
+        font-size:
+          1.08rem;
       }
+
 
       .event-preview-time,
       .event-preview-location {
-        font-size: .83rem;
+
+        font-size:
+          .83rem;
       }
 
+
       .event-modal {
-        padding: 12px;
+
+        padding:
+          12px;
       }
+
     }
 
 
     @media (prefers-reduced-motion: reduce) {
 
       html {
-        scroll-behavior: auto;
+
+        scroll-behavior:
+          auto;
       }
+
     }
+
   </style>
+
 </head>
 
 
+
 <body>
+
 
   <!-- ==================================================
        HEADER
        ================================================== -->
 
+
   <header class="site-header">
+
 
     <div class="header-inner">
 
@@ -1494,6 +2302,7 @@
           width="155"
           height="155"
         >
+
 
         <span class="brand-text">
 
@@ -1512,9 +2321,11 @@
     </div>
 
 
+
     <div class="navigation-bar">
 
       <div class="nav-inner">
+
 
         <div class="mobile-nav-header">
 
@@ -1525,12 +2336,15 @@
             aria-controls="site-navigation"
             aria-label="Open navigation menu"
           >
+
             <span></span>
             <span></span>
             <span></span>
+
           </button>
 
         </div>
+
 
 
         <nav
@@ -1539,12 +2353,32 @@
           aria-label="Main navigation"
         >
 
-          <a href="#about">About Us</a>
-          <a href="#message">Worship</a>
-          <a href="#events">Events</a>
-          <a href="#directions">Where to Find Us</a>
-          <a href="members.html">Members Area</a>
-          <a class="admin-link" href="admin.html">Admin</a>
+          <a href="#about">
+            About Us
+          </a>
+
+          <a href="#message">
+            Worship
+          </a>
+
+          <a href="#events">
+            Events
+          </a>
+
+          <a href="#directions">
+            Where to Find Us
+          </a>
+
+          <a href="members.html">
+            Members Area
+          </a>
+
+          <a
+            class="admin-link"
+            href="admin.html"
+          >
+            Admin
+          </a>
 
         </nav>
 
@@ -1555,12 +2389,14 @@
   </header>
 
 
+
   <main id="top">
 
 
     <!-- ==================================================
          HERO
          ================================================== -->
+
 
     <section
       class="hero"
@@ -1583,9 +2419,11 @@
     </section>
 
 
+
     <!-- ==================================================
-         LEARN MORE
+         ABOUT US
          ================================================== -->
+
 
     <section
       class="section"
@@ -1593,23 +2431,24 @@
       aria-labelledby="about-title"
     >
 
-      <div class="section-heading">
-        <h2 id="about-title">Learn More</h2>
-      </div>
-
 
       <div class="about-grid">
 
 
         <article class="panel">
 
-          <h3>About Us</h3>
+
+          <h2 id="about-title">
+            About Us
+          </h2>
+
 
           <p>
             Friendship Church is an evangelical,
             Bible-believing Christian church based in
             Izumo City, Shimane Prefecture.
           </p>
+
 
           <p>
             The meetings are in English, but there are
@@ -1618,17 +2457,23 @@
             languages.
           </p>
 
+
           <p>
             There is also a special class for children
             and young adults.
           </p>
+
 
           <p>
             Please join us if you are in the area.
           </p>
 
 
-          <h3>Our Vision and Values</h3>
+
+          <h3>
+            Our Vision and Values
+          </h3>
+
 
           <p>
             Our vision and values will be added after they
@@ -1636,7 +2481,11 @@
           </p>
 
 
-          <h3>Our Constitution</h3>
+
+          <h3>
+            Our Constitution
+          </h3>
+
 
           <a
             class="text-link"
@@ -1645,7 +2494,12 @@
             Learn More
           </a>
 
+
         </article>
+
+
+
+        <!-- SERVICE TIME -->
 
 
         <aside
@@ -1653,40 +2507,77 @@
           aria-label="Sunday service information"
         >
 
-          <h3>Service Time</h3>
+
+          <h3>
+            Service Time
+          </h3>
+
 
           <p class="every-sunday">
             Every Sunday
           </p>
 
 
+
           <div class="service-schedule">
 
-            <div class="schedule-row">
-              <span class="schedule-label">Service</span>
-              <span class="schedule-time">10:30 AM – 11:30 AM</span>
-            </div>
 
             <div class="schedule-row">
-              <span class="schedule-label">Kids Class</span>
-              <span class="schedule-time">11:00 AM – 11:30 AM</span>
+
+              <span class="schedule-label">
+                Service
+              </span>
+
+              <span class="schedule-time">
+                10:30 AM – 11:30 AM
+              </span>
+
             </div>
 
+
+
             <div class="schedule-row">
-              <span class="schedule-label">Young Adults Class</span>
-              <span class="schedule-time">11:00 AM – 11:30 AM</span>
+
+              <span class="schedule-label">
+                Kids Class
+              </span>
+
+              <span class="schedule-time">
+                11:00 AM – 11:30 AM
+              </span>
+
             </div>
+
+
+
+            <div class="schedule-row">
+
+              <span class="schedule-label">
+                Youth Class
+              </span>
+
+              <span class="schedule-time">
+                11:00 AM – 11:30 AM
+              </span>
+
+            </div>
+
 
           </div>
 
 
+
           <p class="service-note">
+
             Follow the links below for contact and live
             streaming information.
+
           </p>
 
 
+
           <div class="quick-links">
+
 
             <a
               class="button"
@@ -1694,47 +2585,69 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Contact Pastor John
+
             </a>
+
+
 
             <span
               class="button secondary disabled"
               aria-disabled="true"
             >
-              Live Stream on Zoom
+
+              Live Streaming
+
             </span>
+
 
           </div>
 
 
+
           <div class="members-entry">
 
-            <h3>Members Area</h3>
+
+            <h3>
+              Members Area
+            </h3>
+
 
             <p>
-              Members can sign in or request access to
-              church member resources.
+
+              Sign in or request access to Friendship Church
+              member resources.
+
             </p>
+
 
             <a
               class="button"
               href="members.html"
             >
+
               Member Login
+
             </a>
+
 
           </div>
 
+
         </aside>
+
 
       </div>
 
     </section>
 
 
+
     <!-- ==================================================
          SERMON OF THE WEEK
          ================================================== -->
+
 
     <section
       class="weekly-section"
@@ -1742,226 +2655,154 @@
       aria-labelledby="message-title"
     >
 
+
       <div class="section">
 
+
         <div class="section-heading">
-          <h2 id="message-title">Sermon of the Week</h2>
+
+          <h2 id="message-title">
+            Sermon of the Week
+          </h2>
+
         </div>
+
 
 
         <div class="weekly-stack">
 
 
-          <!-- CURRENT SERMON -->
+          <!-- LATEST MESSAGE -->
 
-          <article
-            class="weekly-card"
-            data-content-type="sermon"
-            data-slug="2026-08-16-Why_Should_We_Care_About_Israel"
-          >
+
+          <article class="weekly-card">
+
 
             <div class="weekly-date">
-              <span>Aug</span>
-              <strong>16</strong>
+
+              <span>
+                Aug
+              </span>
+
+              <strong>
+                16
+              </strong>
+
             </div>
 
 
+
             <div class="weekly-content">
+
 
               <p class="weekly-kicker">
                 Latest Message
               </p>
 
+
+
               <h3>
-                Why Should We Care About Israel?
-              </h3>
 
-              <p class="scripture">
-                Gn. 12:1–3 · Rm. 9:21–23 · Ps. 122:6–7
-              </p>
-
-              <p class="flavor-text">
-                A message about Israel’s place in God’s
-                redemptive plan and our call to respond
-                with gratitude, prayer and faithful expectation.
-              </p>
-
-
-              <div class="language-area">
-
-                <p class="language-label">
-                  Language
-                </p>
-
-                <div
-                  class="language-selector"
-                  aria-label="Choose sermon language"
+                <a
+                  class="weekly-title-link"
+                  href="message.html?slug=2026-08-16-Why_Should_We_Care_About_Israel&amp;lang=ENG&amp;mode=read"
                 >
 
-                  <button
-                    class="language-option is-selected"
-                    type="button"
-                    data-lang="ENG"
-                  >
-                    English
-                  </button>
+                  Why Should We Care About Israel?
 
-                  <button
-                    class="language-option"
-                    type="button"
-                    data-lang="PT-BR"
-                  >
-                    Português
-                  </button>
+                </a>
 
-                  <button
-                    class="language-option"
-                    type="button"
-                    data-lang="ESP"
-                  >
-                    Español
-                  </button>
-
-                  <button
-                    class="language-option"
-                    type="button"
-                    data-lang="JAP"
-                  >
-                    日本語
-                  </button>
-
-                </div>
+              </h3>
 
 
-                <div class="content-actions">
 
-                  <a
-                    class="button read-button"
-                    href="message.html"
-                  >
-                    Read Message
-                  </a>
+              <p class="scripture">
 
-                  <a
-                    class="button study-button"
-                    href="message.html"
-                    aria-disabled="true"
-                  >
-                    Study
-                  </a>
+                Gn. 12:1–3 · Rm. 9:21–23 · Ps. 122:6–7
 
-                </div>
+              </p>
 
-              </div>
+
+
+              <p class="flavor-text">
+
+                A message about Israel’s place in God’s
+                redemptive plan and our call to respond with
+                gratitude, prayer and faithful expectation.
+
+              </p>
+
 
             </div>
+
 
           </article>
 
 
-          <!-- PREVIOUS SERMON -->
 
-          <article
-            class="weekly-card"
-            data-content-type="sermon"
-            data-slug="2026-08-09-Who_Am_I"
-          >
+          <!-- PREVIOUS MESSAGE -->
+
+
+          <article class="weekly-card">
+
 
             <div class="weekly-date">
-              <span>Aug</span>
-              <strong>09</strong>
+
+              <span>
+                Aug
+              </span>
+
+              <strong>
+                09
+              </strong>
+
             </div>
 
 
+
             <div class="weekly-content">
+
 
               <p class="weekly-kicker">
                 Previous Message
               </p>
 
+
+
               <h3>
-                Who Am I?
-              </h3>
 
-              <p class="scripture">
-                Ps. 8
-              </p>
-
-              <p class="flavor-text">
-                A reflection on our identity before God,
-                the dignity He gives humanity, and the
-                wonder of being known and loved by Him.
-              </p>
-
-
-              <div class="language-area">
-
-                <p class="language-label">
-                  Language
-                </p>
-
-                <div
-                  class="language-selector"
-                  aria-label="Choose previous sermon language"
+                <a
+                  class="weekly-title-link"
+                  href="message.html?slug=2026-08-09-Who_Am_I&amp;lang=ENG&amp;mode=read"
                 >
 
-                  <button
-                    class="language-option is-selected"
-                    type="button"
-                    data-lang="ENG"
-                  >
-                    English
-                  </button>
+                  Who Am I?
 
-                  <button
-                    class="language-option"
-                    type="button"
-                    data-lang="PT-BR"
-                  >
-                    Português
-                  </button>
+                </a>
 
-                  <button
-                    class="language-option"
-                    type="button"
-                    data-lang="ESP"
-                  >
-                    Español
-                  </button>
-
-                  <button
-                    class="language-option"
-                    type="button"
-                    data-lang="JAP"
-                  >
-                    日本語
-                  </button>
-
-                </div>
+              </h3>
 
 
-                <div class="content-actions">
 
-                  <a
-                    class="button read-button"
-                    href="message.html"
-                  >
-                    Read Message
-                  </a>
+              <p class="scripture">
 
-                  <a
-                    class="button study-button"
-                    href="message.html"
-                    aria-disabled="true"
-                  >
-                    Study
-                  </a>
+                Ps. 8
 
-                </div>
+              </p>
 
-              </div>
+
+
+              <p class="flavor-text">
+
+                A reflection on our identity before God,
+                the dignity He gives humanity, and the wonder
+                of being known and loved by Him.
+
+              </p>
+
 
             </div>
+
 
           </article>
 
@@ -1969,151 +2810,125 @@
         </div>
 
 
+
         <a
-          class="weekly-archive-link"
+          class="database-link"
           href="sermons.html"
         >
+
           Sermon Database →
+
         </a>
+
 
       </div>
 
     </section>
+
 
 
     <!-- ==================================================
          FAITH HEROES
          ================================================== -->
 
+
     <section
       class="faith-section"
       aria-labelledby="faith-title"
     >
 
+
       <div class="section">
 
+
         <div class="section-heading">
-          <h2 id="faith-title">Faith Heroes</h2>
+
+          <h2 id="faith-title">
+            Faith Heroes
+          </h2>
+
         </div>
 
 
-        <article
-          class="faith-card"
-          data-content-type="faith"
-          data-slug="2026-06-21-Ida_Scudder"
-        >
+
+        <article class="faith-card">
+
 
           <div class="faith-date">
-            <span>Jun</span>
-            <strong>21</strong>
+
+            <span>
+              Jul
+            </span>
+
+            <strong>
+              12
+            </strong>
+
           </div>
 
 
+
           <div class="faith-content">
+
 
             <p class="faith-number">
               Faith Hero No. 116
             </p>
 
+
+
             <h3>
-              Dr. Ida Scudder
+
+              <a
+                class="weekly-title-link"
+                href="faith-heroes.html?slug=2026-07-12-Ida_Scudder&amp;lang=ENG&amp;mode=read"
+              >
+
+                Dr. Ida Scudder
+
+              </a>
+
             </h3>
 
+
+
             <p class="flavor-text">
+
               A pioneering Christian medical missionary
               whose obedience to God’s call led her to serve
               women in India and establish medical institutions
               that continued impacting generations.
+
             </p>
 
 
-            <div class="language-area">
-
-              <p class="language-label">
-                Language
-              </p>
-
-              <div
-                class="language-selector"
-                aria-label="Choose Faith Hero language"
-              >
-
-                <button
-                  class="language-option is-selected"
-                  type="button"
-                  data-lang="ENG"
-                >
-                  English
-                </button>
-
-                <button
-                  class="language-option"
-                  type="button"
-                  data-lang="PT-BR"
-                >
-                  Português
-                </button>
-
-                <button
-                  class="language-option"
-                  type="button"
-                  data-lang="ESP"
-                >
-                  Español
-                </button>
-
-                <button
-                  class="language-option"
-                  type="button"
-                  data-lang="JAP"
-                >
-                  日本語
-                </button>
-
-              </div>
-
-
-              <div class="content-actions">
-
-                <a
-                  class="button read-button"
-                  href="faith-heroes.html"
-                >
-                  Read Faith Hero
-                </a>
-
-                <a
-                  class="button study-button"
-                  href="faith-heroes.html"
-                  aria-disabled="true"
-                >
-                  Study
-                </a>
-
-              </div>
-
-            </div>
-
           </div>
+
 
         </article>
 
 
+
         <a
-          class="weekly-archive-link"
+          class="database-link"
           href="faith-heroes.html"
         >
-          Faith Heroes Archive →
+
+          Faith Heroes Database →
+
         </a>
+
 
       </div>
 
     </section>
 
 
+
     <!-- ==================================================
          UPCOMING EVENTS
          ================================================== -->
+
 
     <section
       class="section"
@@ -2121,9 +2936,15 @@
       aria-labelledby="events-title"
     >
 
+
       <div class="section-heading">
-        <h2 id="events-title">Upcoming Events</h2>
+
+        <h2 id="events-title">
+          Upcoming Events
+        </h2>
+
       </div>
+
 
 
       <div class="events-preview-grid">
@@ -2131,92 +2952,127 @@
 
         <!-- AUGUST -->
 
+
         <article class="event-preview-month">
+
 
           <h3 class="event-preview-title">
             August 2026
           </h3>
 
 
+
           <div class="event-preview-list">
 
 
             <div class="event-preview-item">
 
+
               <div class="event-preview-date">
                 23
               </div>
 
+
+
               <div class="event-preview-content">
 
+
                 <h3>
+
                   <button
                     class="event-title-button"
                     type="button"
                     data-event-image="images/Aug%2023%20-%20Life%20Meeting.jpg"
                     data-event-title="Church Life Meeting"
                   >
+
                     Church Life Meeting
+
                   </button>
+
                 </h3>
+
+
 
                 <p class="event-preview-time">
                   After Service
                 </p>
 
+
                 <p class="event-preview-location">
                   Ministry Building
                 </p>
 
+
               </div>
+
 
             </div>
 
 
+
             <div class="event-preview-item">
+
 
               <div class="event-preview-date">
                 30
               </div>
 
+
+
               <div class="event-preview-content">
 
+
                 <h3>
+
                   <button
                     class="event-title-button"
                     type="button"
                     data-event-image="images/Aug%2030%20-%20Family%20Kakigori.jpg"
                     data-event-title="FC All in the Family Kakigori"
                   >
+
                     FC “All in the Family” Kakigori
+
                   </button>
+
                 </h3>
+
+
 
                 <p class="event-preview-time">
                   After Service
                 </p>
 
+
                 <p class="event-preview-location">
                   Ministry Building
                 </p>
 
+
               </div>
+
 
             </div>
 
 
           </div>
 
+
         </article>
+
 
 
         <!-- SEPTEMBER -->
 
+
         <article class="event-preview-month">
+
 
           <h3 class="event-preview-title">
             September 2026
           </h3>
+
 
 
           <div class="event-preview-list">
@@ -2224,42 +3080,57 @@
 
             <div class="event-preview-item">
 
+
               <div class="event-preview-date">
                 06
               </div>
 
+
+
               <div class="event-preview-content">
 
+
                 <h3>
+
                   <button
                     class="event-title-button"
                     type="button"
                     data-event-image="images/Sep%206%20-%20Communion.jpg"
                     data-event-title="Communion"
                   >
+
                     Communion
+
                   </button>
+
                 </h3>
+
+
 
                 <p class="event-preview-time">
                   9:45 AM
                 </p>
 
+
                 <p class="event-preview-location">
                   Ministry Building
                 </p>
 
+
               </div>
+
 
             </div>
 
 
           </div>
 
+
         </article>
 
 
       </div>
+
 
 
       <div class="events-more">
@@ -2268,17 +3139,22 @@
           class="text-link"
           href="events.html"
         >
+
           View All Events →
+
         </a>
 
       </div>
 
+
     </section>
+
 
 
     <!-- ==================================================
          DIRECTIONS
          ================================================== -->
+
 
     <section
       class="visit-section"
@@ -2286,34 +3162,50 @@
       aria-labelledby="directions-title"
     >
 
+
       <div class="section">
 
 
         <div class="visit-heading">
 
+
           <p class="eyebrow">
             Where to Find Us
           </p>
 
+
+
           <h2 id="directions-title">
+
             Directions &amp; Parking
+
           </h2>
+
 
 
           <div class="visit-intro">
 
-            <p>
-              We meet near Aeon Mall and COSMO Book Center
-              in Izumo.
-            </p>
 
             <p>
-              Free parking is available nearby.
+
+              We meet near Aeon Mall and COSMO Book Center
+              in Izumo.
+
             </p>
+
+
+            <p>
+
+              Free parking is available nearby.
+
+            </p>
+
 
           </div>
 
+
         </div>
+
 
 
         <div class="visit-grid">
@@ -2321,18 +3213,26 @@
 
           <article class="panel location-main">
 
+
             <h3>
               Friendship Church — Izumo
             </h3>
 
+
             <p>
+
               West Building, 70-12 Tenjin-cho,
               Izumo City, Shimane Prefecture 693-0005
+
             </p>
 
+
             <p lang="ja">
+
               西棟、〒693-0005 島根県出雲市天神町70-12
+
             </p>
+
 
 
             <a
@@ -2341,8 +3241,11 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Open address in Google Maps
+
             </a>
+
 
 
             <a
@@ -2352,34 +3255,46 @@
               rel="noopener noreferrer"
             >
 
+
               <div>
+
 
                 <strong>
                   Friendship Church — Izumo
                 </strong>
 
+
                 <span>
                   Tap to open map
                 </span>
 
+
               </div>
 
+
             </a>
+
 
           </article>
 
 
+
           <article class="panel parking">
+
 
             <h3>
               Parking at COSMO Book Center
             </h3>
 
+
             <p>
-              Free parking is available at COSMO Book
-              Center, near the Ministry Building.
-              Use the map below for directions.
+
+              Free parking is available at COSMO Book Center,
+              near the Ministry Building. Use the map below
+              for directions.
+
             </p>
+
 
 
             <a
@@ -2388,23 +3303,32 @@
               target="_blank"
               rel="noopener noreferrer"
             >
+
               Open Parking Map
+
             </a>
+
 
           </article>
 
+
         </div>
+
 
       </div>
 
+
     </section>
+
 
   </main>
 
 
+
   <!-- ==================================================
-       EVENT IMAGE MODAL
+       EVENT POSTER MODAL
        ================================================== -->
+
 
   <div
     class="event-modal"
@@ -2415,7 +3339,9 @@
     aria-labelledby="event-modal-title"
   >
 
+
     <div class="event-modal-dialog">
+
 
       <button
         class="event-modal-close"
@@ -2425,6 +3351,8 @@
         ×
       </button>
 
+
+
       <img
         class="event-modal-image"
         id="event-modal-image"
@@ -2432,261 +3360,165 @@
         alt=""
       >
 
+
       <span
         id="event-modal-title"
         hidden
       ></span>
 
+
     </div>
 
+
   </div>
+
 
 
   <!-- ==================================================
        FOOTER
        ================================================== -->
 
+
   <footer>
 
-    <p>
-      〒693-0005 | Izumo, Shimane,
-      Tenjincho 70-12 (West Bldg.)
-    </p>
 
     <p>
-      © 2026 Izumo International Friendship Church.
+
+      〒693-0005 | Izumo, Shimane,
+      Tenjincho 70-12 (West Bldg.)
+
     </p>
+
+
+    <p>
+
+      © 2026 Izumo International Friendship Church.
+
+    </p>
+
 
     <p>
       All rights reserved.
     </p>
 
+
   </footer>
+
 
 
   <!-- ==================================================
        JAVASCRIPT
        ================================================== -->
 
+
   <script>
 
-    /* MOBILE NAVIGATION */
+
+    /* ==================================================
+       MOBILE NAVIGATION
+       ================================================== */
+
 
     const menuButton =
       document.querySelector(".menu-toggle");
+
 
     const navigation =
       document.querySelector("#site-navigation");
 
 
+
     if (menuButton && navigation) {
+
 
       menuButton.addEventListener(
         "click",
         () => {
+
 
           const isOpen =
             menuButton.getAttribute(
               "aria-expanded"
             ) === "true";
 
+
           menuButton.setAttribute(
             "aria-expanded",
             String(!isOpen)
           );
+
 
           navigation.classList.toggle(
             "is-open",
             !isOpen
           );
 
+
         }
       );
+
 
 
       navigation
         .querySelectorAll("a")
         .forEach((link) => {
 
+
           link.addEventListener(
             "click",
             () => {
 
+
               if (window.innerWidth <= 760) {
+
 
                 navigation.classList.remove(
                   "is-open"
                 );
+
 
                 menuButton.setAttribute(
                   "aria-expanded",
                   "false"
                 );
 
+
               }
+
 
             }
           );
 
+
         });
+
 
     }
 
-
-    /* ==================================================
-       LANGUAGE SELECTORS
-       ================================================== */
-
-    document
-      .querySelectorAll(
-        ".weekly-card, .faith-card"
-      )
-      .forEach((card) => {
-
-        const options =
-          card.querySelectorAll(
-            ".language-option"
-          );
-
-        const readButton =
-          card.querySelector(
-            ".read-button"
-          );
-
-        const studyButton =
-          card.querySelector(
-            ".study-button"
-          );
-
-        const slug =
-          card.dataset.slug;
-
-        const contentType =
-          card.dataset.contentType;
-
-
-        function updateLinks(language) {
-
-          const basePage =
-            contentType === "faith"
-              ? "faith-heroes.html"
-              : "message.html";
-
-
-          const readUrl =
-            `${basePage}?slug=${encodeURIComponent(slug)}&lang=${encodeURIComponent(language)}&mode=read`;
-
-
-          readButton.href =
-            readUrl;
-
-
-          if (language === "ENG") {
-
-            studyButton.setAttribute(
-              "aria-disabled",
-              "true"
-            );
-
-            studyButton.href =
-              readUrl;
-
-          } else {
-
-            studyButton.setAttribute(
-              "aria-disabled",
-              "false"
-            );
-
-            studyButton.href =
-              `${basePage}?slug=${encodeURIComponent(slug)}&lang=${encodeURIComponent(language)}&mode=study`;
-
-          }
-
-        }
-
-
-        options.forEach((option) => {
-
-          option.addEventListener(
-            "click",
-            () => {
-
-              options.forEach((item) => {
-                item.classList.remove(
-                  "is-selected"
-                );
-              });
-
-
-              option.classList.add(
-                "is-selected"
-              );
-
-
-              const language =
-                option.dataset.lang;
-
-
-              updateLinks(language);
-
-            }
-          );
-
-        });
-
-
-        updateLinks("ENG");
-
-      });
-
-
-    /* Prevent disabled study links */
-
-    document
-      .querySelectorAll(
-        '.study-button[aria-disabled="true"]'
-      )
-      .forEach((link) => {
-
-        link.addEventListener(
-          "click",
-          (event) => {
-
-            if (
-              link.getAttribute(
-                "aria-disabled"
-              ) === "true"
-            ) {
-
-              event.preventDefault();
-
-            }
-
-          }
-        );
-
-      });
 
 
     /* ==================================================
        EVENT POSTER MODAL
        ================================================== */
 
+
     const eventModal =
       document.querySelector(
         "#event-modal"
       );
+
 
     const eventModalImage =
       document.querySelector(
         "#event-modal-image"
       );
 
+
     const eventModalTitle =
       document.querySelector(
         "#event-modal-title"
       );
+
 
     const eventModalClose =
       document.querySelector(
@@ -2694,25 +3526,36 @@
       );
 
 
+
     function closeEventModal() {
+
 
       eventModal.classList.remove(
         "is-open"
       );
+
 
       eventModal.setAttribute(
         "aria-hidden",
         "true"
       );
 
-      eventModalImage.src = "";
-      eventModalImage.alt = "";
+
+      eventModalImage.src =
+        "";
+
+
+      eventModalImage.alt =
+        "";
+
 
       document.body.classList.remove(
         "modal-open"
       );
 
+
     }
+
 
 
     document
@@ -2721,35 +3564,44 @@
       )
       .forEach((button) => {
 
+
         button.addEventListener(
           "click",
           () => {
 
+
             const image =
               button.dataset.eventImage;
+
 
             const title =
               button.dataset.eventTitle;
 
 
+
             eventModalImage.src =
               image;
+
 
             eventModalImage.alt =
               title;
 
+
             eventModalTitle.textContent =
               title;
+
 
 
             eventModal.classList.add(
               "is-open"
             );
 
+
             eventModal.setAttribute(
               "aria-hidden",
               "false"
             );
+
 
             document.body.classList.add(
               "modal-open"
@@ -2758,10 +3610,13 @@
 
             eventModalClose.focus();
 
+
           }
         );
 
+
       });
+
 
 
     eventModalClose.addEventListener(
@@ -2770,25 +3625,28 @@
     );
 
 
+
     eventModal.addEventListener(
       "click",
       (event) => {
 
-        if (
-          event.target === eventModal
-        ) {
+
+        if (event.target === eventModal) {
 
           closeEventModal();
 
         }
 
+
       }
     );
+
 
 
     document.addEventListener(
       "keydown",
       (event) => {
+
 
         if (
           event.key === "Escape" &&
@@ -2797,14 +3655,19 @@
           )
         ) {
 
+
           closeEventModal();
 
+
         }
+
 
       }
     );
 
+
   </script>
+
 
 </body>
 </html>
